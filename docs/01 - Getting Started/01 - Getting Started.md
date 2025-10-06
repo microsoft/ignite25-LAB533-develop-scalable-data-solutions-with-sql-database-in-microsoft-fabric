@@ -26,16 +26,10 @@ In this lab you'll learn:
 | Technology | Description |
 |------------|-------------|
 | Microsoft Fabric SQL Database | Core data storage and querying engine for AI-ready apps, with OneLake integration. |
-| GraphQL | Expose Fabric SQL data to modern applications via a flexible API layer. |
 | Microsoft Copilot | AI-assisted query generation, error fixing, and NL2SQL capabilities. |
-| Power BI | Real-time analytics and visualization using Translytical Taskflows. |
 | RAG (Retrieval-Augmented Generation) | Pattern to enhance AI models with contextual, live SQL data. |
-| Fabric Capacity Management | Monitoring and optimizing Fabric workloads for performance and cost. |
 | Visual Studio Code | To develop / modify simple code examples. |
 | Azure OpenAI | A cloud-based platform that enables developers and data scientists to build and deploy AI models quickly and easily. |
-
-## 📚 Before Taking this lab
-
 
 ## Learn more
 
