@@ -2,9 +2,9 @@
 
 # Getting Started
 
-In this workshop, you’ll get hands‑on with the SQL database in Microsoft Fabric. We'll begin by setting up a Fabric SQL database and loading sample data followed by trying out the Copilot-assisted querying (including NL2SQL). From there, you'll learn how to expose your data through APIs, connect seamlessly to applications, analytics and Power BI, and explore building Retrieval-Augmented Generation (RAG) application using SQL database in Microsoft Fabric.
+In this Lab, you’ll get hands‑on with the SQL database in Microsoft Fabric. We'll begin by setting up a Fabric SQL database and loading sample data followed by trying out the Copilot-assisted querying (including NL2SQL). From there, you'll learn how to expose your data through APIs, connect seamlessly to applications, analytics and Power BI, and explore building Retrieval-Augmented Generation (RAG) application using SQL database in Microsoft Fabric.
 
- The focus of this workshop is to understand how to design, build, and operationalize end-to-end AI-ready applications using SQL database in Fabric as the core data backbone.
+ The focus of this lab is to understand how to design, build, and operationalize end-to-end AI-ready applications using SQL database in Fabric as the core data backbone.
 
 Our final system architecture will look similar to the following:
 
@@ -18,12 +18,8 @@ In this workshop you'll learn:
 
 - How to create a Fabric SQL database, load sample datasets, query data, and replicate it with OneLake  
 - How to use Microsoft Copilot for query correction, natural language to SQL (NL2SQL), and interactive chat-based data exploration  
-- How to expose your SQL data through a GraphQL endpoint and integrate it with modern applications  
-- How to implement ALM (Application Lifecycle Management) for Fabric SQL workloads  
-- How to secure your solution with authentication, authorization, and data protection best practices  
-- How to implement RAG (Retrieval-Augmented Generation) patterns to enhance AI responses with live SQL data  
-- How to integrate Power BI with Fabric SQL using Translytical Taskflows for real-time analytics    
-- How to monitor performance using Fabric’s performance dashboard  
+- How to expose your SQL data through a GraphQL endpoint and integrate it with modern applications    
+- How to implement RAG (Retrieval-Augmented Generation) patterns to enhance AI responses with live SQL data      
 
 ## 🛠 Technologies used in this Workshop
 
@@ -40,9 +36,6 @@ In this workshop you'll learn:
 
 ## 📚 Before Taking this Workshop
 
-Please visit [Pre-Requisites](../00%20-%20Pre-Requisites/00%20-%20Pre-Requisites.md) to prepare your environment.
-
-If you are doing this workshop on your own and you already have your environment set, please proceed further with the workshop by visiting [Introduction to SQL database](../02%20-%20Introduction%20to%20SQL%20database%20in%20Fabric/02%20-%20Introduction%20to%20SQL%20database%20in%20Fabric.md) workshop.
 
 ## Learn more
 You can view all of the [courses and other workshops our team has created here](https://microsoft.github.io/sqlworkshops/).
