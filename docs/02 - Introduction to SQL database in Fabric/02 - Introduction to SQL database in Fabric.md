@@ -31,14 +31,12 @@ Using a web browser of your choice, please navigate to this [Microsoft Fabric li
 
 ### Task 1.2: Create the Microsoft Fabric Workspace
 
-1. You should be able to find a **New Workspace tile** on the mid-top mid-left side of the screen. Select it to open the **Create a workspace blade** on the right side.
+1. Click a **New Workspace tile** on the  mid-left side of the screen. 
    ![A picture of the Microsoft Fabric developer experience Home Page](NewWorkspace.png)
    
-2. In the **Create a workspace blade**, 
+2. Enter a unique Name and hit apply
     ![A picture of the Create a workspace blade on the right side of the page](CreateWorkspace.png) 
     
-    and enter a unique name for the **Workspace Name** field.
-3. Next, click the **green Apply button** on the **bottom left** of the Create a workspace blade.
 
 ===
 
@@ -47,11 +45,11 @@ In this section you will create a SQL database and load it with data.
 
 ### Task 2.1: Create the SQL database in Microsoft Fabric
 
-1. On the Microsoft Fabric Workspace page, click the **New item** button on the top right of the page.
+1. On the Microsoft Fabric Workspace page, click the **New item** button on the top left of the page.
 
   ![A picture of clicking the New item button on the top right of the page](DB-NewItem.png)
 
-2. In the **New item** blade on the right, use the **Filter by item type search box** in the upper right corner to enter **SQL**
+2. In the **New item** blade on the right, use the **Filter by item type search box** to search for **SQL**
 !["A picture of entering SQL into the item type search box"](DB-FilterSQL.png)
 
 3. With the New item results filtered down, click on the **SQL database (preview)** tile.
@@ -60,10 +58,10 @@ In this section you will create a SQL database and load it with data.
 > [!IMPORTANT]
 > There may be a few seconds delay after pressing the **SQL database (preview) tile** and when the **New SQL database modal** appears. Just give it a few seconds if it does not appear immediately. 
 
-4. In the **New SQL database** dialog window, Use a unique name for the database and after entering the name, click the **green Create button**.
+4. In the **New SQL database** dialog window, Use a unique name for the database and click the **green Create button**.
 
 
-5. Once the database is finished creating, you will be taken to SQL database's home page where you can see database objects and issue T-SQL statements right in the web browser.
+5. Once the database is finished creating, you will be taken to SQL database's home page.
 
 ### Task 2.2: Loading the database with sample data
 
