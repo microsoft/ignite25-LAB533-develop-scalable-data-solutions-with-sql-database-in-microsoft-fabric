@@ -62,14 +62,12 @@ There're also other capabilities such as **Explain query** and **Fix query error
    !["A picture of a demonstrating an issue and finding the Fix Query Errors button in the quick actions next to the Run button in the Query Editor.."](FixQueryErrors.png)
 
 3. Observe the updated query along with the comment that clearly states where the issue was in the query. Now click on **Run** to see the results.
-
-   <img alt="A picture of a demonstrating added comment at the bottom about what was fixed and query results returned successfully." src="../../img/graphics/Copilot/AutoFixComment.png" style="width:1200px;">
+   !["A picture of a demonstrating added comment at the bottom about what was fixed and query results returned successfully."](../../img/graphics/Copilot/AutoFixComment.png)
 
   >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
 
 4. Aside from fixing the query errors, Copilot can also explain a query to you. Select **Explain query** and Copilot will add comments to your query explaining parts of the query.
-
-   <img alt="A picture of a demonstrating steps to select Explain query and then showing the inline comments in the query editor." src="../../img/graphics/Copilot/ExplainQuery.png" style="width:1200px;">
+   !["A picture of a demonstrating steps to select Explain query and then showing the inline comments in the query editor."]("../../img/graphics/Copilot/ExplainQuery.png" style="width:1200px;")
 
 ## Section 2: Using Copilot Chat Pane
 
@@ -88,14 +86,12 @@ There're also other capabilities such as **Explain query** and **Fix query error
    ```
    Write me a query that will return the most sold product.
    ```
-
-   <img alt="A picture of Copilot chat pane opened with written query above." src="../../img/graphics/Copilot/ChatPaneQuery.png" style="width:400px;">
+   !["A picture of Copilot chat pane opened with written query above."]("../../img/graphics/Copilot/ChatPaneQuery.png")
 
 4. Read the answer now and select the **Insert** button to input code into the Query Editor.
 
    >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
-
-   <img alt="A picture of a demonstrating Copilot response and selecting insert query into the query editor." src="../../img/graphics/Copilot/InsertQuery.png" style="width:400px;">
+   ![]("../../img/graphics/Copilot/InsertQuery.png")
 
 5. Select the query that was inserted by **Copilot**, click on the **Run** icon and check the **Results**. 
    >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
@@ -112,8 +108,7 @@ There're also other capabilities such as **Explain query** and **Fix query error
 2. Observe that Copilot has returned the results in the Chat pane.
 
    >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
-
-   <img alt="A picture of a demonstrating Copilot response stating what is the most sold product." src="../../img/graphics/Copilot/MostSoldProduct.png" style="width:400px;">
+   !["A picture of a demonstrating Copilot response stating what is the most sold product."](../../img/graphics/Copilot/MostSoldProduct.png)
 
 
 ### Task 2.3: Chat Pane: Write (with approval)
@@ -131,8 +126,7 @@ There're also other capabilities such as **Explain query** and **Fix query error
 3. Observe the Copilot's response and select **Run** to execute the given query on top of your database.
 
    >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
-
-   <img alt="A picture of a approving Copilot to execute a query." src="../../img/graphics/Copilot/ExecuteWithApproval.png" style="width:400px;">
+   !["A picture of a approving Copilot to execute a query."](../../img/graphics/Copilot/ExecuteWithApproval.png)
 
 4. Wait a few seconds while Copilot executes the query.
 
@@ -145,6 +139,6 @@ There're also other capabilities such as **Explain query** and **Fix query error
 
 ## What's next
 Congratulations! You have learnt how to leverage **Copilot for SQL database in Microsoft Fabric** to enhance your **query-writing** experience. With these skills, you are now better equipped to write and execute SQL queries faster and troubleshoot errors effectively using Copilot. You are ready to move on to the next exercise: 
- You're now ready to move on to the next exercise where you'll explore how vector embeddings and Retrieval-Augmented Generation (RAG) can be leveraged to generate intelligent product recommendations: [RAG Implementation with Azure OpenAI](../04%20-%20RAG%20Implementation%20with%20Azure%20OpenAI/)
+ You're now ready to move on to the next exercise where you'll explore how vector embeddings and Retrieval-Augmented Generation (RAG) can be leveraged to generate intelligent product recommendations: RAG Implementation with Azure OpenAI
 
 
