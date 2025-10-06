@@ -21,21 +21,13 @@ In this section of the lab, you will be logging into the Microsoft Fabric Portal
 
 Using a web browser of your choice, please navigate to this [Microsoft Fabric link](https://app.fabric.microsoft.com/home).
 
-1. Enter your AAD Username e.g. `AIAP.<YourCustomUserName>@fabcon25eu.onmicrosoft.com` in the Email field, then click on the Submit button.
-   > **During the lab, you should have received a printed one-pager from the proctor or speaker. Replace `<YourCustomUserName>` with the value provided on that sheet. Then, enter or copy the AAD user from the page, for example: AIAP.user001@fabcon25eu.onmicrosoft.com**
+1. Enter your AAD Username `@lab.CloudPortalCredential(User1).Username` in the Email field, then click on the Submit button.
 
-<img src="../../img/graphics/Introduction/Fabriclogin.png" alt="A picture of the Create a workspace blade on the right side of the page" style="width:400px;">
-
-2. Enter your password and click on the Sign in button. 
-> **During the lab, you should have received a printed one-pager from the proctor or speaker. Please enter or copy the Password from that page.**
-
-<img src="../../img/graphics/Introduction/fabricuserpassword.png" alt="A picture of the Create a workspace blade on the right side of the page" style="width:400px;">
+2. Enter your password `@lab.CloudPortalCredential(User1).Password` and click on the Sign in button. 
 
 3. If prompted with "Stay signed in?" select "Yes" and proceed.
 
 4. If popup "Welcome to the Fabric view" is showed, feel free to close it by selecting 'X' on the top right corner and proceed with the lab content.
-
-<img src="../../img/graphics/Introduction/IntroFabricView.png" alt="A picture of the Welcome to the Fabric view popup." style="width:600px;">
 
 ### Task 1.2: Create the Microsoft Fabric Workspace
 
