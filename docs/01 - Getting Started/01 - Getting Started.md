@@ -8,7 +8,7 @@ In this Lab, you’ll get hands‑on with the SQL database in Microsoft Fabric. 
 
 Our final system architecture will look similar to the following:
 
-<img src="../../graphics/Architecture.png" alt="image" width="600"/>
+<img src="../Architecture.png" alt="image" width="600"/>
 
 In each module, you'll get more references, which you should follow up on to learn more. Also, watch for links within the text - click on each one to explore that topic.
 
