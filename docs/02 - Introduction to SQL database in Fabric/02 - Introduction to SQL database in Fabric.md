@@ -178,3 +178,8 @@ It's good to know that besides SQL database in Fabric, you can also continuously
 
 With SQL analytics endpoint you can join your data from different items using a three-part naming convention. This way you can join data from other mirrored databases or warehouses. 
 
+
+## What's next
+Congratulations! You have learnt the basics of SQL database in Microsoft Fabric. You are now ready to move on to the next exercise:
+Use Copilot with SQL database in Fabric
+

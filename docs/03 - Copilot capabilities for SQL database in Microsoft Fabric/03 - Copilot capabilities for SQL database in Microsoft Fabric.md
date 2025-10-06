@@ -12,17 +12,9 @@ There're also other capabilities such as **Explain query** and **Fix query error
 
 ### Task 1.1: Using Copilot within the query editor
 
-1. From the left navigation pane select your workspace.
 
-   <img alt="A picture of a opening a workspace view from the left-side navigation pane." src="../../img/graphics/Introduction/MirroringOpenWorkspace.png" style="width:600px;">
-
-2. And now select a SQL database item you've created previously (make sure to click on the artifact name).
-
-   <img alt="A picture of a opening a workspace view from the left-side navigation pane." src="../../img/graphics/Copilot/SelectDatabaesItem.png" style="width:800px;">
-
-3. Now, select the **New Query** button on the tool bar as you did in previous module.
+1. select the **New Query** button on the tool bar as you did in previous module.
     
-    <img alt="A picture of clicking the New Query button on the tool bar" src="../../img/graphics/Introduction/ExploreNewQuery.png" style="width:600px;">
 
 4. Copy a T-SQL script below and press **Enter**. 
 
@@ -31,11 +23,7 @@ There're also other capabilities such as **Explain query** and **Fix query error
    ```
 
 5. Watch for the loading spinner at the bottom of the editor to track progress, and observe how Copilot’s suggestion appears in the code.
-
-   ![](../../media/copilot-1.png)
-
-   <img alt="A picture of a demonstrating suggested T-SQL query by Copilot." src="../../img/graphics/database17.png" style="width:800px;">
-
+ 
    > **Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
 
    Optional: If you want to continue following the lab with the exact same query, feel free to copy it
@@ -52,8 +40,6 @@ There're also other capabilities such as **Explain query** and **Fix query error
 6. Press the **Tab** key on your keyboard to accept the suggestion or continue typing to ignore it.
 
 7. Select the query and click on the **Run** icon (or use keyboard shortcut `Ctrl + Enter` or `Shift + Enter`)
-
-   <img alt="A picture of a demonstrating executed query after selecting Run command." src="../../img/graphics/database19.png" style="width:800px;">
 
 ### Task 1.2: Copilot Quick Actions within the Query Editor
 
@@ -73,7 +59,7 @@ There're also other capabilities such as **Explain query** and **Fix query error
 
 2. Observe the query errors (issue) and then select **Fix query errors**.
 
-   <img alt="A picture of a demonstrating an issue and finding the Fix Query Errors button in the quick actions next to the Run button in the Query Editor.." src="../../img/graphics/Copilot/FixQueryErrors.png" style="width:1200px;">
+   !["A picture of a demonstrating an issue and finding the Fix Query Errors button in the quick actions next to the Run button in the Query Editor.."](FixQueryErrors.png)
 
 3. Observe the updated query along with the comment that clearly states where the issue was in the query. Now click on **Run** to see the results.
 
