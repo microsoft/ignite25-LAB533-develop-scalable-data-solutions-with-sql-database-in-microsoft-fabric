@@ -7,7 +7,7 @@ In this Lab, you’ll get hands‑on with the SQL database in Microsoft Fabric. 
  The focus of this lab is to understand how to design, build, and operationalize end-to-end AI-ready applications using SQL database in Fabric as the core data backbone.
 
 Our final system architecture will look similar to the following:
-![Architecture](/ignite25-LAB533-develop-scalable-data-solutions-with-sql-database-in-microsoft-fabric/docs/01%20-%20Getting%20Started/Architecture.png)
+![Architecture](Architecture.png)
 
 
 In each module, you'll get more references, which you should follow up on to learn more. Also, watch for links within the text - click on each one to explore that topic.
