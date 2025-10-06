@@ -32,34 +32,15 @@ Using a web browser of your choice, please navigate to this [Microsoft Fabric li
 ### Task 1.2: Create the Microsoft Fabric Workspace
 
 1. You should be able to find a **New Workspace tile** on the mid-top mid-left side of the screen. Select it to open the **Create a workspace blade** on the right side.
-
-    <img src="../../img/graphics/Introduction/NewWorkspace.png" alt="A picture of the Microsoft Fabric developer experience Home Page" style="width:400px;">
-
+   ![A picture of the Microsoft Fabric developer experience Home Page](NewWorkspace.png)
+   
 2. In the **Create a workspace blade**, 
-
-    <img src="../../img/graphics/Introduction/CreateWorkspace.png" alt="A picture of the Create a workspace blade on the right side of the page" style="width:400px;">
+    ![A picture of the Create a workspace blade on the right side of the page](CreateWorkspace.png) 
     
     and enter a unique name for the **Workspace Name** field.
+3. Next, click the **green Apply button** on the **bottom left** of the Create a workspace blade.
 
-   >**Note:** To ensure your workspace name is unique, add the suffix from your username to the workspace name. For example, if your username is ``AIAP.user001@fabcon25eu.onmicrosoft.com``, use ``FabricWorkspaceuser001`` as the workspace name (where ``user001`` is taken from your username).
-    
-    <img alt="A picture of using the supplied text as the workspace name in the name field" src="../../img/graphics/Introduction/WorkspaceName.png" style="width:400px;">
-
-3. Select _Advanced_ and scroll down to see the _License mode_ options and selected _Capacity_.
-    
-    <img alt="Finding and selecting Advanced label or down arrow." src="../../img/graphics/Introduction/IntroSelectAdvanced.png" style="width:400px;">
-
-4. After you scrolled down, make sure that _License mode_ is set to _Fabric capacity_ and that _Capacity_ is selected to your available option.
-
-    <img alt="Finding the right choices being selected properly in advanced configs section." src="../../img/graphics/Introduction/IntroCapacity.png" style="width:400px;">
-
-5. Next, click the **green Apply button** on the **bottom left** of the Create a workspace blade.
-
-    <img alt="A picture of clicking the **green Apply button** on the **bottom left** of the Create a workspace blade" src="../../img/graphics/Introduction/WorkspaceApply.png" style="width:400px;"> 
-
-6. On the following page, you may get a popup titled "Introducing task flows (preview)". Click the green **Got it** button.
-
-    <img alt="A picture of clicking the green Got it button to close a feature preview popup" src="../../img/graphics/Introduction/TaskFlows.png" style="width:400px;">
+===
 
 ## Section 2: Creating a SQL database in Microsoft Fabric
 In this section you will create a SQL database and load it with data.
@@ -68,80 +49,53 @@ In this section you will create a SQL database and load it with data.
 
 1. On the Microsoft Fabric Workspace page, click the **New item** button on the top right of the page.
 
-   <img alt="A picture of clicking the New item button on the top right of the page" src="../../img/graphics/Introduction/DB-NewItem.png" style="width:600px;">
+  ![A picture of clicking the New item button on the top right of the page](DB-NewItem.png)
 
-2. In the **New item** blade on the right, 
-
-    <img alt="A picture of the new item blade on the right of the page" src="../../img/graphics/Introduction/DB-NewItemBlade.png" style="width:600px;">
-
-    use the **Filter by item type search box** in the upper right
-    
-    <img alt="A picture of using the Filter by item type search box in the upper right of the new item blade" src="../../img/graphics/Introduction/DB-Filter.png" style="width:600px;">
-    
-    to enter **SQL**
-
-    <img alt="A picture of entering SQL into the item type search box" src="../../img/graphics/Introduction/DB-FilterSQL.png" style="width:600px;">
+2. In the **New item** blade on the right, use the **Filter by item type search box** in the upper right corner to enter **SQL**
+!["A picture of entering SQL into the item type search box"](DB-FilterSQL.png)
 
 3. With the New item results filtered down, click on the **SQL database (preview)** tile.
-
-    <img alt="A picture of clicking on the SQL database (preview) tile" src="../../img/graphics/Introduction/DB-FilterSQLItem.png" style="width:600px;">
+!["A picture of clicking on the SQL database (preview) tile"](DB-FilterSQLItem.png)
 
 > [!IMPORTANT]
 > There may be a few seconds delay after pressing the **SQL database (preview) tile** and when the **New SQL database modal** appears. Just give it a few seconds if it does not appear immediately. 
 
-4. In the **New SQL database** dialog window,
+4. In the **New SQL database** dialog window, Use a unique name for the database and after entering the name, click the **green Create button**.
 
-    <img alt="A picture of the New SQL database dialog window" src="../../img/graphics/Introduction/DB-NewSQLDB.png" style="width:600px;">
 
-5. Use a unique name for the database and after entering the name, click the **green Create button**.
-
-    <img alt="A picture of clicking the green Create button in the New SQL database dialog box" src="../../img/graphics/Introduction/DB-NewSQLDBNEW.png" style="width:600px;">
-
-6. Once the database is finished creating, 
-
-    <img alt="A picture of the database creating" src="../../img/graphics/Introduction/DB-NewSQLDBLoading.png" style="width:600px;">
-
-    you will be taken to that SQL database's home page where you can see database objects and issue T-SQL statements right in the web browser.
-
-    <img alt="A picture of the SQL database details home page" src="../../img/graphics/Introduction/DB-NewSQLDBPortalNEW.png" style="width:600px;">
+5. Once the database is finished creating, you will be taken to SQL database's home page where you can see database objects and issue T-SQL statements right in the web browser.
 
 ### Task 2.2: Loading the database with sample data
 
-1. You need some sample data in the database to work with. You can easily do this with the **Sample data** tile right on the database home page. Click the **Sample data** tile right on the database home page.
-
-    <img alt="A picture of clicking the Sample data tile right on the database home page" src="../../img/graphics/Introduction/LoadSampleNEW.png" style="width:600px;">
+1. You need some sample data in the database to work with. Click the **Sample data** tile right on the database home page to load sample data.
+!["A picture of clicking the Sample data tile right on the database home page"](LoadSampleNEW.png)
 
 2. In the upper right corner of the database home page, you will see a notification indicating that the data is being loaded into the database.
-
-    <img alt="A picture of a notification indicating that the data is being loaded into the database" src="../../img/graphics/Introduction/LoadSampleProgress.png" style="width:400px;">
+    !["A picture of a notification indicating that the data is being loaded into the database"](LoadSampleProgress.png)
 
     Allow this process to run (about 30-60 seconds) until you see a notification indicating that the data was successfully loaded into the database appearing again, in the upper right corner.
-    
-    <img alt="A picture of a notification indicating that the data was successfully loaded into the database" src="../../img/graphics/Introduction/LoadSampleSuccessful.png" style="width:400px;">
+    !["A picture of a notification indicating that the data was successfully loaded into the database"](LoadSampleSuccessful.png)
 
     While we're waiting for the data to be loaded, feel free to explore SQL database in Fabric portal experience in next minute or so.
 
-    <img alt="A picture of a top left toolbar buttons to refresh database explorer, open settings and provide feedback" src="../../img/graphics/Introduction/Toolbar-1.png" style="width:800px;">
+    !["A picture of a top left toolbar buttons to refresh database explorer, open settings and provide feedback"](Toolbar-1.png)
 
 3. You can open settings database by clicking on cog icon and explore different configurations available here, and also find the connection strings for your app.
-
-    <img alt="A picture of the opened database settings highlighting connection strings field" src="../../img/graphics/Introduction/ToolbarSettings.png" style="width:800px;">
+    !["A picture of the opened database settings highlighting connection strings field"]( ToolbarSettings.png)
 
 4. Now click on X in top right corner to close the settings blade and continue observing the ways to insert data and create new T-SQL queries either blank or through templates.
-
-    <img alt="A picture of the opened database settings highlighting connection strings field" src="../../img/graphics/Introduction/Toolbar-3.png" style="width:800px;">
+    !["A picture of the opened database settings highlighting connection strings field"](Toolbar-3.png)
 
 5. Next one provides a smooth way to connect directly to your database through the connection wizard from the tool of your choice (SSMS or VSCode) - first click on `Open in` dropdown and then choose the tool. You won't be connecting to the database just yet, so close the settings blade for now by clicking on 'X'.
-
-    <img alt="A picture of the opened SSMS connection wizard from Fabric Portal after clicking on 'SSMS' option in 'Open in' dropdown." src="../../img/graphics/Introduction/Toolbar-4.png" style="width:800px;">
+    !["A picture of the opened SSMS connection wizard from Fabric Portal after clicking on 'SSMS' option in 'Open in' dropdown."](Toolbar-4.png)
 
 6. Last three options in the toolbar are used for creating new GraphQL API for your Fabric SQL database, opening database performance dashboard in Fabric portal and Copilot on the right side. We'll explore these later during the lab in more details.
-
-    <img alt="A picture focused on the last three options in the Fabric SQL database toolbar." src="../../img/graphics/Introduction/Toolbar-5.png" style="width:800px;">
-
+    !["A picture focused on the last three options in the Fabric SQL database toolbar."](Toolbar-5.png)
+    
 7. The sample data has finished loading now and you can observe that by notification in the top right corner and the middle of home page will change show to a **Query, preview, or connect your data** message and image.
+    !["A picture of the middle of home page changing to show a Query, preview, or connect your data message and image"](LoadSamplePreview.png)
 
-    <img alt="A picture of the middle of home page changing to show a Query, preview, or connect your data message and image" src="../../img/graphics/Introduction/LoadSamplePreview.png" style="width:800px;">
+===
 
 ## Section 3: Working with the SQL database in Microsoft Fabric
 
@@ -150,9 +104,6 @@ In this next section, you will be focused on using the Database Explorer and SQL
 ### Task 3.1: Getting familiar with Database Explorer and Query editor
 
 1. To start, look at the **Database Explorer** area on the left of the page. Here, click the dropdown arrow next to the database 
-
-    <img alt="A picture of the Database Explorer area on the left of the SQL database details page" src="../../img/graphics/Introduction/ExploreDBNEW.png" style="width:400px;">
-
     to see a list of database schemas.
 
     <img alt="A picture of a list of database schemas in the newly created database" src="../../img/graphics/Introduction/ExploreSchemaNEW.png" style="width:400px;">
