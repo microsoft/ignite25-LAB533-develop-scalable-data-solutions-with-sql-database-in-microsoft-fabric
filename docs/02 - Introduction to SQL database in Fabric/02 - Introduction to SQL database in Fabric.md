@@ -15,25 +15,25 @@
 
 ## Section 1: Getting started
 
-In this section of the workshop, you will be logging into the Microsoft Fabric Portal and creating a new Fabric Workspace.
+In this section of the lab, you will be logging into the Microsoft Fabric Portal and creating a new Fabric Workspace.
 
 ### Task 1.1: Login 
 
 Using a web browser of your choice, please navigate to this [Microsoft Fabric link](https://app.fabric.microsoft.com/home).
 
 1. Enter your AAD Username e.g. `AIAP.<YourCustomUserName>@fabcon25eu.onmicrosoft.com` in the Email field, then click on the Submit button.
-   > **During the workshop, you should have received a printed one-pager from the proctor or speaker. Replace `<YourCustomUserName>` with the value provided on that sheet. Then, enter or copy the AAD user from the page, for example: AIAP.user001@fabcon25eu.onmicrosoft.com**
+   > **During the lab, you should have received a printed one-pager from the proctor or speaker. Replace `<YourCustomUserName>` with the value provided on that sheet. Then, enter or copy the AAD user from the page, for example: AIAP.user001@fabcon25eu.onmicrosoft.com**
 
 <img src="../../img/graphics/Introduction/Fabriclogin.png" alt="A picture of the Create a workspace blade on the right side of the page" style="width:400px;">
 
 2. Enter your password and click on the Sign in button. 
-> **During the workshop, you should have received a printed one-pager from the proctor or speaker. Please enter or copy the Password from that page.**
+> **During the lab, you should have received a printed one-pager from the proctor or speaker. Please enter or copy the Password from that page.**
 
 <img src="../../img/graphics/Introduction/fabricuserpassword.png" alt="A picture of the Create a workspace blade on the right side of the page" style="width:400px;">
 
 3. If prompted with "Stay signed in?" select "Yes" and proceed.
 
-4. If popup "Welcome to the Fabric view" is showed, feel free to close it by selecting 'X' on the top right corner and proceed with the workshop content.
+4. If popup "Welcome to the Fabric view" is showed, feel free to close it by selecting 'X' on the top right corner and proceed with the lab content.
 
 <img src="../../img/graphics/Introduction/IntroFabricView.png" alt="A picture of the Welcome to the Fabric view popup." style="width:600px;">
 
@@ -143,7 +143,7 @@ In this section you will create a SQL database and load it with data.
 
     <img alt="A picture of the opened SSMS connection wizard from Fabric Portal after clicking on 'SSMS' option in 'Open in' dropdown." src="../../img/graphics/Introduction/Toolbar-4.png" style="width:800px;">
 
-6. Last three options in the toolbar are used for creating new GraphQL API for your Fabric SQL database, opening database performance dashboard in Fabric portal and Copilot on the right side. We'll explore these later during the workshop in more details.
+6. Last three options in the toolbar are used for creating new GraphQL API for your Fabric SQL database, opening database performance dashboard in Fabric portal and Copilot on the right side. We'll explore these later during the lab in more details.
 
     <img alt="A picture focused on the last three options in the Fabric SQL database toolbar." src="../../img/graphics/Introduction/Toolbar-5.png" style="width:800px;">
 

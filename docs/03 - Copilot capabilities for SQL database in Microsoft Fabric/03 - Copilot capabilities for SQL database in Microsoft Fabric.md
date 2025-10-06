@@ -38,7 +38,7 @@ There're also other capabilities such as **Explain query** and **Fix query error
 
    > **Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
 
-   Optional: If you want to continue following the workshop with the exact same query, feel free to copy it
+   Optional: If you want to continue following the lab with the exact same query, feel free to copy it
    ```
    SELECT TOP 1
    [P].[Name],

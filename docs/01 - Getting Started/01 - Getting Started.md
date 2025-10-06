@@ -14,14 +14,14 @@ In each module, you'll get more references, which you should follow up on to lea
 
 ## ✅ Learning Objectives
 
-In this workshop you'll learn:
+In this lab you'll learn:
 
 - How to create a Fabric SQL database, load sample datasets, query data, and replicate it with OneLake  
 - How to use Microsoft Copilot for query correction, natural language to SQL (NL2SQL), and interactive chat-based data exploration  
 - How to expose your SQL data through a GraphQL endpoint and integrate it with modern applications    
 - How to implement RAG (Retrieval-Augmented Generation) patterns to enhance AI responses with live SQL data      
 
-## 🛠 Technologies used in this Workshop
+## 🛠 Technologies used in this lab
 
 | Technology | Description |
 |------------|-------------|
@@ -34,11 +34,11 @@ In this workshop you'll learn:
 | Visual Studio Code | To develop / modify simple code examples. |
 | Azure OpenAI | A cloud-based platform that enables developers and data scientists to build and deploy AI models quickly and easily. |
 
-## 📚 Before Taking this Workshop
+## 📚 Before Taking this lab
 
 
 ## Learn more
-You can view all of the [courses and other workshops our team has created here](https://microsoft.github.io/sqlworkshops/).
+
 Other key resources:
 1. [SQL database in Microsoft Fabric](https://learn.microsoft.com/fabric/database/sql/overview)
 2. [Intro to Microsoft Fabric](https://learn.microsoft.com/fabric)  
