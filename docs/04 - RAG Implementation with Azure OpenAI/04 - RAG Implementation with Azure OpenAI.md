@@ -73,8 +73,8 @@ Embeddings created and stored in the Azure SQL Database in Microsoft Fabric duri
 ```
 
 1. Again, click the run button on the query sheet. The result will be a JSON vector array.
-
-    <img alt="A picture of the JSON vector array as a result of the query" src="../../img/graphics/2025-01-10_11.25.57_AM.png" style="width:600px;">
+    !["A picture of the JSON vector array as a result of the query"](../../img/graphics/2025-01-10_11.25.57_AM.png)
+    
 
     Using the built in JSON function json_query, we are able to extract JSON array from REST response payloads. In the above T-SQL, **json_query(@response, '$.result.data[0].embedding') as "JSON Vector Array"** will extract the vector array from the result payload returned to us from the Azure OpenAI REST endpoint. 
     
@@ -160,8 +160,7 @@ This next section of the lab will have you alter the Adventure Works product tab
     This code adds a vector datatype column to the Product table. It also adds a column named chunk where we will store the text we send over to the embeddings REST endpoint.
 
 1. Then click the run button on the query sheet
-
-    <img alt="A picture of clicking the run button on the query sheet for adding 2 columns to the product table" src="../../img/graphics/2025-01-10_1.30.19_PM.png" style="width:600px;">
+    !["A picture of clicking the run button on the query sheet for adding 2 columns to the product table"](../../img/graphics/2025-01-10_1.30.19_PM.png)
 
 1. Next, you are going to use the External REST Endpoint Invocation procedure (sp_invoke_external_rest_endpoint) to create a stored procedure that will create embeddings for text we supply as an input. Copy and paste the following code into a blank query editor in Microsoft Fabric:
 
@@ -292,7 +291,7 @@ This next section of the lab will have you alter the Adventure Works product tab
 
     You can see that the chunk column is the combination of multiple data points about a product and the embeddings column contains the vector arrays.
 
-    <img alt="A picture of the query result showing the chunk and embeddings columns and their data." src="../../img/graphics/2025-01-15_6.34.32_AM.png" style="width:600px;">
+    !["A picture of the query result showing the chunk and embeddings columns and their data." ](../../img/graphics/2025-01-15_6.34.32_AM.png)
 
 ## Vector similarity searching
 
@@ -335,8 +334,7 @@ You will be using this function in some upcoming samples as well as in the RAG c
     | 760 | Road-650 Red, 60 | Road-650 Red, 60 Red Road Bikes Road-650 Value-priced bike with many features of our top-of-the-line models. Has the same light, stiff frame, and the quick acceleration we're famous for. | 0.16361482158949225 |
     | 759 | Road-650 Red, 58 | Road-650 Red, 58 Red Road Bikes Road-650 Value-priced bike with many features of our top-of-the-line models. Has the same light, stiff frame, and the quick acceleration we're famous for. | 0.16432339626539993 |
     | 762 | Road-650 Red, 44 | Road-650 Red, 44 Red Road Bikes Road-650 Value-priced bike with many features of our top-of-the-line models. Has the same light, stiff frame, and the quick acceleration we're famous for. | 0.1652894865541471 |
-
-    <img alt="A picture of running Query 1 and getting results outlined in the Query 1 results table." src="../../img/graphics/2025-01-15_6.36.01_AM.png" style="width:600px;">
+    !["A picture of running Query 1 and getting results outlined in the Query 1 results table." ](../../img/graphics/2025-01-15_6.36.01_AM.png)
 
 1. The next search will be looking for a safe lightweight helmet. Run the following SQL in a blank query editor in Microsoft Fabric:
 
@@ -364,8 +362,7 @@ You will be using this function in some upcoming samples as well as in the RAG c
     | Sport-100 Helmet, Blue |Sport-100 Helmet, Blue Blue Helmets Sport-100 Universal fit, well-vented, lightweight , snap-on visor. | 0.16592580751312624 |
     | Classic Vest, S | Classic Vest, S Blue Vests Classic Vest Light-weight, wind-resistant, packs to fit into a pocket. | 0.19888204151269384 |
 
-
-    <img alt="A picture of running Query 2 and getting results outlined in the Query 2 results table" src="../../img/graphics/2025-01-14_6.00.32_AM.png" style="width:600px;">
+    !["A picture of running Query 2 and getting results outlined in the Query 2 results table"](../../img/graphics/2025-01-14_6.00.32_AM.png)
 
 1. In the previous 2 examples, we were clear on what we were looking for; cheap red bike, light helmet. In this next example, you are going to have the search flex its AI muscles a bit by saying we want a bike seat that needs to be good on trails. This will require the search to look for adjacent values that have something in common with trails. Run the following SQL in a blank query editor in Microsoft Fabric to see the results.
 
@@ -392,8 +389,7 @@ You will be using this function in some upcoming samples as well as in the RAG c
     | LL Road Seat/Saddle | LL Road Seat/Saddle No Color Saddles LL Road Seat/Saddle 1 Lightweight foam-padded saddle. | 0.17667274723850412 |
     | ML Road Seat/Saddle | ML Road Seat/Saddle No Color Saddles ML Road Seat/Saddle 2 Rubber bumpers absorb bumps. | 0.18802953111711573 |
     | HL Mountain Seat/Saddle | HL Mountain Seat/Saddle No Color Saddles HL Mountain Seat/Saddle 2 Anatomic design for a full-day of riding in comfort. Durable leather. | 0.18931317298732764 |
-
-    <img alt="A picture of running Query 3 and getting results outlined in the Query 3 results table" src="../../img/graphics/2025-01-15_6.38.06_AM.png" style="width:600px;">
+    !["A picture of running Query 3 and getting results outlined in the Query 3 results table"](../../img/graphics/2025-01-15_6.38.06_AM.png)
 
 # 2. Creating a GraphQL API for RAG applications
 
@@ -473,48 +469,51 @@ In the section of the lab, you will create a stored procedure that will be used 
     ```SQL
     exec find_products_api 'I am looking for a red bike'
     ```
-
-    <img alt="A picture of running the find_products_api stored procedure" src="../../img/graphics/2025-01-14_6.57.09_AM.png" style="width:600px;">
-
+    !["A picture of running the find_products_api stored procedure"](../../img/graphics/2025-01-14_6.57.09_AM.png)
+   
 1. To create the GraphQL API, click on the **New API for GraphQL** button on the toolbar.
 
-    <img alt="A picture of clicking on the New API for GraphQL button on the toolbar" src="../../img/graphics/2025-01-15_6.52.37_AM.png" style="width:600px;">
+    !["A picture of clicking on the New API for GraphQL button on the toolbar"](../../img/graphics/2025-01-15_6.52.37_AM.png)
 
 1. In the **New API for GraphQL** dialog box, use the **Name Field** and name the API **find_products_api**.
 
     +++ find_products_api +++
-
-    <img alt="A picture of using the Name Field and naming the API find_products_api in the New API for GraphQL dialog box" src="../../img/graphics/2025-01-17_7.35.03_AM.png" style="width:400px;">
+    !["A picture of using the Name Field and naming the API find_products_api in the New API for GraphQL dialog box"](../../img/graphics/2025-01-17_7.35.03_AM.png)
 
 1. After naming the API, click the **green Create button**.
-
-    <img alt="A picture of clicking the green Create button in the New API for GraphQL dialog box" src="../../img/graphics/2025-01-17_7.35.09_AM.png" style="width:400px;">
+    !["A picture of clicking the green Create button in the New API for GraphQL dialog box" ](../../img/graphics/2025-01-17_7.35.09_AM.png)
+    
 
 1.  The next dialog box presented is the **Choose data** dialog box where you will pick a table or stored procedure for the GraphQL API, 
 
-    <img alt="A picture of the next dialog box being presented, the Choose data dialog box" src="../../img/graphics/2025-01-15_7.00.42_AM.png" style="width:600px;">
+    !["A picture of the next dialog box being presented, the Choose data dialog box"](../../img/graphics/2025-01-15_7.00.42_AM.png)
+   
 
     use the **Search box** in the **Explorer section** on the left 
     
-    <img alt="A picture of using the Search box in the Explorer section on the left of the Choose data dialog box" src="../../img/graphics/2025-01-15_7.01.39_AM.png" style="width:400px;">
+    !["A picture of using the Search box in the Explorer section on the left of the Choose data dialog box"](../../img/graphics/2025-01-15_7.01.39_AM.png)
+   
 
     and **enter in find_products_api**.
 
     +++ find_products_api +++
 
-    <img alt="A picture of enter in find_products_api in the search box" src="../../img/graphics/2025-01-17_6.26.15_AM.png" style="width:400px;">
+    !["A picture of enter in find_products_api in the search box"](../../img/graphics/2025-01-17_6.26.15_AM.png)
+   
 
 1. Choose the **find_products_api stored procedure in the results**. You can ensure it is the find_products_api stored procedure by hovering over it with your mouse/pointer. It will also indicate the selected database item in the preview section. It should state **"Preview data: dbo.find_products_api"**.
 
-    <img alt="A picture of choosing the find_products_api stored procedure in the results" src="../../img/graphics/2025-01-17_6.28.44_AM_copy.png" style="width:600px;">
+    !["A picture of choosing the find_products_api stored procedure in the results"](../../img/graphics/2025-01-17_6.28.44_AM_copy.png)
+   
 
 1. Once you have selected the **find_products_api stored procedure**, click the **green Load button** on the bottom right of the modal dialog box.
 
-    <img alt="A picture of clicking the green Load button on the bottom right of the modal dialog box" src="../../img/graphics/2025-01-17_6.30.18_AM.png" style="width:600px;">
+    !["A picture of clicking the green Load button on the bottom right of the modal dialog box"](../../img/graphics/2025-01-17_6.30.18_AM.png)
+    
 
 1. You will now be on the **GraphQL Query editor page**. Here, we can run GraphQL queries similar to how we can run T-SQL queries on the query editor.
-
-    <img alt="A picture of the GraphQL Query editor page" src="../../img/graphics/2025-01-15_7.11.21_AM.png" style="width:600px;">
+    !["A picture of the GraphQL Query editor page"](../../img/graphics/2025-01-15_7.11.21_AM.png)
+    
 
 1. Replace the sample code on the left side of the GraphQL query editor with the following query:
 
@@ -532,28 +531,28 @@ In the section of the lab, you will create a stored procedure that will be used 
         }
     }
     ```
-
-    <img alt="A picture of replacing the example code with the query code provided" src="../../img/graphics/2025-01-15_7.16.57_AM.png" style="width:600px;">
+    !["A picture of replacing the example code with the query code provided"](../../img/graphics/2025-01-15_7.16.57_AM.png)
+    
 
 1. Now, click the **Run button** in the upper left of the GraphQL query editor. 
 
-    <img alt="A picture of clicking the Run button in the upper left of the GraphQL query editor" src="../../img/graphics/2025-01-15_7.19.13_AM.png" style="width:600px;">
+    !["A picture of clicking the Run button in the upper left of the GraphQL query editor"](../../img/graphics/2025-01-15_7.19.13_AM.png)
+   
 
     and you can scroll through the results from the GraphQL query in the lower section of the editor.
-
-    <img alt="A picture of scrolling through the results from the GraphQL query in the lower section of the editor" src="../../img/graphics/2025-01-15_7.21.01_AM.png" style="width:600px;">
-
+    !["A picture of scrolling through the results from the GraphQL query in the lower section of the editor"](../../img/graphics/2025-01-15_7.21.01_AM.png)
+    
 1. Back on the toolbar, find and click the **Generate code button**.
-
-    <img alt="A picture of clicking the Generate code button" src="../../img/graphics/2025-01-15_8.38.00_AM.png" style="width:600px;">
+    !["A picture of clicking the Generate code button"](../../img/graphics/2025-01-15_8.38.00_AM.png)
+    
 
 1. This feature will generate the code for calling this API via python or node.js to help give you a jumpstart in the application creation process.
-
-    <img alt="A picture of the generated code the editor provides" src="../../img/graphics/2025-01-15_8.40.12_AM.png" style="width:600px;">
+    !["A picture of the generated code the editor provides"](../../img/graphics/2025-01-15_8.40.12_AM.png)
+   
 
 1. When done looking_the python and node.js code, click the **X** in the upper right corner to close the Generate code dialog box.
-
-    <img alt="A picture of clicking the X in the upper right corner to close the Generate code dialog box" src="../../img/graphics/2025-01-15_8.40.12_AM2.png" style="width:400px;">
+    !["A picture of clicking the X in the upper right corner to close the Generate code dialog box"](../../img/graphics/2025-01-15_8.40.12_AM2.png)
+   
 
 ## Adding chat completion to the GraphQL API
 
@@ -562,8 +561,8 @@ The API you just created could now be handed off to an application developer to 
 Let's alter the stored procedure to create a new flow that not only uses vector similarity search to get products based on a question asked by a user, but to take the results, pass them to Azure OpenAI Chat Completion, and craft an answer they would typically see with an AI chat application.
 
 1. Before we can start creating new stored procedures, we need to go back to the SQL Database in fabric in fabric home page. Do this by using the navigator on the left side of the page and clicking on the SQL Database icon.
-
-    <img alt="A picture of using the navigator on the left side of the page and clicking on the SQL Database in fabric icon" src="../../img/graphics/selectdb.png" style="width:400px;">
+    !["A picture of using the navigator on the left side of the page and clicking on the SQL Database in fabric icon"](../../img/graphics/selectdb.png)
+   
 
 1. The first step in augmenting our RAG application API is to create a stored procedure that takes the retrieved products and passes them in a prompt to an Azure OpenAI Chat Completion REST endpoint. The prompt consists of telling the endpoint who they are, what products they have to work with, and the exact question that was asked by the user. 
 
@@ -713,44 +712,45 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
     ```
 
     with the answer being similar to (your answer will be different): **"It sounds like the Road-650 Red, 62 Red Road Bikes Road-650 would be an excellent choice for you. This value-priced bike comes in red and features a light, stiff frame that is known for its quick acceleration. It also incorporates many features from top-of-the-line models. Would you like more details about this bike or help with anything else?"**
-
-    <img alt="A picture of running the find_products_chat_api stored procedure" src="../../img/graphics/2025-01-17_6.15.05_AM.png" style="width:600px;">
+    !["A picture of running the find_products_chat_api stored procedure"](../../img/graphics/2025-01-17_6.15.05_AM.png)
+  
 
 1. To create the GraphQL API, click on the **New API for GraphQL** button on the toolbar just as you did previously.
-
-    <img alt="A picture of clicking on the New API for GraphQL button on the toolbar" src="../../img/graphics/2025-01-15_6.52.37_AM.png" style="width:600px;">
+    !["A picture of clicking on the New API for GraphQL button on the toolbar"](../../img/graphics/2025-01-15_6.52.37_AM.png)
+   
 
 1. In the **New API for GraphQL** dialog box, use the **Name Field** and name the API **find_products_chat_api**.
-
-    <img alt="A picture of using the Name Field and naming the API find_products_chat_api in the New API for GraphQL dialog box" src="../../img/graphics/2025-01-17_7.34.39_AM.png" style="width:400px;">
+    !["A picture of using the Name Field and naming the API find_products_chat_api in the New API for GraphQL dialog box"](../../img/graphics/2025-01-17_7.34.39_AM.png)
+   
 
 1. After naming the API, click the **green Create button**.
-
-    <img alt="A picture of clicking the green Create button in the New API for GraphQL dialog box" src="../../img/graphics/2025-01-17_7.34.47_AM.png" style="width:400px;">
+    !["A picture of clicking the green Create button in the New API for GraphQL dialog box"](../../img/graphics/2025-01-17_7.34.47_AM.png)
+  
 
 1.  The next dialog box presented is again the **Choose data** dialog box where you will pick a table or stored procedure for the GraphQL API, 
-
-    <img alt="A picture of the next dialog box being presented, the Choose data dialog box" src="../../img/graphics/2025-01-15_7.00.42_AM.png" style="width:600px;">
+    !["A picture of the next dialog box being presented, the Choose data dialog box"](../../img/graphics/2025-01-15_7.00.42_AM.png)
+   
 
     use the **Search box** in the **Explorer section** on the left 
-    
-    <img alt="A picture of using the Search box in the Explorer section on the left of the Choose data dialog box" src="../../img/graphics/2025-01-15_7.01.39_AM.png" style="width:400px;">
+    !["A picture of using the Search box in the Explorer section on the left of the Choose data dialog box"](../../img/graphics/2025-01-15_7.01.39_AM.png)
+   
 
     and **enter in find_products_chat_api**.
-
-    <img alt="A picture of enter in find_products_chat_api in the search box" src="../../img/graphics/2025-01-17_6.24.33_AM.png" style="width:400px;">
+    !["A picture of enter in find_products_chat_api in the search box"](../../img/graphics/2025-01-17_6.24.33_AM.png)
+   
 
 1. Choose the stored procedure in the results. You can ensure it is the **find_products_chat_api stored procedure** by hovering over it with your mouse/pointer. It will also indicate the selected database item in the preview section. It should state **"Preview data: dbo.find_products_chat_api"**.
-
-    <img alt="A picture of choosing the find_products_chat_api stored procedure in the results" src="../../img/graphics/2025-01-17_6.34.33_AM.png" style="width:400px;">
+    !["A picture of choosing the find_products_chat_api stored procedure in the results"](../../img/graphics/2025-01-17_6.34.33_AM.png)
+    
 
 1. Once you have selected the **find_products_chat_api stored procedure**, click the **green Load button** on the bottom right of the modal dialog box.
 
-    <img alt="A picture of clicking the green Load button on the bottom right of the modal dialog box" src="../../img/graphics/2025-01-17_6.32.43_AM.png" style="width:600px;">
+    !["A picture of clicking the green Load button on the bottom right of the modal dialog box"](../../img/graphics/2025-01-17_6.32.43_AM.png)
+   
 
 1. You will now be back on the **GraphQL Query editor page**.
-
-    <img alt="A picture of the GraphQL Query editor page" src="../../img/graphics/2025-01-15_7.11.21_AM.png" style="width:600px;">
+    !["A picture of the GraphQL Query editor page"](../../img/graphics/2025-01-15_7.11.21_AM.png)
+   
 
 1. Replace the sample code on the left side of the GraphQL query editor with the following query:
 
@@ -762,15 +762,15 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
     }
     ```
 
-    <img alt="A picture of replacing the sample code on the left side of the GraphQL query editor with the supplied code" src="../../img/graphics/2025-01-17_6.40.03_AM.png" style="width:600px;">
-
+    !["A picture of replacing the sample code on the left side of the GraphQL query editor with the supplied code"](../../img/graphics/2025-01-17_6.40.03_AM.png)
+   
 1. Now, **click the Run button** in the upper left of the GraphQL query editor.
-
-    <img alt="A picture of clicking the Run button in the upper left of the GraphQL query editor" src="../../img/graphics/2025-01-17_6.37.51_AM.png" style="width:600px;">    
+    !["A picture of clicking the Run button in the upper left of the GraphQL query editor"](../../img/graphics/2025-01-17_6.37.51_AM.png)
+     
 
 1. And you can review the response in the **Results** section of the editor
-
-    <img alt="A picture of reviewing the response in the Results section of the editor" src="../../img/graphics/2025-01-17_6.41.24_AM.png" style="width:600px;">
+    !["A picture of reviewing the response in the Results section of the editor"](../../img/graphics/2025-01-17_6.41.24_AM.png)
+    
 
 1. Try it again with the following code and see what answer the chat completion endpoint provides!
 
