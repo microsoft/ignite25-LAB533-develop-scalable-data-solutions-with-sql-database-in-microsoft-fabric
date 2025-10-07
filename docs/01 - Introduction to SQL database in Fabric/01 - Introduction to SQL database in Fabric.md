@@ -1,8 +1,12 @@
 ![](https://raw.githubusercontent.com/microsoft/sqlworkshops/master/graphics/microsoftlogo.png)
 
-# Introduction to SQL database in Microsoft Fabric
+In this Lab, you’ll get hands‑on with the SQL database in Microsoft Fabric. We'll begin by setting up a Fabric SQL database and loading sample data followed by trying out the Copilot-assisted querying (including NL2SQL). From there, you'll learn how to expose your data through APIs, connect seamlessly to applications, analytics and Power BI, and explore building Retrieval-Augmented Generation (RAG) application using SQL database in Microsoft Fabric.
 
-**SQL database** in Microsoft Fabric provides a familiar, fully managed SQL environment within the Fabric ecosystem. It combines the scalability and performance of cloud-native databases with deep integration into Fabric’s analytics and data experiences. Developers, analysts, and business users can all leverage SQL syntax to query, transform, and analyze data alongside other Fabric workloads. It is based on **Azure SQL Database** and uses the same SQL Server engine under the hood.
+ The focus of this lab is to understand how to design, build, and operationalize end-to-end AI-ready applications using SQL database in Fabric as the core data backbone.
+
+# SQL database in Microsoft Fabric
+
+**SQL database** in Microsoft Fabric provides a familiar, fully managed SQL environment within the Fabric ecosystem. It combines the scalability and performance of cloud-native databases with deep integration into Fabric’s analytics and data experiences. Developers, analysts, and business users can all leverage SQL syntax to query, transform, and analyze data alongside other Fabric workloads. 
 
 ### Key benefits of using SQL database in Fabric:
 - Native integration with Fabric’s end-to-end analytics platform (Data Engineering, Data Science, Power BI)
@@ -10,8 +14,7 @@
 - Fully managed – no need to handle infrastructure, backups, or scaling.
 - Secure and governed by Fabric’s centralized workspace and role-based access control.
 - Fast time-to-value – quickly create, load, and query data for analytics and reporting.
-- Set up for analytics by automatically replicating the data into OneLake in near real-time - based on the underlying technology of **Mirroring in Fabric**
-- Connectable in all the same ways as **Azure SQL Database**, plus a **web-based editor in the Fabric portal**
+- Set up for analytics by automatically replicating the data into OneLake in near real-time.
 
 ## Section 1: Getting started
 
@@ -19,7 +22,7 @@ In this section of the lab, you will be logging into the Microsoft Fabric Portal
 
 ### Task 1.1: Login 
 
-Using a web browser of your choice, please navigate to this [Microsoft Fabric link](https://app.fabric.microsoft.com/home).
+Using a web browser of your choice, please navigate to this `https://app.fabric.microsoft.com/home`.
 
 1. Enter your AAD Username `@lab.CloudPortalCredential(User1).Username` in the Email field, then click on the Submit button.
 
@@ -37,8 +40,6 @@ Using a web browser of your choice, please navigate to this [Microsoft Fabric li
 2. Enter a unique Name and hit apply
     ![A picture of the Create a workspace blade on the right side of the page](CreateWorkspace.png) 
     
-
-===
 
 ## Section 2: Creating a SQL database in Microsoft Fabric
 In this section you will create a SQL database and load it with data.
@@ -129,11 +130,6 @@ In this next section, you will be focused on using the Database Explorer and SQL
     You will see the **results** of the query on the **bottom of the query editor**.
     !["A picture of the results of the query on the bottom of the query editor"](ExploreQueryEditorResults.png)
 
-   
-
-### Task 3.2: Mirroring Fabric SQL database to OneLake
-
-Mirroring in Fabric is a low-cost and low-latency solution to bring data from various systems together into a single analytics platform. [Mirroring Fabric SQL database](https://learn.microsoft.com/fabric/database/sql/mirroring-overview) is a feature to continuously replicate data from your operational SQL database in Fabric into the Fabric OneLake. Every SQL database in Microsoft Fabric automatically mirrors its data into Fabric OneLake within the same workspace, with no user action required. Data is being mirrored as soon as it's created or updated. SQL database in Fabric stores its data in .mdf files, just like Azure SQL Database, while mirrored data is stored as Delta files in OneLake.
 
 With the data from your SQL database automatically mirrored in OneLake, you can write cross-database queries, joining data from other SQL databases, mirrored databases, warehouses, and lakehouses. All this is currently possible with using T-SQL queries on the SQL analytics endpoint - a SQL-based experience to analyze OneLake data in Delta tables. Creating a SQL database in Fabric creates a SQL analytics endpoint, which points to the SQL database in Fabric Delta table storage.
 
@@ -163,17 +159,6 @@ With the data from your SQL database automatically mirrored in OneLake, you can 
 
 
 With this, we're wrapping up the hands-on part for this module. 
-
-It's good to know that besides SQL database in Fabric, you can also continuously replicate your existing data estate directly into Fabric's OneLake from a variety of Azure databases and external data sources, such as:
-- [Azure SQL Database](https://learn.microsoft.com/fabric/mirroring/azure-sql-database)
-- [Azure SQL Managed Instance](https://learn.microsoft.com/fabric/mirroring/azure-sql-managed-instance)
-- [Azure Cosmos DB](https://learn.microsoft.com/fabric/mirroring/azure-cosmos-db)
-- [Azure Databricks](https://learn.microsoft.com/fabric/mirroring/azure-databricks)
-- [PostgreSQL](https://learn.microsoft.com/fabric/mirroring/azure-database-postgresql)
-- [Snowflake](https://learn.microsoft.com/fabric/mirroring/snowflake)
-- [SQL Server](https://learn.microsoft.com/fabric/mirroring/sql-server)
-- [Open mirroring](https://learn.microsoft.com/fabric/mirroring/open-mirroring) - enables *any* application to write directly into a mirrored database in Fabric. 
-
 With SQL analytics endpoint you can join your data from different items using a three-part naming convention. This way you can join data from other mirrored databases or warehouses. 
 
 
