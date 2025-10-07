@@ -6,34 +6,25 @@ This demo walks through building a Retrieval-Augmented Generation (RAG) applicat
 You'll learn how to generate and store vector embeddings for relational data, perform semantic similarity searches using SQL's VECTOR_DISTANCE function, and expose the results via a GraphQL API.
 The final step integrates Azure OpenAI Chat Completion to deliver natural language responses, enabling intelligent product recommendations. The demo concludes with a Power BI report powered by Copilot for visualizing SQL data.
 
-# Prerequisites
-
-- Fabric Capacity for SQL Database in fabric, Power BI, and Copilot
-- An Azure OpenAI Service with the gpt-4 and text-embedding-ada-002 model deployed
-
 # Setup of database credential
 
 A database scoped credential is a record in the database that contains authentication information for connecting to a resource outside the database. For this lab, we will be creating one that contains the api key for connecting to Azure OpenAI services.
 
-> **Note:** During this lab, the OpenAI API key and API name will be provided. If you need assistance accessing these details, please reach out to the proctor. Replace ``<your-api-name>`` with the name of your **Azure OpenAI** service and ``<api-key>`` with the **API key** for the Azure OpenAI API.
+> **Note:** During this lab, the OpenAI API key and API name will be provided. If you need assistance accessing these details, please reach out to the proctor. ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service and ``<api-key>`` with the **API key** for the Azure OpenAI API.
 
 Connect to the database and click New SQL Query - Copy the code below and hit run.
 ```SQL
-/*
-    Create database credentials to store API key
 
-    Replace <your-api-name> with the name of your Azure OpenAI service and <api-key> with the API key for the Azure OpenAI API
-*/
 if not exists(select * from sys.symmetric_keys where [name] = '##MS_DatabaseMasterKey##')
 begin
     create master key encryption by password = N'V3RYStr0NGP@ssw0rd!';
 end
 go
-if exists(select * from sys.[database_scoped_credentials] where name = 'https://<your-api-name>.openai.azure.com/')
+if exists(select * from sys.[database_scoped_credentials] where name = 'https://AI_ENDPOINT_SERVERNAME.openai.azure.com/')
 begin
-	drop database scoped credential [https://<your-api-name>.openai.azure.com/];
+	drop database scoped credential [https://AI_ENDPOINT_SERVERNAME.openai.azure.com/];
 end
-create database scoped credential [https://<your-api-name>.openai.azure.com/]
+create database scoped credential [https://AI_ENDPOINT_SERVERNAME.openai.azure.com/]
 with identity = 'HTTPEndpointHeaders', secret = '{"api-key": "<api-key>"}';
 go
 
