@@ -1,0 +1,33 @@
+   {
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+   "openAI_location": {
+      "type": "string"
+    },
+    "azure_open_ai": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 24
+    }    
+  },
+  "variables": {}, 
+  "resources": [
+   {
+      "type": "Microsoft.CognitiveServices/accounts",
+      "apiVersion": "2023-10-01-preview",
+      "name": "[parameters('azure_open_ai')]",
+      "location": "[parameters('openAI_location')]",
+      "sku": {
+        "name": "S0"
+      },
+      "kind": "OpenAI",
+      "properties": {
+        "customSubDomainName": "[parameters('azure_open_ai')]",
+        "networkAcls": {
+          "defaultAction": "Allow"
+        },
+        "publicNetworkAccess": "Enabled"
+      }
+    }]
+}
