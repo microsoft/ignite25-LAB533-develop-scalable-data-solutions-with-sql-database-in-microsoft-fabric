@@ -50,19 +50,16 @@ In this section you will create a SQL database and load it with data.
 
   ![A picture of clicking the New item button on the top right of the page](DB-NewItem.png)
 
-2. In the **New item** blade on the right, use the **Filter by item type search box** to search for **SQL**
+2. In the **New item** blade on the right, use the **Filter by item type search box** to search for **SQL** and select **SQL database (preview)** tile
 !["A picture of entering SQL into the item type search box"](DB-FilterSQL.png)
-
-3. With the New item results filtered down, click on the **SQL database (preview)** tile.
-!["A picture of clicking on the SQL database (preview) tile"](DB-FilterSQLItem.png)
 
 > [!IMPORTANT]
 > There may be a few seconds delay after pressing the **SQL database (preview) tile** and when the **New SQL database modal** appears. Just give it a few seconds if it does not appear immediately. 
 
-4. In the **New SQL database** dialog window, Use a unique name for the database and click the **green Create button**.
+3. In the **New SQL database** dialog window, Use a unique name for the database and click the **green Create button**.
 
 
-5. Once the database is finished creating, you will be taken to SQL database's home page.
+4. Once the database is finished creating, you will be taken to SQL database's home page.
 
 ### Task 2.2: Loading the database with sample data
 
