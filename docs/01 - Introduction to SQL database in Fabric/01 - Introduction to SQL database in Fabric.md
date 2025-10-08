@@ -48,13 +48,13 @@ In this section you will create a SQL database and load it with data.
 
 1. On the Microsoft Fabric Workspace page, click the **New item** button on the top left of the page.
 
-  ![A picture of clicking the New item button on the top right of the page](DB-NewItem.png)
+    ![A picture of clicking the New item button on the top right of the page](DB-NewItem.png)
 
-2. In the **New item** blade on the right, use the **Filter by item type search box** to search for **SQL** and select **SQL database (preview)** tile
-!["A picture of entering SQL into the item type search box"](DB-FilterSQL.png)
+2. In the **New item** blade on the right, use the **Filter by item type search box** to search for **SQL** and select **SQL database ** tile
+    !["A picture of entering SQL into the item type search box"](DB-FilterSQL.png)
 
 > [!IMPORTANT]
-> There may be a few seconds delay after pressing the **SQL database (preview) tile** and when the **New SQL database modal** appears. Just give it a few seconds if it does not appear immediately. 
+> There may be a few seconds delay after pressing the **SQL database tile** and when the **New SQL database dialog** appears.  
 
 3. In the **New SQL database** dialog window, Use a unique name for the database and click the **green Create button**.
 
