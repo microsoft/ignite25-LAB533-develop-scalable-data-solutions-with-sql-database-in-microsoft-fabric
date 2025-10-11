@@ -22,7 +22,7 @@ begin
 end
 go
 if exists(select * from sys.[database_scoped_credentials] where name = 
-`@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]`)
+'@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]')
 begin
 	drop database scoped credential [@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]];
 end
