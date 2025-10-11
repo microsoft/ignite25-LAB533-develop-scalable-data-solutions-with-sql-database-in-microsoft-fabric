@@ -22,12 +22,12 @@ begin
 end
 go
 if exists(select * from sys.[database_scoped_credentials] where name = 
-'@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]')
+@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint])
 begin
 	drop database scoped credential [@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]];
 end
-create database scoped credential [`@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]`]
-with identity = 'HTTPEndpointHeaders', secret = '{"api-key": "`@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIPrimaryKey]`"}';
+create database scoped credential [@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]]
+with identity = 'HTTPEndpointHeaders', secret = '{"api-key": "@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIPrimaryKey]"}';
 go
 
  ```
@@ -47,7 +47,7 @@ Embeddings created and stored in the Azure SQL Database in Microsoft Fabric duri
 
 ```SQL
 
-    declare @url nvarchar(4000) = `@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]`/openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
+    declare @url nvarchar(4000) = '@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
     declare @message nvarchar(max) = 'Hello World!';
     declare @payload nvarchar(max) = N'{"input": "' + @message + '"}';
 
@@ -57,7 +57,7 @@ Embeddings created and stored in the Azure SQL Database in Microsoft Fabric duri
         @url = @url,
         @method = 'POST',
         @payload = @payload,
-        @credential = [`@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]`],
+        @credential = [@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]],
         @timeout = 230,
         @response = @response output;
 
@@ -168,7 +168,7 @@ This next section of the lab will have you alter the Adventure Works product tab
     )
     AS
     BEGIN
-    declare @url varchar(max) = `@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]`/openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
+    declare @url varchar(max) = '@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
     declare @payload nvarchar(max) = json_object('input': @input_text);
     declare @response nvarchar(max);
     declare @retval int;
@@ -178,7 +178,7 @@ This next section of the lab will have you alter the Adventure Works product tab
         exec @retval = sp_invoke_external_rest_endpoint
             @url = @url,
             @method = 'POST',
-            @credential = [`@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]`],
+            @credential = [@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]],
             @payload = @payload,
             @response = @response output;
     end try
