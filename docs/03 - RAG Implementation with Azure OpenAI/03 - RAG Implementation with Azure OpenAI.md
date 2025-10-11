@@ -11,6 +11,7 @@ The final step integrates Azure OpenAI Chat Completion to deliver natural langua
 A database scoped credential is a record in the database that contains authentication information for connecting to a resource outside the database. For this lab, we will be creating one that contains the api key for connecting to Azure OpenAI services.
 
 > **Note:** During this lab, the OpenAI API key and API name will be provided. If you need assistance accessing these details, please reach out to the proctor. ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service and ``<api-key>`` with the **API key** for the Azure OpenAI API.
+`+++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++`
 
 Connect to the database and click New SQL Query - Copy the code below and hit run.
 ```SQL
@@ -20,7 +21,10 @@ begin
     create master key encryption by password = N'V3RYStr0NGP@ssw0rd!';
 end
 go
-if exists(select * from sys.[database_scoped_credentials] where name = 'https:// +++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++.openai.azure.com/')
+if exists(select * from sys.[database_scoped_credentials] where name = 
+`+++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++
+`
+'https://+++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++.openai.azure.com/')
 begin
 	drop database scoped credential [https://+++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++.openai.azure.com/];
 end
