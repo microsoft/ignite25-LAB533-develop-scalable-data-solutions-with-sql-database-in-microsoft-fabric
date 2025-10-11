@@ -20,11 +20,11 @@ begin
     create master key encryption by password = N'V3RYStr0NGP@ssw0rd!';
 end
 go
-if exists(select * from sys.[database_scoped_credentials] where name = 'https://AI_ENDPOINT_SERVERNAME.openai.azure.com/')
+if exists(select * from sys.[database_scoped_credentials] where name = 'https:// +++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++.openai.azure.com/')
 begin
-	drop database scoped credential [https://AI_ENDPOINT_SERVERNAME.openai.azure.com/];
+	drop database scoped credential [https://+++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++.openai.azure.com/];
 end
-create database scoped credential [https://AI_ENDPOINT_SERVERNAME.openai.azure.com/]
+create database scoped credential [https://+++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++.openai.azure.com/]
 with identity = 'HTTPEndpointHeaders', secret = '{"api-key": "<api-key>"}';
 go
 
@@ -45,7 +45,7 @@ Embeddings created and stored in the Azure SQL Database in Microsoft Fabric duri
 
 ```SQL
 
-    declare @url nvarchar(4000) = N'https://AI_ENDPOINT_SERVERNAME.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
+    declare @url nvarchar(4000) = N'https://+++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
     declare @message nvarchar(max) = 'Hello World!';
     declare @payload nvarchar(max) = N'{"input": "' + @message + '"}';
 
@@ -166,7 +166,7 @@ This next section of the lab will have you alter the Adventure Works product tab
     )
     AS
     BEGIN
-    declare @url varchar(max) = 'https://AI_ENDPOINT_SERVERNAME.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
+    declare @url varchar(max) = 'https://+++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
     declare @payload nvarchar(max) = json_object('input': @input_text);
     declare @response nvarchar(max);
     declare @retval int;
@@ -570,7 +570,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
     AS
 
-    declare @url nvarchar(4000) = N'https://AI_ENDPOINT_SERVERNAME.openai.azure.com/openai/deployments/gpt-4.1/chat/completions?api-version=2024-06-01';
+    declare @url nvarchar(4000) = N'https://+++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++.openai.azure.com/openai/deployments/gpt-4.1/chat/completions?api-version=2024-06-01';
     declare @payload nvarchar(max) = N'{
         "messages": [
             {
