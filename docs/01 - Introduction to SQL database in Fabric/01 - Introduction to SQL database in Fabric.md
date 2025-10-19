@@ -78,7 +78,7 @@ In this section you will create a SQL database and load it with data.
 
     !["A picture of a top left toolbar buttons to refresh database explorer, open settings and provide feedback"](Toolbar-1.png)
 
-3. You can open settings database by clicking on cog icon and explore different configurations available here, and also find the connection strings for your app.
+3. You can open settings database by clicking on the Gears icon and explore different configurations available here, and also find the connection strings for your app.
     !["A picture of the opened database settings highlighting connection strings field"]( ToolbarSettings.png)
 
 4. Now click on X in top right corner to close the settings blade and continue observing the ways to insert data and create new T-SQL queries either blank or through templates.
@@ -130,17 +130,17 @@ In this next section, you will be focused on using the Database Explorer and SQL
     !["A picture of the results of the query on the bottom of the query editor"](ExploreQueryEditorResults.png)
 
 
-With the data from your SQL database automatically mirrored in OneLake, you can write cross-database queries, joining data from other SQL databases, mirrored databases, warehouses, and lakehouses. All this is currently possible with using T-SQL queries on the SQL analytics endpoint - a SQL-based experience to analyze OneLake data in Delta tables. Creating a SQL database in Fabric creates a SQL analytics endpoint, which points to the SQL database in Fabric Delta table storage.
+With the data from your SQL database automatically mirrored in OneLake, you can write cross-database queries, joining data from other SQL databases, mirrored databases, warehouses, and lakehouses. All this is currently possible with using T-SQL queries on the SQL analytics endpoint - a SQL-based experience to analyze OneLake data. Creating a SQL database in Fabric automatically creates a SQL analytics endpoint, which points to the rad-only replicated SQL database in Fabric OneLake storage.
 
-1. To access SQL analytics endpoint, you can switch to SQL analytics endpoint mode in SQL database in Database explorer in the top right corner.
+1. To access SQL analytics endpoint, you can switch to SQL analytics endpoint mode in SQL database in Database explorer in the top right corner. If you are unable to select the SQL analytics endpoint, just refresh the browser again.  
 
     !["A picture of drop-down list of SQL database and SQL analytics endpoint available in the top right corner of the Database explorer in the Fabric portal"](MirroringSQLAnalyticsSwitching.png)
 
 
-2. In SQL analytics endpoint lets select a **New SQL query** and execute the following code:
+2. In SQL analytics endpoint lets select a **New SQL query** and Run/execute the following code:
     
     ```
-    select top 100 * from [SalesLT].[Product]
+    SELECT TOP 100 * FROM [SalesLT].[Product]
     ORDER BY [ProductID] DESC;
     ```
 
