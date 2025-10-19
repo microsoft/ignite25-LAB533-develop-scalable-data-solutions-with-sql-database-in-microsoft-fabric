@@ -9,12 +9,12 @@ In this Lab, you’ll get hands‑on with the SQL database in Microsoft Fabric. 
 **SQL database** in Microsoft Fabric provides a familiar, fully managed SQL environment within the Fabric ecosystem. It combines the scalability and performance of cloud-native databases with deep integration into Fabric’s analytics and data experiences. Developers, analysts, and business users can all leverage SQL syntax to query, transform, and analyze data alongside other Fabric workloads. 
 
 ### Key benefits of using SQL database in Fabric:
-- Native integration with Fabric’s end-to-end analytics platform (Data Engineering, Data Science, Power BI)
-- Familiar SQL experience, lowering the barrier for anyone with prior SQL Server or T-SQL knowledge.
 - Fully managed – no need to handle infrastructure, backups, or scaling.
 - Secure and governed by Fabric’s centralized workspace and role-based access control.
-- Fast time-to-value – quickly create, load, and query data for analytics and reporting.
+- Fast time-to-value – quickly create, load, and query data for analytics and reporting with native integration with Fabric’s platform (Data Engineering, Data Science, Power BI)
 - Set up for analytics by automatically replicating the data into OneLake in near real-time.
+- Familiar SQL experience, lowering the barrier for anyone with prior SQL Server or T-SQL knowledge.
+
 
 ## Section 1: Getting started
 
@@ -31,6 +31,8 @@ Using a web browser of your choice, please navigate to this `https://app.fabric.
 3. If prompted with "Stay signed in?" select "Yes" and proceed.
 
 4. If popup "Welcome to the Fabric view" is showed, feel free to close it by selecting 'X' on the top right corner and proceed with the lab content.
+
+5. Known issue: If you get prompted to create an account with job title or business phone number, please reload the page with the URL `https://app.fabric.microsoft.com/home` 
 
 ### Task 1.2: Create the Microsoft Fabric Workspace
 
