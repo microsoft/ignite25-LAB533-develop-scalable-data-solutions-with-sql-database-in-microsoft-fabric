@@ -19,7 +19,7 @@ There're also other capabilities such as **Explain query** and **Fix query error
 4. Copy a T-SQL script below and press **Enter**. 
 
    ```
-      --Create a query to get the product that is selling the most.
+   --Create a query to get the product that is selling the most.
    ```
 
 5. Watch for the loading spinner at the bottom of the editor to track progress, and observe how Copilot’s suggestion appears in the code.
