@@ -31,8 +31,9 @@ Using a web browser of your choice, please navigate to this `https://app.fabric.
 3. If prompted with "Stay signed in?" select "Yes" and proceed.
 
 4. If popup "Welcome to the Fabric view" is showed, feel free to close it by selecting 'X' on the top right corner and proceed with the lab content.
-![IMPORTANT]
-Known issue: If you get prompted to create an account with job title or business phone number, please reload the page with the URL `https://app.fabric.microsoft.com/home` 
+
+> [!IMPORTANT]
+> Known issue: If you get prompted to create an account with job title or business phone number, please reload the page with the URL `https://app.fabric.microsoft.com/home`  
 
 ### Task 1.2: Create the Microsoft Fabric Workspace
 
@@ -119,7 +120,7 @@ this will open a new query editor window that we will use to work directly with 
 5. Copy and paste the following code into the query editor:
 
     ```
-    select top 100 * from [SalesLT].[Product]
+    select * from [SalesLT].[Product]
     ```
 
 6. Once the code is in the query editor, **click the Run button** (or you can use `CTRL + Enter` as a shortcut).
@@ -129,11 +130,11 @@ this will open a new query editor window that we will use to work directly with 
 You will see the **results** of the query on the **bottom of the query editor**.
 !["A picture of the results of the query on the bottom of the query editor"](ExploreQueryEditorResults.png)
 
-Notice there are 100 records in this table.
 
 With the data from your SQL database automatically mirrored in OneLake, you can write cross-database queries, joining data from other SQL databases, mirrored databases, warehouses, and lakehouses. All this is currently possible with using T-SQL queries on the SQL analytics endpoint - a SQL-based experience to analyze OneLake data. Creating a SQL database in Fabric automatically creates a SQL analytics endpoint, which points to the rad-only replicated SQL database in Fabric OneLake storage.
-[!IMPORTANT]
-Note: Please refresh the ** browser ** with ctrl + F5 before you move to next step. 
+
+> [!IMPORTANT]
+> Note: Please refresh the ** browser ** with ctrl + F5 before you move to next step. 
 
 1. To access SQL analytics endpoint, switch to SQL analytics endpoint mode in the top right corner.   
 
@@ -145,10 +146,10 @@ Note: Please refresh the ** browser ** with ctrl + F5 before you move to next st
 Copy the below code and paste it in the SQL query. 
     
     ```
-    SELECT TOP 100 * FROM [SalesLT].[Product]
+    SELECT * FROM [SalesLT].[Product]
     ORDER BY [ProductID] DESC;
     ```
-Click Run button to see the results. Notice that there are 100 records in this table. 
+Click Run button to see the results.  
 
 3. To get back to SQL database select "SQL database" option from the top right dropdown.
 
