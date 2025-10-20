@@ -470,7 +470,7 @@ In the section of the lab, you will create a stored procedure that will be used 
 
 1. In the **New API for GraphQL** dialog box, use the **Name Field** and name the API **find_products_api**.
 
-    +++ find_products_api +++
+    
     !["A picture of using the Name Field and naming the API find_products_api in the New API for GraphQL dialog box"](../../img/graphics/2025-01-17_7.35.03_AM.png)
 
 1. After naming the API, click the **green Create button**.
@@ -488,8 +488,6 @@ In the section of the lab, you will create a stored procedure that will be used 
    
 
     and **enter in find_products_api**.
-
-    +++ find_products_api +++
 
     !["A picture of enter in find_products_api in the search box"](../../img/graphics/2025-01-17_6.26.15_AM.png)
    
