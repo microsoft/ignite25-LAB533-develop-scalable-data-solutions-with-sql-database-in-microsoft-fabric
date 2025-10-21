@@ -4,17 +4,13 @@
 
 This lab walks through building a Retrieval-Augmented Generation (RAG) application using SQL Database in fabric, and Azure OpenAI. 
 You'll learn how to generate and store vector embeddings for relational data, perform semantic similarity searches using SQL's VECTOR_DISTANCE function, and expose the results via a GraphQL API.
-The final step integrates Azure OpenAI Chat Completion to deliver natural language responses, enabling intelligent product recommendations. The demo concludes with a Power BI report powered by Copilot for visualizing SQL data.
+The final step integrates Azure OpenAI Chat Completion to deliver natural language responses, enabling intelligent product recommendations. 
 
 # Setup of database credential
 
 A database scoped credential is a record in the database that contains authentication information for connecting to a resource outside the database. For this lab, we will be creating one that contains the api key for connecting to Azure OpenAI services.
-<!---
-> **Note:** During this lab, the OpenAI API key and API name will be provided. If you need assistance accessing these details, please reach out to the proctor. ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service and ``<api-key>`` with the **API key** for the Azure OpenAI API.
-`+++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++`
---->
 
-Connect to the database and click New SQL Query - Copy the code below and hit run.
+1. Open the database that you created in the first module. Click New SQL Query - Copy/Paste the below code and run the query.
 
 ```SQL-notype
 
@@ -33,19 +29,20 @@ with identity = 'HTTPEndpointHeaders', secret = '{"api-key": "@lab.CloudResource
 go
 
  ```
+ > **Note:** Above code is used to create a database scoped credential with Azure OpenAI endpoint.
+
 # 1. Creating embeddings for relational data
 
 ## Understanding embeddings in Azure OpenAI
 
 An embedding is a special format of data representation that machine learning models and algorithms can easily use. The embedding is an information dense representation of the semantic meaning of a piece of text. Each embedding is a vector of floating-point numbers. Vector embeddings can help with semantic search by capturing the semantic similarity between terms. For example, "cat" and "kitty" have similar meanings, even though they are spelled differently. 
 
-Embeddings created and stored in the Azure SQL Database in Microsoft Fabric during this lab will power a vector similarity search in a chat app you will build.
+Embeddings created and stored in the SQL database in Microsoft Fabric during this module will power a vector similarity search in a chat app you will build.
 
 ## The Azure OpenAI embeddings endpoint
 
-1. Using an empty query sheet in Microsoft Fabric, copy and paste the following code. This code calls an Azure OpenAI embeddings endpoint. The result will be a JSON array of vectors.
+1. Click on a New Query. Copy and paste the following code in new query sheet. This code calls an Azure OpenAI embeddings endpoint. The result will be a JSON array of vectors.
 
-<!--- > **Note:** Replace ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service. --->
 
 ```SQL-notype
 
@@ -143,7 +140,7 @@ Embeddings created and stored in the Azure SQL Database in Microsoft Fabric duri
 
 ## Preparing the database and creating embeddings
 
-This next section of the lab will have you alter the Adventure Works product table to add a new vector datatype column. You will then use a stored procedure to create embeddings for the products and store the vector arrays in that column.
+This next section of the lab will have you alter the  product table to add a new vector datatype column. You will then use a stored procedure to create embeddings for the products and store the vector arrays in that column.
 
 1. In a new query sheet or an existing bank one in VS Code, copy and paste the following T-SQL:
 
@@ -386,4 +383,4 @@ You will be using this function in some upcoming samples as well as in the RAG c
     | HL Mountain Seat/Saddle | HL Mountain Seat/Saddle No Color Saddles HL Mountain Seat/Saddle 2 Anatomic design for a full-day of riding in comfort. Durable leather. | 0.18931317298732764 |
     !["A picture of running Query 3 and getting results outlined in the Query 3 results table"](../../img/graphics/2025-01-15_6.38.06_AM.png)
 
-In this demo, you learned how to build a RAG application using SQL database in fabric, and Azure OpenAI. You explored generating vector embeddings for relational data, performing semantic similarity searches with SQL, and integrating natural language responses via GPT-4.1.
+In this module, you learned how to build a RAG application using SQL database in fabric, and Azure OpenAI. You explored generating vector embeddings for relational data, performing semantic similarity searches with SQL, and integrating natural language responses via GPT-4.1.
