@@ -15,9 +15,9 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
 
 2. Copy below prompt, paste it in the query editor and press **Enter**. 
 
-   ```
-   --Create a query to get the product that is selling the most.
-   ```
+```
+--Create a query to get the product that is selling the most
+```
 
 3. Watch for the loading spinner at the bottom of the editor to track progress, and observe how code suggestion appear in the query editor.
  

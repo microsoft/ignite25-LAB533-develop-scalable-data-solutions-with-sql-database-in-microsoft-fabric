@@ -15,7 +15,8 @@ A database scoped credential is a record in the database that contains authentic
 --->
 
 Connect to the database and click New SQL Query - Copy the code below and hit run.
-```SQL
+
+```SQL-notype
 
 if not exists(select * from sys.symmetric_keys where [name] = '##MS_DatabaseMasterKey##')
 begin
