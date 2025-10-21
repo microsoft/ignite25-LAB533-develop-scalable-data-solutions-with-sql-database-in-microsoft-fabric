@@ -142,9 +142,8 @@ With the data from your SQL database automatically mirrored in OneLake, you can 
 
 
 2. In SQL analytics endpoint select a **New SQL query** 
+Copy the below code and paste it in the SQL query.
 
-Copy the below code and paste it in the SQL query. 
-    
     ```
     SELECT * FROM [SalesLT].[Product]
     ORDER BY [ProductID] DESC;
