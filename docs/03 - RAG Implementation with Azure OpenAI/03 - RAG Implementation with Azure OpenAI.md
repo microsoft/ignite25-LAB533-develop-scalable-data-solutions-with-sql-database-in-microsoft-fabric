@@ -78,7 +78,7 @@ Embeddings created and stored in the Azure SQL Database in Microsoft Fabric duri
     >
     > **This code is for reference only** 
 
-    ```JSON-nocopy
+    ```JSON-nocopy-notype
     {
         "response": {
             "status": {
