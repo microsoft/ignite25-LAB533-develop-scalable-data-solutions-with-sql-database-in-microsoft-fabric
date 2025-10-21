@@ -141,12 +141,10 @@ With the data from your SQL database automatically mirrored in OneLake, you can 
 !["A picture of drop-down list of SQL database and SQL analytics endpoint available in the top right corner of the Database explorer in the Fabric portal"](MirroringSQLAnalyticsSwitching.png)
 
 
-2. In SQL analytics endpoint select a **New SQL query** 
-Copy the below code and paste it in the SQL query.
+2. In SQL analytics endpoint select a **New SQL query**. Copy and paste the following code into the query editor:
 
     ```
-    SELECT * FROM [SalesLT].[Product]
-    ORDER BY [ProductID] DESC;
+    select * from [SalesLT].[Product]
     ```
 Click **Run** button to see the results.  
 
