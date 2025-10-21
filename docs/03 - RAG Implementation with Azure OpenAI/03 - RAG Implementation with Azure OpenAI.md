@@ -46,7 +46,7 @@ Embeddings created and stored in the Azure SQL Database in Microsoft Fabric duri
 
 <!--- > **Note:** Replace ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service. --->
 
-```SQL
+```SQL-notype
 
     declare @url nvarchar(4000) = '@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
     declare @message nvarchar(max) = 'Hello World!';
@@ -146,7 +146,7 @@ This next section of the lab will have you alter the Adventure Works product tab
 
 1. In a new query sheet or an existing bank one in VS Code, copy and paste the following T-SQL:
 
-    ```SQL
+    ```SQL-notype
     alter table [SalesLT].[Product]
     add  embeddings VECTOR(1536), chunk nvarchar(2000);
     ```
@@ -160,7 +160,7 @@ This next section of the lab will have you alter the Adventure Works product tab
 
 <!--- > **Note:** Replace ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service. --->
  
- ```SQL
+ ```SQL-notype
 
     create or alter procedure dbo.create_embeddings
     (
@@ -215,7 +215,7 @@ This next section of the lab will have you alter the Adventure Works product tab
     >
     > **This code is for reference only** 
 	
-	```SQL-nocopy
+	```SQL-nocopy-notype
 	SELECT p.Name + ' '+ ISNULL(p.Color,'No Color') + ' '+  c.Name + ' '+  m.Name + ' '+  ISNULL(d.Description,'')
 	FROM 
 		[SalesLT].[ProductCategory] c,
@@ -239,7 +239,7 @@ This next section of the lab will have you alter the Adventure Works product tab
     >
     > **This code will take 30 to 60 seconds to run** 
 
-    ```SQL
+    ```SQL-notype
     SET NOCOUNT ON
     DROP TABLE IF EXISTS #MYTEMP 
     DECLARE @ProductID int
@@ -271,7 +271,7 @@ This next section of the lab will have you alter the Adventure Works product tab
 
 1. To ensure all the embeddings were created, run the following code in a blank query editor in Microsoft Fabric: 
 
-    ```SQL
+    ```SQL-notype
     select count(*) from SalesLT.Product where embeddings is null;
     ```
 
@@ -279,7 +279,7 @@ This next section of the lab will have you alter the Adventure Works product tab
 
 1. Run the next query in a blank query editor in Microsoft Fabric to see the results of the above update to the Products table:
 
-    ```SQL
+    ```SQL-notype
     select top 10 chunk, embeddings from SalesLT.Product
     ```
 
@@ -297,7 +297,7 @@ The VECTOR_DISTANCE function is a new feature of the SQL Database in fabric that
 
 The syntax is as follows:
 
-```SQL-nocopy
+```SQL-nocopy-notype
 VECTOR_DISTANCE ( distance_metric, vector1, vector2 )
 ```
 
@@ -307,7 +307,7 @@ You will be using this function in some upcoming samples as well as in the RAG c
 
     ###### Query 1
 
-    ```SQL
+    ```SQL-notype
     declare @search_text nvarchar(max) = 'I am looking for a red bike and I dont want to spend a lot'
     declare @search_vector vector(1536)
     exec dbo.create_embeddings @search_text, @search_vector output;
@@ -334,7 +334,7 @@ You will be using this function in some upcoming samples as well as in the RAG c
 
     ###### Query 2
 
-    ```SQL
+    ```SQL-notype
     declare @search_text nvarchar(max) = 'I am looking for a safe helmet that does not weigh much'
     declare @search_vector vector(1536)
     exec dbo.create_embeddings @search_text, @search_vector output;
@@ -362,7 +362,7 @@ You will be using this function in some upcoming samples as well as in the RAG c
 
     ###### Query 3
 
-    ```SQL
+    ```SQL-notype
     declare @search_text nvarchar(max) = 'Do you sell any padded seats that are good on trails?'
     declare @search_vector vector(1536)
     exec dbo.create_embeddings @search_text, @search_vector output;
@@ -395,7 +395,7 @@ In the section of the lab, you will create a stored procedure that will be used 
 
 1. Run the following SQL in a blank query editor in Microsoft Fabric:
 
-    ```SQL
+    ```SQL-notype
     create or alter procedure [dbo].[find_products]
     @text nvarchar(max),
     @top int = 10,
@@ -437,7 +437,7 @@ In the section of the lab, you will create a stored procedure that will be used 
 
     Run the following SQL in a blank query editor in Microsoft Fabric:  
 
-    ```SQL
+    ```SQL-notype
     create or alter procedure [find_products_api]
         @text nvarchar(max)
         as 
@@ -460,7 +460,7 @@ In the section of the lab, you will create a stored procedure that will be used 
 
 1. You can test this newly created procedure to see how it will interact with the GraphQL API by running the following SQL in a blank query editor in Microsoft Fabric:
 
-    ```SQL
+    ```SQL-notype
     exec find_products_api 'I am looking for a red bike'
     ```
     !["A picture of running the find_products_api stored procedure"](../../img/graphics/2025-01-14_6.57.09_AM.png)
@@ -509,7 +509,7 @@ In the section of the lab, you will create a stored procedure that will be used 
 
 1. Replace the sample code on the left side of the GraphQL query editor with the following query:
 
-    ```graphql
+    ```graphql-notype
     query {
         executefind_products_api(text: "I am looking for a red bike") {
                 product_name
@@ -563,7 +563,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 <!--- > **Note:** Replace ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service. --->
 
 
-```SQL
+```SQL-notype
     CREATE OR ALTER PROCEDURE [dbo].[prompt_answer]
     @user_question nvarchar(max),
     @products nvarchar(max),
@@ -627,7 +627,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 1. Copy and run the following SQL in a blank query editor in Microsoft Fabric:
 
 
-    ```SQL
+    ```SQL-notype
     create or alter procedure [dbo].[find_products_chat]
     @text nvarchar(max),
     @top int = 3,
@@ -683,7 +683,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 1. The last step before we can create a new GraphQL endpoint is to wrap the new find products stored procedure. Copy and run the following SQL in a blank query editor in Microsoft Fabric:
 
 
-    ```SQL
+    ```SQL-notype
     create or alter procedure [find_products_chat_api]
         @text nvarchar(max)
         as 
@@ -699,7 +699,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
 1. You can test this new  procedure to see how Azure OpenAI will answer a question with product data by running the following SQL in a blank query editor in Microsoft Fabric:
 
-    ```SQL
+    ```SQL-notype
     exec find_products_chat_api 'I am looking for a red bike'
     ```
 
@@ -746,7 +746,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
 1. Replace the sample code on the left side of the GraphQL query editor with the following query:
 
-    ```graphql
+    ```graphql-notype
     query {
         executefind_products_chat_api(text: "I am looking for padded seats that are good on trails") {
                 answer
@@ -766,7 +766,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
 1. Try it again with the following code and see what answer the chat completion endpoint provides!
 
-    ```graphql
+    ```graphql-notype
     query {
         executefind_products_chat_api(text: "Do you have any racing shorts?") {
                 answer
