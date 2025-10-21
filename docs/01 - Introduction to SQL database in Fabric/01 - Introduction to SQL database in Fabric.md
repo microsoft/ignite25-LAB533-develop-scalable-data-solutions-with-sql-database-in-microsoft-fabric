@@ -53,7 +53,7 @@ In this section you will create a SQL database and load it with data.
 
 ![A picture of clicking the New item button on the top right of the page](DB-NewItem.png)
 
-2. In the **New item** blade on the right, use the **Filter by item type search box** to search for **SQL** and select **SQL database ** tile
+2. In the **New item** blade on the right, use the **Filter by item type search box** to search for **SQL data** and select **SQL database ** tile
 !["A picture of entering SQL into the item type search box"](DB-FilterSQL.png)
 
 > [!IMPORTANT]
@@ -86,7 +86,7 @@ While we're waiting for the data to be loaded, let's explore SQL database editor
 4. Now click on X in top right corner to close the settings blade and continue observing the ways to insert data and create new T-SQL queries either blank or through templates.
 !["A picture of the opened database settings highlighting connection strings field"](Toolbar-3.png)
 
-5. Next one provides a smooth way to connect directly to your database through the connection wizard from the tool of your choice (SSMS or VSCode) - first click on ** Open in ** dropdown and then choose the tool. You won't be connecting to the database just yet, so close the settings blade for now by clicking on 'X'.
+5. Next one provides a smooth way to connect directly to your database through the connection wizard from the tool of your choice (SSMS or VSCode) - first click on **Open in** dropdown and then choose the tool. You won't be connecting to the database just yet, so close the settings blade for now by clicking on 'X'.
 !["A picture of the opened SSMS connection wizard from Fabric Portal after clicking on 'SSMS' option in 'Open in' dropdown."](Toolbar-4.png)
 
 6. Last three options in the toolbar are used for creating new GraphQL API for your Fabric SQL database, opening database performance dashboard in Fabric portal and Copilot on the right side. We'll explore these later during the lab in more details.
@@ -131,7 +131,7 @@ You will see the **results** of the query on the **bottom of the query editor**.
 !["A picture of the results of the query on the bottom of the query editor"](ExploreQueryEditorResults.png)
 
 
-With the data from your SQL database automatically mirrored in OneLake, you can write cross-database queries, joining data from other SQL databases, mirrored databases, warehouses, and lakehouses. All this is currently possible with using T-SQL queries on the SQL analytics endpoint - a SQL-based experience to analyze OneLake data. Creating a SQL database in Fabric automatically creates a SQL analytics endpoint, which points to the rad-only replicated SQL database in Fabric OneLake storage.
+With the data from your SQL database automatically mirrored in OneLake, you can write cross-database queries, joining data from other SQL databases, mirrored databases, warehouses, and lakehouses. All this is currently possible with using T-SQL queries on the SQL analytics endpoint - a SQL-based experience to analyze OneLake data. Creating a SQL database in Fabric automatically creates a SQL analytics endpoint, which points to the read-only replicated SQL database in Fabric OneLake storage.
 
 > [!IMPORTANT]
 > Note: Please refresh the **browser** with ctrl + F5 before you move to next step. 
@@ -149,12 +149,12 @@ Copy the below code and paste it in the SQL query.
     SELECT * FROM [SalesLT].[Product]
     ORDER BY [ProductID] DESC;
     ```
-Click Run button to see the results.  
+Click **Run** button to see the results.  
 
-3. To get back to SQL database select "SQL database" option from the top right dropdown.
+3. To get back to SQL database select **"SQL database"** option from the top right dropdown.
 
  
-4. Database replication to onelake can be monitored from the replication status of your database. Click _Replication_ tab on top left corner and select _Monitor replication_.
+4. Database replication to onelake can be monitored from the replication status of your database. Click **Replication** tab on top left corner and select **Monitor replication**.
 
 !["A picture of finding the Replication and then Monitor replication buttons in the menu in the Fabric SQL database portal."](MonitorReplication.png)
 
@@ -162,8 +162,6 @@ Click Run button to see the results.
 !["A picture of database mirroring/replication monitoring blade on the right side."](MonitorTables.png)
  
 With this, we're wrapping up the hands-on part for this module. 
-With SQL analytics endpoint you can join your data from different items using a three-part naming convention. This way you can join data from other mirrored databases or warehouses. 
-
 
 ## What's next
 Congratulations! You have learnt the basics of SQL database in Microsoft Fabric. You are now ready to move on to the next exercise:
