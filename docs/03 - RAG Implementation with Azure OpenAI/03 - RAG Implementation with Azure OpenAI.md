@@ -48,11 +48,11 @@ Embeddings created and stored in the Azure SQL Database in Microsoft Fabric duri
 
 ```SQL-notype
 
-    declare @url nvarchar(4000) = '@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
-    declare @message nvarchar(max) = 'Hello World!';
-    declare @payload nvarchar(max) = N'{"input": "' + @message + '"}';
+    DECLARE @url nvarchar(4000) = '@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
+    DECLARE @message nvarchar(max) = 'Hello World!';
+    DECLARE @payload nvarchar(max) = N'{"input": "' + @message + '"}';
 
-    declare @ret int, @response nvarchar(max);
+    DECLARE @ret int, @response nvarchar(max);
 
     exec @ret = sp_invoke_external_rest_endpoint 
         @url = @url,
@@ -169,10 +169,10 @@ This next section of the lab will have you alter the Adventure Works product tab
     )
     AS
     BEGIN
-    declare @url varchar(max) = '@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
-    declare @payload nvarchar(max) = json_object('input': @input_text);
-    declare @response nvarchar(max);
-    declare @retval int;
+    DECLARE @url varchar(max) = '@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
+    DECLARE @payload nvarchar(max) = json_object('input': @input_text);
+    DECLARE @response nvarchar(max);
+    DECLARE @retval int;
 
     -- Call to Azure OpenAI to get the embedding of the search text
     begin try
@@ -199,7 +199,7 @@ This next section of the lab will have you alter the Adventure Works product tab
         return;
     end
     -- Parse the embedding returned by Azure OpenAI
-    declare @json_embedding nvarchar(max) = json_query(@response, '$.result.data[0].embedding');
+    DECLARE @json_embedding nvarchar(max) = json_query(@response, '$.result.data[0].embedding');
 
     -- Convert the JSON array to a vector and set return parameter
     set @embedding = CAST(@json_embedding AS VECTOR(1536));
@@ -243,8 +243,8 @@ This next section of the lab will have you alter the Adventure Works product tab
     SET NOCOUNT ON
     DROP TABLE IF EXISTS #MYTEMP 
     DECLARE @ProductID int
-    declare @text nvarchar(max);
-    declare @vector vector(1536);
+    DECLARE @text nvarchar(max);
+    DECLARE @vector vector(1536);
     SELECT * INTO #MYTEMP FROM [SalesLT].Product
     SELECT @ProductID = ProductID FROM #MYTEMP
     SELECT TOP(1) @ProductID = ProductID FROM #MYTEMP
@@ -308,8 +308,8 @@ You will be using this function in some upcoming samples as well as in the RAG c
     ###### Query 1
 
     ```SQL-notype
-    declare @search_text nvarchar(max) = 'I am looking for a red bike and I dont want to spend a lot'
-    declare @search_vector vector(1536)
+    DECLARE @search_text nvarchar(max) = 'I am looking for a red bike and I dont want to spend a lot'
+    DECLARE @search_vector vector(1536)
     exec dbo.create_embeddings @search_text, @search_vector output;
     SELECT TOP(4) 
     p.ProductID, p.Name , p.chunk,
@@ -335,8 +335,8 @@ You will be using this function in some upcoming samples as well as in the RAG c
     ###### Query 2
 
     ```SQL-notype
-    declare @search_text nvarchar(max) = 'I am looking for a safe helmet that does not weigh much'
-    declare @search_vector vector(1536)
+    DECLARE @search_text nvarchar(max) = 'I am looking for a safe helmet that does not weigh much'
+    DECLARE @search_vector vector(1536)
     exec dbo.create_embeddings @search_text, @search_vector output;
     SELECT TOP(4) 
     p.ProductID, p.Name , p.chunk,
@@ -363,8 +363,8 @@ You will be using this function in some upcoming samples as well as in the RAG c
     ###### Query 3
 
     ```SQL-notype
-    declare @search_text nvarchar(max) = 'Do you sell any padded seats that are good on trails?'
-    declare @search_vector vector(1536)
+    DECLARE @search_text nvarchar(max) = 'Do you sell any padded seats that are good on trails?'
+    DECLARE @search_vector vector(1536)
     exec dbo.create_embeddings @search_text, @search_vector output;
     SELECT TOP(4) 
     p.ProductID, p.Name , p.chunk,
@@ -402,7 +402,7 @@ In the section of the lab, you will create a stored procedure that will be used 
     @min_similarity decimal(19,16) = 0.80
     as
     if (@text is null) return;
-    declare @retval int, @qv vector(1536);
+    DECLARE @retval int, @qv vector(1536);
     exec @retval = dbo.create_embeddings @text, @qv output;
     if (@retval != 0) return;
     with vector_results as (
@@ -571,8 +571,8 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
     AS
 
-    declare @url nvarchar(4000) = N'`@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]`/openai/deployments/gpt-4.1/chat/completions?api-version=2024-06-01';
-    declare @payload nvarchar(max) = N'{
+    DECLARE @url nvarchar(4000) = N'`@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]`/openai/deployments/gpt-4.1/chat/completions?api-version=2024-06-01';
+    DECLARE @payload nvarchar(max) = N'{
         "messages": [
             {
                 "role": "system",
@@ -589,7 +589,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
         ]
     }';
 
-    declare @ret int, @response nvarchar(max);
+    DECLARE @ret int, @response nvarchar(max);
 
     exec @ret = sp_invoke_external_rest_endpoint
         @url = @url,
@@ -634,7 +634,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
     @min_similarity decimal(19,16) = 0.70
     as
     if (@text is null) return;
-    declare @retval int, @qv vector(1536), @products_json nvarchar(max), @answer nvarchar(max);
+    DECLARE @retval int, @qv vector(1536), @products_json nvarchar(max), @answer nvarchar(max);
     exec @retval = dbo.create_embeddings @text, @qv output;
     if (@retval != 0) return;
     with vector_results as (
