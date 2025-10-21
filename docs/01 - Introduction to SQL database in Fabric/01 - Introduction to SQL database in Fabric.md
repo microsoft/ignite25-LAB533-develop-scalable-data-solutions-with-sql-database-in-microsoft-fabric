@@ -120,7 +120,7 @@ this will open a new query editor window that we will use to work directly with 
 5. Copy and paste the following code into the query editor:
 
     ```
-    select * from [SalesLT].[Product]
+    SELECT * FROM [SalesLT].[Product]
     ```
 
 6. Once the code is in the query editor, **click the Run button** (or you can use `CTRL + Enter` as a shortcut).
@@ -144,7 +144,7 @@ With the data from your SQL database automatically mirrored in OneLake, you can 
 2. In SQL analytics endpoint select a **New SQL query**. Copy and paste the following code into the query editor:
 
     ```
-    select * from [SalesLT].[Product]
+    SELECT * FROM [SalesLT].[Product]
     ```
 Click **Run** button to see the results.  
 
