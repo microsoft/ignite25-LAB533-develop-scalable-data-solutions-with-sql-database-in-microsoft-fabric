@@ -9,9 +9,10 @@ The final step integrates Azure OpenAI Chat Completion to deliver natural langua
 # Setup of database credential
 
 A database scoped credential is a record in the database that contains authentication information for connecting to a resource outside the database. For this lab, we will be creating one that contains the api key for connecting to Azure OpenAI services.
-
+<!---
 > **Note:** During this lab, the OpenAI API key and API name will be provided. If you need assistance accessing these details, please reach out to the proctor. ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service and ``<api-key>`` with the **API key** for the Azure OpenAI API.
 `+++@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]+++`
+--->
 
 Connect to the database and click New SQL Query - Copy the code below and hit run.
 ```SQL
@@ -43,7 +44,7 @@ Embeddings created and stored in the Azure SQL Database in Microsoft Fabric duri
 
 1. Using an empty query sheet in Microsoft Fabric, copy and paste the following code. This code calls an Azure OpenAI embeddings endpoint. The result will be a JSON array of vectors.
 
-> **Note:** Replace ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service.
+<!--- > **Note:** Replace ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service. --->
 
 ```SQL
 
@@ -157,7 +158,7 @@ This next section of the lab will have you alter the Adventure Works product tab
 
 1. Next, you are going to use the External REST Endpoint Invocation procedure (sp_invoke_external_rest_endpoint) to create a stored procedure that will create embeddings for text we supply as an input. Copy and paste the following code into a blank query editor in Microsoft Fabric:
 
-> **Note:** Replace ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service.
+<!--- > **Note:** Replace ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service. --->
  
  ```SQL
 
@@ -213,22 +214,22 @@ This next section of the lab will have you alter the Adventure Works product tab
     > [!TIP]
     >
     > **This code is for reference only** 
+	
+	```SQL-nocopy
+	SELECT p.Name + ' '+ ISNULL(p.Color,'No Color') + ' '+  c.Name + ' '+  m.Name + ' '+  ISNULL(d.Description,'')
+	FROM 
+		[SalesLT].[ProductCategory] c,
+		[SalesLT].[ProductModel] m,
+		[SalesLT].[Product] p
+		LEFT OUTER JOIN
+		[SalesLT].[vProductAndDescription] d
+			on p.ProductID = d.ProductID
+			and d.Culture = 'en'
+	where p.ProductCategoryID = c.ProductCategoryID
+	and p.ProductModelID = m.ProductModelID
+	and p.ProductID = @ProductID
+	```
 
-    ```SQL-nocopy
-    SELECT p.Name + ' '+ ISNULL(p.Color,'No Color') + ' '+  c.Name + ' '+  m.Name + ' '+  ISNULL(d.Description,'')
-    FROM 
-        [SalesLT].[ProductCategory] c,
-        [SalesLT].[ProductModel] m,
-        [SalesLT].[Product] p
-        LEFT OUTER JOIN
-        [SalesLT].[vProductAndDescription] d
-            on p.ProductID = d.ProductID
-            and d.Culture = 'en'
-    where p.ProductCategoryID = c.ProductCategoryID
-    and p.ProductModelID = m.ProductModelID
-    and p.ProductID = @ProductID
-    ```
-    
     Looking_the SQL, the text we are embedding contains the product name, product color (if available), the category name the product belongs to, the model name of the product, and the description of the product.
 
 
@@ -559,7 +560,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
     Copy and run the following SQL in a blank query editor in Microsoft Fabric:
 
-> **Note:** Replace ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service.
+<!--- > **Note:** Replace ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service. --->
 
 
 ```SQL
