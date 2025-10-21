@@ -10,7 +10,7 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
 ### Task 1.1: Using Copilot within the query editor
 
 
-1. select the **New Query** button on the tool bar as you did in previous module.
+1. Select the **New Query** button on the tool bar as you did in previous module.
     
 
 2. Copy below prompt, paste it in the query editor and press **Enter**. 
@@ -68,7 +68,7 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
 
 ## Section 2: Using Copilot Chat Pane
 
-### Task 2.1: Chat Pane : Natural Language to SQL
+### Task 2.1: Chat Pane - Natural Language to SQL
 
 1. First open the new query or clear the previous one to have a blank query editor. Next, select the **Copilot** option.
 
@@ -133,7 +133,8 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
 
 
 ## What's next
-Congratulations! You have learnt how to leverage **Copilot for SQL database in Microsoft Fabric** to enhance your **query-writing** experience. With these skills, you are now better equipped to write and execute SQL queries faster and troubleshoot errors effectively using Copilot. You are ready to move on to the next exercise: 
- You're now ready to move on to the next exercise where you'll explore how vector embeddings and Retrieval-Augmented Generation (RAG) can be leveraged to generate intelligent product recommendations: RAG Implementation with Azure OpenAI
+Congratulations! You have learnt how to leverage **Copilot for SQL database in Microsoft Fabric** to enhance your **query-writing** experience. With these skills, you are now better equipped to write and execute SQL queries faster and troubleshoot errors effectively using Copilot. 
+ 
+ In the next exercise we will explore how vector embeddings and Retrieval-Augmented Generation (RAG) can be leveraged to generate intelligent product recommendations.
 
 
