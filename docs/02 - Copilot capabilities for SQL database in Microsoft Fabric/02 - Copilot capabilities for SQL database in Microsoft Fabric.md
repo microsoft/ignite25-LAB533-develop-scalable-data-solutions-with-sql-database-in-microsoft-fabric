@@ -2,13 +2,10 @@
 
 # Copilot capabilities for SQL database in Microsoft Fabric
 In this exercise, you will use **Copilot** to assist with T-SQL queries, including **auto-suggestions**, **fixing error**, and **natural language query** to increase developer efficiency and analyze your data!
-There're two ways how to utilize Copilot:
-- Inline in the query editor
-- By opening a Copilot chat
 
 ## Section 1: Using Copilot within the query editor
 In the **Query Editor** you can use T-SQL comments as a way to write Copilot prompts. After finishing a prompt press **Enter** or **Space** and Copilot will process your request and suggest SQL code to complete your query. 
-There're also other capabilities such as **Explain query** and **Fix query errors**. Let's dive in.
+
 
 ### Task 1.1: Using Copilot within the query editor
 
@@ -16,13 +13,13 @@ There're also other capabilities such as **Explain query** and **Fix query error
 1. select the **New Query** button on the tool bar as you did in previous module.
     
 
-4. Copy below prompt, paste it in the query editor and press **Enter**. 
+2. Copy below prompt, paste it in the query editor and press **Enter**. 
 
    ```
    --Create a query to get the product that is selling the most.
    ```
 
-5. Watch for the loading spinner at the bottom of the editor to track progress, and observe how Copilot’s suggestion appears in the code.
+3. Watch for the loading spinner at the bottom of the editor to track progress, and observe how code suggestion appear in the query editor.
  
    > **Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
 
@@ -37,9 +34,9 @@ There're also other capabilities such as **Explain query** and **Fix query error
    ORDER BY TotalSold DESC;
    ``` 
 
-6. Press the **Tab** key on your keyboard to accept the suggestion or continue typing to ignore it.
+4. Press the **Tab** key on your keyboard to accept the suggestion or continue typing to ignore it.
 
-7. Select the query and click on the **Run** icon (or use keyboard shortcut `Ctrl + Enter` or `Shift + Enter`)
+5. Select the query and click on the **Run** icon (or use keyboard shortcut `Ctrl + Enter` or `Shift + Enter`)
 
 ### Task 1.2: Copilot Quick Actions within the Query Editor
 
@@ -67,7 +64,7 @@ There're also other capabilities such as **Explain query** and **Fix query error
   >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
 
 4. Aside from fixing the query errors, Copilot can also explain a query to you. Select **Explain query** and Copilot will add comments to your query explaining parts of the query.
-   !["A picture of a demonstrating steps to select Explain query and then showing the inline comments in the query editor."]("../../img/graphics/Copilot/ExplainQuery.png" style="width:1200px;")
+   !["A picture of a demonstrating steps to select Explain query and then showing the inline comments in the query editor."](../../img/graphics/Copilot/ExplainQuery.png)
 
 ## Section 2: Using Copilot Chat Pane
 
@@ -86,12 +83,12 @@ There're also other capabilities such as **Explain query** and **Fix query error
    ```
    Write me a query that will return the most sold product.
    ```
-   !["A picture of Copilot chat pane opened with written query above."]("../../img/graphics/Copilot/ChatPaneQuery.png")
+   !["A picture of Copilot chat pane opened with written query above."](../../img/graphics/Copilot/ChatPaneQuery.png)
 
 4. Read the answer now and select the **Insert** button to input code into the Query Editor.
 
    >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
-   ![]("../../img/graphics/Copilot/InsertQuery.png")
+   ![](../../img/graphics/Copilot/InsertQuery.png)
 
 5. Select the query that was inserted by **Copilot**, click on the **Run** icon and check the **Results**. 
    >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
@@ -114,10 +111,8 @@ There're also other capabilities such as **Explain query** and **Fix query error
 ### Task 2.3: Chat Pane: Write (with approval)
 
 1. Copilot is also able to write and execute queries on top of your database (with approval). You can choose which type of Copilot you want to use from the dropdown.
-
-   <img alt="A picture of a choosing modes in Copilot." src="../../img/graphics/Copilot/WriteWithApproval.png" style="width:400px;">
-
-
+   !["A picture of a choosing modes in Copilot."](../../img/graphics/Copilot/WriteWithApproval.png)
+   
 2. Paste the following question in the **Copilot** chat box and click on **Send** button.
    ```
    Create a view in the SalesLT schema using this query and execute it.
