@@ -26,7 +26,7 @@ Using a web browser of your choice, please navigate to this `https://app.fabric.
 
 1. Enter your AAD Username `@lab.CloudPortalCredential(User1).Username` in the Email field, then click on the Submit button.
 
-2. Enter your password `@lab.CloudPortalCredential(User1).Password` and click on the Sign in button. 
+2. Enter your password `@lab.CloudPortalCredential(User1).AccessToken` and click on the Sign in button. 
 
 3. If prompted with "Stay signed in?" select "Yes" and proceed.
 

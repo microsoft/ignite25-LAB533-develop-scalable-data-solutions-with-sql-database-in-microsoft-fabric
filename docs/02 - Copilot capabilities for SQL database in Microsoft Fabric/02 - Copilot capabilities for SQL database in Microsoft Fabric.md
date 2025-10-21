@@ -16,7 +16,7 @@ There're also other capabilities such as **Explain query** and **Fix query error
 1. select the **New Query** button on the tool bar as you did in previous module.
     
 
-4. Copy a T-SQL script below and press **Enter**. 
+4. Copy below prompt, paste it in the query editor and press **Enter**. 
 
    ```
    --Create a query to get the product that is selling the most.
