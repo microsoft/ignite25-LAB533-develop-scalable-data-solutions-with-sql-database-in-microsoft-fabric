@@ -132,9 +132,8 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
    ![](../../img/graphics/copilot-7.png)
 
 
-## What's next
 Congratulations! You have learnt how to leverage **Copilot for SQL database in Microsoft Fabric** to enhance your **query-writing** experience. With these skills, you are now better equipped to write and execute SQL queries faster and troubleshoot errors effectively using Copilot. 
  
- In the next exercise we will explore how vector embeddings and Retrieval-Augmented Generation (RAG) can be leveraged to generate intelligent product recommendations.
+In the next module we will explore how vector embeddings and Retrieval-Augmented Generation (RAG) can be leveraged to generate intelligent product recommendations.
 
 
