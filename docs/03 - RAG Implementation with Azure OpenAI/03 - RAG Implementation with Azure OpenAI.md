@@ -3,14 +3,15 @@
 # Build an AI Application using RAG with SQL Database in Fabric​
 
 This lab walks through building a Retrieval-Augmented Generation (RAG) application using SQL Database in fabric, and Azure OpenAI. 
-You'll learn how to generate and store vector embeddings for relational data, perform semantic similarity searches using SQL's VECTOR_DISTANCE function, and expose the results via a GraphQL API.
-The final step integrates Azure OpenAI Chat Completion to deliver natural language responses, enabling intelligent product recommendations. 
+You'll learn how to generate and store vector embeddings for relational data, perform semantic similarity searches using SQL's VECTOR_DISTANCE function. 
 
-# Setup of database credential
+## Setup of database credential
 
-A database scoped credential is a record in the database that contains authentication information for connecting to a resource outside the database. For this lab, we will be creating one that contains the api key for connecting to Azure OpenAI services.
+A database scoped credential is a record in the database that contains authentication information for connecting to a resource outside the database. For this module, we will be creating one that contains the api key for connecting to Azure OpenAI services.
 
-1. Open the database that you created in the first module. Click New SQL Query - Copy/Paste the below code and run the query.
+Open the database that you created in the first module. Click New SQL Query - Copy/Paste the below code and run the query.
+
+> **Note:** Above code is used to create a database scoped credential with Azure OpenAI endpoint.
 
 ```SQL-notype
 
@@ -29,134 +30,34 @@ with identity = 'HTTPEndpointHeaders', secret = '{"api-key": "@lab.CloudResource
 go
 
  ```
- > **Note:** Above code is used to create a database scoped credential with Azure OpenAI endpoint.
+ 
 
-# 1. Creating embeddings for relational data
+## Creating embeddings for relational data
 
-## Understanding embeddings in Azure OpenAI
+### Understanding embeddings in Azure OpenAI
 
 An embedding is a special format of data representation that machine learning models and algorithms can easily use. The embedding is an information dense representation of the semantic meaning of a piece of text. Each embedding is a vector of floating-point numbers. Vector embeddings can help with semantic search by capturing the semantic similarity between terms. For example, "cat" and "kitty" have similar meanings, even though they are spelled differently. 
 
-Embeddings created and stored in the SQL database in Microsoft Fabric during this module will power a vector similarity search in a chat app you will build.
+Embeddings created and stored in the SQL database in Microsoft Fabric during this module will power a vector similarity search in a chat app.
 
-## The Azure OpenAI embeddings endpoint
+### Preparing the database and creating embeddings
 
-1. Click on a New Query. Copy and paste the following code in new query sheet. This code calls an Azure OpenAI embeddings endpoint. The result will be a JSON array of vectors.
+This next section of the module will have you alter the  product table to add a new vector datatype column. You will then use a stored procedure to create embeddings for the products and store the vector arrays in that column.
 
+1. In a new query sheet copy and paste the following T-SQL:
 
-```SQL-notype
-
-    DECLARE @url nvarchar(4000) = '@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]openai/deployments/text-embedding-ada-002/embeddings?api-version=2024-06-01';
-    DECLARE @message nvarchar(max) = 'Hello World!';
-    DECLARE @payload nvarchar(max) = N'{"input": "' + @message + '"}';
-
-    DECLARE @ret int, @response nvarchar(max);
-
-    exec @ret = sp_invoke_external_rest_endpoint 
-        @url = @url,
-        @method = 'POST',
-        @payload = @payload,
-        @credential = [@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]],
-        @timeout = 230,
-        @response = @response output;
-
-    select json_query(@response, '$.result.data[0].embedding') as "JSON Vector Array";
-
-```
-
-1. Again, click the run button on the query sheet. The result will be a JSON vector array.
-    !["A picture of the JSON vector array as a result of the query"](../../img/graphics/2025-01-10_11.25.57_AM.png)
-    
-
-    Using the built in JSON function json_query, we are able to extract JSON array from REST response payloads. In the above T-SQL, **json_query(@response, '$.result.data[0].embedding') as "JSON Vector Array"** will extract the vector array from the result payload returned to us from the Azure OpenAI REST endpoint. 
-    
-    For reference, the JSON response message from the Azure OpenAI embeddings endpoint will look similar to the following and, you can see how we extract the array found_**$.result.data[0].embedding**.
-
-    > [!TIP]
-    >
-    > **This code is for reference only** 
-
-    ```JSON-nocopy-notype
-    {
-        "response": {
-            "status": {
-                "http": {
-                    "code": 200,
-                    "description": ""
-                }
-            },
-            "headers": {
-                "Date": "Thu, 24 Oct 2024 19:32:59 GMT",
-                "Content-Length": "33542",
-                "Content-Type": "application/json",
-                "access-control-allow-origin": "*",
-                "apim-request-id": "ac67032f-41c1-4ec3-acc6-3f697c262764",
-                "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
-                "x-content-type-options": "nosniff",
-                "x-ms-region": "West US",
-                "x-request-id": "84baf32d-f1f7-4183-9403-a95365d01a3e",
-                "x-ms-client-request-id": "ac67032f-41c1-4ec3-acc6-3f697c262764",
-                "x-ratelimit-remaining-requests": "349",
-                "azureml-model-session": "d007-20240925154241",
-                "x-ratelimit-remaining-tokens": "349994"
-            }
-        },
-        "result": {
-            "object": "list",
-            "data": [
-                {
-                    "object": "embedding",
-                    "index": 0,
-                    "embedding": [
-                        0.0023929428,
-                        0.00034713413,
-                        -0.0023142276,
-                        -0.025654867,
-                        -0.011492423,
-                        0.0010358924,
-                        -0.014836246,
-                        0.0035484824,
-                        0.000045630233,
-                        -0.027581815,
-                        0.023816079,
-                        0.005012586,
-                        -0.027732948,
-                        -0.010088143,
-                        ...
-                        -0.014571763
-                    ]
-                }
-            ],
-            "model": "text-embedding-ada-002",
-            "usage": {
-                "prompt_tokens": 3,
-                "total_tokens": 3
-            }
-        }
-    }
-    ```
-
-    This JSON vector array can now be used with new vector datatype and functions in the SQL database in fabric such as VECTOR_DISTANCE. 
-
-## Preparing the database and creating embeddings
-
-This next section of the lab will have you alter the  product table to add a new vector datatype column. You will then use a stored procedure to create embeddings for the products and store the vector arrays in that column.
-
-1. In a new query sheet or an existing bank one in VS Code, copy and paste the following T-SQL:
+> ** This code adds a vector datatype column to the Product table. It also adds a column named chunk where we will store the text we send over to the embeddings REST endpoint.**
 
     ```SQL-notype
     alter table [SalesLT].[Product]
     add  embeddings VECTOR(1536), chunk nvarchar(2000);
     ```
 
-    This code adds a vector datatype column to the Product table. It also adds a column named chunk where we will store the text we send over to the embeddings REST endpoint.
-
 1. Then click the run button on the query sheet
     !["A picture of clicking the run button on the query sheet for adding 2 columns to the product table"](../../img/graphics/2025-01-10_1.30.19_PM.png)
 
-1. Next, you are going to use the External REST Endpoint Invocation procedure (sp_invoke_external_rest_endpoint) to create a stored procedure that will create embeddings for text we supply as an input. Copy and paste the following code into a blank query editor in Microsoft Fabric:
-
-<!--- > **Note:** Replace ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service. --->
+1. Next, you are going to use the External REST Endpoint Invocation procedure (sp_invoke_external_rest_endpoint) to create a stored procedure that will create embeddings for text we supply as an input. 
+Copy and paste the following code into a blank query sheet
  
  ```SQL-notype
 
@@ -205,33 +106,15 @@ This next section of the lab will have you alter the  product table to add a new
 
 ```
 
-1. Click the run button on the query sheet to create the procedure in the database.
+Click the run button on the query sheet to create the procedure in the database.
 
-1. You have our embeddings procedure, now use it with data from the various products table. This SQL code takes descriptive elements from each product and concatenating them into a single string to send to the embeddings endpoint. You can construct this text string with the following SQL:
+1. You have our embeddings procedure, now use it with data from the various products table.  
 
-    > [!TIP]
-    >
-    > **This code is for reference only** 
-	
-	```SQL-nocopy-notype
-	SELECT p.Name + ' '+ ISNULL(p.Color,'No Color') + ' '+  c.Name + ' '+  m.Name + ' '+  ISNULL(d.Description,'')
-	FROM 
-		[SalesLT].[ProductCategory] c,
-		[SalesLT].[ProductModel] m,
-		[SalesLT].[Product] p
-		LEFT OUTER JOIN
-		[SalesLT].[vProductAndDescription] d
-			on p.ProductID = d.ProductID
-			and d.Culture = 'en'
-	where p.ProductCategoryID = c.ProductCategoryID
-	and p.ProductModelID = m.ProductModelID
-	and p.ProductID = @ProductID
-	```
+1. Run the following T-SQL in a new query sheet to create embeddings for all products in the Products table:
+> [!TIP]
+>
+> ** Looking at the SQL, the text we are embedding contains the product name, product color (if available), the category name the product belongs to, the model name of the product, and the description of the product.**
 
-    Looking_the SQL, the text we are embedding contains the product name, product color (if available), the category name the product belongs to, the model name of the product, and the description of the product.
-
-
-1. Run the following T-SQL in a blank query editor in Microsoft Fabric to create embeddings for all products in the Products table:
 
     > [!IMPORTANT]
     >
@@ -248,7 +131,7 @@ This next section of the lab will have you alter the  product table to add a new
     SELECT TOP(1) @ProductID = ProductID FROM #MYTEMP
     WHILE @@ROWCOUNT <> 0
     BEGIN
-        set @text = (SELECT p.Name + ' '+ ISNULL(p.Color,'No Color') + ' '+  c.Name + ' '+  m.Name + ' '+  ISNULL(d.Description,'')
+        SET @text = (SELECT p.Name + ' '+ ISNULL(p.Color,'No Color') + ' '+  c.Name + ' '+  m.Name + ' '+  ISNULL(d.Description,'')
                         FROM 
                         [SalesLT].[ProductCategory] c,
                         [SalesLT].[ProductModel] m,
@@ -257,11 +140,11 @@ This next section of the lab will have you alter the  product table to add a new
                         [SalesLT].[vProductAndDescription] d
                         on p.ProductID = d.ProductID
                         and d.Culture = 'en'
-                        where p.ProductCategoryID = c.ProductCategoryID
+                        WHERE p.ProductCategoryID = c.ProductCategoryID
                         and p.ProductModelID = m.ProductModelID
                         and p.ProductID = @ProductID);
         exec dbo.create_embeddings @text, @vector output;
-        update [SalesLT].[Product] set [embeddings] = @vector, [chunk] = @text where ProductID = @ProductID;
+        UPDATE [SalesLT].[Product] SET [embeddings] = @vector, [chunk] = @text WHERE ProductID = @ProductID;
         DELETE FROM #MYTEMP WHERE ProductID = @ProductID
         SELECT TOP(1) @ProductID = ProductID FROM #MYTEMP
     END
@@ -270,20 +153,21 @@ This next section of the lab will have you alter the  product table to add a new
 1. To ensure all the embeddings were created, run the following code in a blank query editor in Microsoft Fabric: 
 
     ```SQL-notype
-    select count(*) from SalesLT.Product where embeddings is null;
+    SELECT COUNT(*) FROM SalesLT.Product WHERE embeddings is null;
     ```
 
     You should get 0 for the result.
 
-1. Run the next query in a blank query editor in Microsoft Fabric to see the results of the above update to the Products table:
+1. Run the next query in a new query sheet to see the results of the above update to the Products table:
 
-    ```SQL-notype
-    select top 10 chunk, embeddings from SalesLT.Product
-    ```
+> [!TIP]
+>
+> ** You can see that the chunk column is the combination of multiple data points about a product and the embeddings column contains the vector arrays.**
+```SQL-notype
+SELECT TOP 10 chunk, embeddings FROM SalesLT.Product
+```
 
-    You can see that the chunk column is the combination of multiple data points about a product and the embeddings column contains the vector arrays.
-
-    !["A picture of the query result showing the chunk and embeddings columns and their data." ](../../img/graphics/2025-01-15_6.34.32_AM.png)
+!["A picture of the query result showing the chunk and embeddings columns and their data." ](../../img/graphics/2025-01-15_6.34.32_AM.png)
 
 ## Vector similarity searching
 
