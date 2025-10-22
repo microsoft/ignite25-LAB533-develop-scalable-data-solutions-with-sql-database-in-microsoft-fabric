@@ -2,23 +2,23 @@
 
 # Build a GraphQL API for RAG applications
 
-In this section of the lab, you will be deploying a GraphQL API that uses embeddings, vector similarity search, and relational data to return a set of Adventure Works products that could be used by a chat application leveraging a Large Language Model (LLM). In essence, putting all the pieces together in the previous sections.
+In this section of the lab, you will be deploying a GraphQL API that uses embeddings, vector similarity search, and relational data to return a set of products that could be used by a chat application leveraging a Large Language Model (LLM).
 
-In the section of the lab, you will create a stored procedure that will be used by the GraphQL API for taking in questions and returning products.
+In this section, we will create a stored procedure that will be used by the GraphQL API for taking in questions and returning products.
 
 ## Creating the stored procedure used by the GraphQL API
 
-1. Run the following SQL in a blank query editor in Microsoft Fabric:
+1. Run the following T-SQL in a new query window:
 
     ```SQL-notype
-    create or alter procedure [dbo].[find_products]
+    CREATE or ALTER PROCEDURE [SalesLT].[find_products]
     @text nvarchar(max),
     @top int = 10,
     @min_similarity decimal(19,16) = 0.80
     as
     if (@text is null) return;
     DECLARE @retval int, @qv vector(1536);
-    exec @retval = dbo.create_embeddings @text, @qv output;
+    exec @retval = SalesLT.create_embeddings @text, @qv output;
     if (@retval != 0) return;
     with vector_results as (
     SELECT 
@@ -35,25 +35,24 @@ In the section of the lab, you will create a stored procedure that will be used 
         [SalesLT].[ProductCategory] c,
         [SalesLT].[ProductModel] m,
         [SalesLT].[vProductAndDescription] d
-    where p.ProductID = d.ProductID
-    and p.ProductCategoryID = c.ProductCategoryID
-    and p.ProductModelID = m.ProductModelID
-    and p.ProductID = d.ProductID
-    and d.Culture = 'en')
-    select TOP(@top) product_name, product_color, category_name, model_name, product_description, list_price, product_weight, distance
-    from vector_results
-    where (1-distance) > @min_similarity
-    order by    
-        distance asc;
+    WHERE p.ProductID = d.ProductID
+    AND p.ProductCategoryID = c.ProductCategoryID
+    AND p.ProductModelID = m.ProductModelID
+    AND p.ProductID = d.ProductID
+    AND d.Culture = 'en')
+    SELECT TOP(@top) product_name, product_color, category_name, model_name, product_description, list_price, product_weight, distance
+    FROM vector_results
+    WHERE (1-distance) > @min_similarity
+    ORDER BY distance asc;
     GO
     ```
 
-1. Next, you need to encapsulate the stored procedure into a wrapper so that the result set can be utilized by our GraphQL endpoint. Using the WITH RESULT SET syntax allows you to change the names and data types of the returning result set. This is needed in this example because the usage of sp_invoke_external_rest_endpoint and the return output from extended stored procedures 
+1. Next, you need to encapsulate the **STORED PROCEDURE** into a wrapper so that the result set can be utilized by our GraphQL endpoint. Using the **WITH RESULT SET** syntax allows you to change the names and data types of the returning result set. This is needed in this example because the usage of sp_invoke_external_rest_endpoint and the return output from extended stored procedures 
 
-    Run the following SQL in a blank query editor in Microsoft Fabric:  
+    Run the following T-SQL in a new query window:  
 
     ```SQL-notype
-    create or alter procedure [find_products_api]
+    CREATE or ALTER PROCEDURE SalesLT.[find_products_api]
         @text nvarchar(max)
         as 
         exec find_products @text
@@ -73,23 +72,22 @@ In the section of the lab, you will create a stored procedure that will be used 
     GO
     ```
 
-1. You can test this newly created procedure to see how it will interact with the GraphQL API by running the following SQL in a blank query editor in Microsoft Fabric:
+1. You can test this newly created procedure to see how it will interact with the GraphQL API by running the following SQL in a new query window:
 
     ```SQL-notype
-    exec find_products_api 'I am looking for a red bike'
+    exec SalesLT.find_products_api 'I am looking for a red bike'
     ```
     !["A picture of running the find_products_api stored procedure"](../../img/graphics/2025-01-14_6.57.09_AM.png)
-   
+
+## Create GraphQL API
+
 1. To create the GraphQL API, click on the **New API for GraphQL** button on the toolbar.
 
     !["A picture of clicking on the New API for GraphQL button on the toolbar"](../../img/graphics/2025-01-15_6.52.37_AM.png)
 
-1. In the **New API for GraphQL** dialog box, use the **Name Field** and name the API **find_products_api**.
+1. In the **New API for GraphQL** dialog box, use the name **find_products_api** and hit green create button.
 
-    
-    !["A picture of using the Name Field and naming the API find_products_api in the New API for GraphQL dialog box"](../../img/graphics/2025-01-17_7.35.03_AM.png)
-
-1. After naming the API, click the **green Create button**.
+   
     !["A picture of clicking the green Create button in the New API for GraphQL dialog box" ](../../img/graphics/2025-01-17_7.35.09_AM.png)
     
 
@@ -103,17 +101,17 @@ In the section of the lab, you will create a stored procedure that will be used 
     !["A picture of using the Search box in the Explorer section on the left of the Choose data dialog box"](../../img/graphics/2025-01-15_7.01.39_AM.png)
    
 
-    and **enter in find_products_api**.
+    and enter **find_products_api**.
 
     !["A picture of enter in find_products_api in the search box"](../../img/graphics/2025-01-17_6.26.15_AM.png)
    
 
-1. Choose the **find_products_api stored procedure in the results**. You can ensure it is the find_products_api stored procedure by hovering over it with your mouse/pointer. It will also indicate the selected database item in the preview section. It should state **"Preview data: dbo.find_products_api"**.
+1. Choose the **find_products_api** stored procedure in the results. You can ensure it is the find_products_api stored procedure by hovering over it with your mouse/pointer. It will also indicate the selected database item in the preview section. It should state **"Preview data: SalesLT.find_products_api"**.
 
     !["A picture of choosing the find_products_api stored procedure in the results"](../../img/graphics/2025-01-17_6.28.44_AM_copy.png)
    
 
-1. Once you have selected the **find_products_api stored procedure**, click the **green Load button** on the bottom right of the modal dialog box.
+1. Once you have selected the **find_products_api** stored procedure, click the **green Load button** on the bottom right of the modal dialog box.
 
     !["A picture of clicking the green Load button on the bottom right of the modal dialog box"](../../img/graphics/2025-01-17_6.30.18_AM.png)
     
@@ -157,13 +155,13 @@ In the section of the lab, you will create a stored procedure that will be used 
     !["A picture of the generated code the editor provides"](../../img/graphics/2025-01-15_8.40.12_AM.png)
    
 
-1. When done looking_the python and node.js code, click the **X** in the upper right corner to close the Generate code dialog box.
+1. When done looking at the python and node.js code, click the **X** in the upper right corner to close the Generate code dialog box.
     !["A picture of clicking the X in the upper right corner to close the Generate code dialog box"](../../img/graphics/2025-01-15_8.40.12_AM2.png)
    
 
 ## Adding chat completion to the GraphQL API
 
-The API you just created could now be handed off to an application developer to be included in a RAG application that uses vector similarity search and data from the database. The application may also_some point hand the results off to a LLM to craft a more human response. 
+The API you just created could now be handed off to an application developer to be included in a RAG application that uses vector similarity search and data from the database. The application may also at some point hand the results off to a LLM to craft a more human response. 
 
 Let's alter the stored procedure to create a new flow that not only uses vector similarity search to get products based on a question asked by a user, but to take the results, pass them to Azure OpenAI Chat Completion, and craft an answer they would typically see with an AI chat application.
 
@@ -173,13 +171,12 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
 1. The first step in augmenting our RAG application API is to create a stored procedure that takes the retrieved products and passes them in a prompt to an Azure OpenAI Chat Completion REST endpoint. The prompt consists of telling the endpoint who they are, what products they have to work with, and the exact question that was asked by the user. 
 
-    Copy and run the following SQL in a blank query editor in Microsoft Fabric:
+    Copy and run the following SQL in a new query window:
 
-<!--- > **Note:** Replace ``AI_ENDPOINT_SERVERNAME`` with the name of your **Azure OpenAI** service. --->
 
 
 ```SQL-notype
-    CREATE OR ALTER PROCEDURE [dbo].[prompt_answer]
+    CREATE OR ALTER PROCEDURE [SalesLT].[prompt_answer]
     @user_question nvarchar(max),
     @products nvarchar(max),
     @answer nvarchar(max) output
@@ -236,21 +233,21 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
     2) A section that calls the new chat completion stored procedure and provides it with the products retrieved from the database to help ground the answer.
 
     ```SQL-nocopy
-    exec [dbo].[prompt_answer] @text, @products_json, @answer output;
+    exec [SalesLT].[prompt_answer] @text, @products_json, @answer output;
     ```
 
 1. Copy and run the following SQL in a blank query editor in Microsoft Fabric:
 
 
     ```SQL-notype
-    create or alter procedure [dbo].[find_products_chat]
+    CREATE or ALTER procedure [SalesLT].[find_products_chat]
     @text nvarchar(max),
     @top int = 3,
     @min_similarity decimal(19,16) = 0.70
     as
     if (@text is null) return;
     DECLARE @retval int, @qv vector(1536), @products_json nvarchar(max), @answer nvarchar(max);
-    exec @retval = dbo.create_embeddings @text, @qv output;
+    exec @retval = SalesLT.create_embeddings @text, @qv output;
     if (@retval != 0) return;
     with vector_results as (
     SELECT 
@@ -290,7 +287,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
     set @products_json = (select REPLACE(REPLACE(@products_json, CHAR(13), ' , '), CHAR(10), ' , '));
 
-    exec [dbo].[prompt_answer] @text, @products_json, @answer output;
+    exec [SalesLT].[prompt_answer] @text, @products_json, @answer output;
 
     GO
     ```
@@ -346,7 +343,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
     !["A picture of enter in find_products_chat_api in the search box"](../../img/graphics/2025-01-17_6.24.33_AM.png)
    
 
-1. Choose the stored procedure in the results. You can ensure it is the **find_products_chat_api stored procedure** by hovering over it with your mouse/pointer. It will also indicate the selected database item in the preview section. It should state **"Preview data: dbo.find_products_chat_api"**.
+1. Choose the stored procedure in the results. You can ensure it is the **find_products_chat_api stored procedure** by hovering over it with your mouse/pointer. It will also indicate the selected database item in the preview section. It should state **"Preview data: SalesLT.find_products_chat_api"**.
     !["A picture of choosing the find_products_chat_api stored procedure in the results"](../../img/graphics/2025-01-17_6.34.33_AM.png)
     
 
