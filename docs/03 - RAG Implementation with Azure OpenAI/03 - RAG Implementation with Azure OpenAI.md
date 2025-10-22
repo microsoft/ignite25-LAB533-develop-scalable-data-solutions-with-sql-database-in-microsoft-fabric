@@ -11,10 +11,10 @@ A database scoped credential is a record in the database that contains authentic
 
 Open the database that you created in the first module. 
 
-Click New SQL query button to open a query window.Copy/Paste the below code and run the query.
+Click New Query button to open a query editor window. Copy/Paste the below code and click Run button.
 > [!TIP]
 >
-> **Note: Below code is used to create a database scoped credential with Azure OpenAI endpoint.**
+> **Below code is used to create a database scoped credential with Azure OpenAI endpoint.**
 
 ```SQL-notype
 
@@ -190,7 +190,7 @@ The syntax is as follows:
 VECTOR_DISTANCE ( distance_metric, vector1, vector2 )
 ```
 
-You will be using this function in some upcoming samples as well as in the RAG chat application; both utilizing the vectors you just created for the Products table.
+You will be using this function in samples as well as in the RAG chat application; both utilizing the vectors you just created for the Products table.
 
 1. The first query will pose the question "I am looking for a red bike and I dont want to spend a lot". The key words that should help with our similarity search are red, bike, and dont want to spend a lot. Run the following SQL in a new query window:
 
@@ -234,7 +234,7 @@ DECLARE @search_text nvarchar(max) = 'I am looking for a safe helmet that does n
 
   With the results returning lightweight helmets. There is one result that is not a helmet but a vest but as you can see, the distance score is higher for this result than the 3 helmet scores.
 
-    **Results**
+**Results**
 
     | Name | chunk | distance |
     |:---------|:---------|:---------|
