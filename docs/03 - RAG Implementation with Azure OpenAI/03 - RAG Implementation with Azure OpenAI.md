@@ -52,8 +52,8 @@ This next section of the module will have you alter the  product table to add a 
 
 ```SQL-notype
 
-    alter table [SalesLT].[Product]
-    add  embeddings VECTOR(1536), chunk nvarchar(2000);
+    ALTER TABLE [SalesLT].[Product]
+    ADD  embeddings VECTOR(1536), chunk nvarchar(2000);
 ```
 
 1. Then click the run button on the query sheet
@@ -146,7 +146,7 @@ SET NOCOUNT ON
                         WHERE p.ProductCategoryID = c.ProductCategoryID
                         and p.ProductModelID = m.ProductModelID
                         and p.ProductID = @ProductID);
-        exec dbo.create_embeddings @text, @vector output;
+        exec SALESLT.create_embeddings @text, @vector output;
         UPDATE [SalesLT].[Product] SET [embeddings] = @vector, [chunk] = @text WHERE ProductID = @ProductID;
         DELETE FROM #MYTEMP WHERE ProductID = @ProductID
         SELECT TOP(1) @ProductID = ProductID FROM #MYTEMP
@@ -198,7 +198,7 @@ You will be using this function in some upcoming samples as well as in the RAG c
     ```SQL-notype
     DECLARE @search_text nvarchar(max) = 'I am looking for a red bike and I dont want to spend a lot'
     DECLARE @search_vector vector(1536)
-    exec dbo.create_embeddings @search_text, @search_vector output;
+    exec SalesLT.create_embeddings @search_text, @search_vector output;
     SELECT TOP(4) 
     p.ProductID, p.Name , p.chunk,
     vector_distance('cosine', @search_vector, p.embeddings) AS distance
@@ -225,7 +225,7 @@ You will be using this function in some upcoming samples as well as in the RAG c
     ```SQL-notype
     DECLARE @search_text nvarchar(max) = 'I am looking for a safe helmet that does not weigh much'
     DECLARE @search_vector vector(1536)
-    exec dbo.create_embeddings @search_text, @search_vector output;
+    exec SalesLT.create_embeddings @search_text, @search_vector output;
     SELECT TOP(4) 
     p.ProductID, p.Name , p.chunk,
     vector_distance('cosine', @search_vector, p.embeddings) AS distance
@@ -253,7 +253,7 @@ You will be using this function in some upcoming samples as well as in the RAG c
     ```SQL-notype
     DECLARE @search_text nvarchar(max) = 'Do you sell any padded seats that are good on trails?'
     DECLARE @search_vector vector(1536)
-    exec dbo.create_embeddings @search_text, @search_vector output;
+    exec SalesLT.create_embeddings @search_text, @search_vector output;
     SELECT TOP(4) 
     p.ProductID, p.Name , p.chunk,
     vector_distance('cosine', @search_vector, p.embeddings) AS distance
