@@ -2,7 +2,7 @@
 
 # Build an AI Application using RAG with SQL Database in Fabric​
 
-This lab walks through building a Retrieval-Augmented Generation (RAG) application using SQL Database in fabric, and Azure OpenAI. 
+This module walks through building a Retrieval-Augmented Generation (RAG) application using SQL Database in fabric, and Azure OpenAI. 
 You'll learn how to generate and store vector embeddings for relational data, perform semantic similarity searches using SQL's VECTOR_DISTANCE function. 
 
 ## Setup of database credential
@@ -10,8 +10,8 @@ You'll learn how to generate and store vector embeddings for relational data, pe
 A database scoped credential is a record in the database that contains authentication information for connecting to a resource outside the database. For this module, we will be creating one that contains the api key for connecting to Azure OpenAI services.
 
 Open the database that you created in the first module. Click New SQL Query - Copy/Paste the below code and run the query.
-
-> **Note:** Above code is used to create a database scoped credential with Azure OpenAI endpoint.
+> [!TIP]
+> **Note: Below code is used to create a database scoped credential with Azure OpenAI endpoint.**
 
 ```SQL-notype
 
@@ -46,7 +46,8 @@ This next section of the module will have you alter the  product table to add a 
 
 1. In a new query sheet copy and paste the following T-SQL:
 
-> ** This code adds a vector datatype column to the Product table. It also adds a column named chunk where we will store the text we send over to the embeddings REST endpoint.**
+>[!TIP]
+> **This code adds a vector datatype column to the Product table. It also adds a column named chunk where we will store the text we send over to the embeddings REST endpoint.**
 
     ```SQL-notype
     alter table [SalesLT].[Product]
@@ -113,7 +114,7 @@ Click the run button on the query sheet to create the procedure in the database.
 1. Run the following T-SQL in a new query sheet to create embeddings for all products in the Products table:
 > [!TIP]
 >
-> ** Looking at the SQL, the text we are embedding contains the product name, product color (if available), the category name the product belongs to, the model name of the product, and the description of the product.**
+> **Looking at the SQL, the text we are embedding contains the product name, product color (if available), the category name the product belongs to, the model name of the product, and the description of the product.**
 
 
     > [!IMPORTANT]
@@ -162,7 +163,8 @@ Click the run button on the query sheet to create the procedure in the database.
 
 > [!TIP]
 >
-> ** You can see that the chunk column is the combination of multiple data points about a product and the embeddings column contains the vector arrays.**
+> You can see that the chunk column is the combination of multiple data points about a product and the embeddings column contains the vector arrays.
+
 ```SQL-notype
 SELECT TOP 10 chunk, embeddings FROM SalesLT.Product
 ```
