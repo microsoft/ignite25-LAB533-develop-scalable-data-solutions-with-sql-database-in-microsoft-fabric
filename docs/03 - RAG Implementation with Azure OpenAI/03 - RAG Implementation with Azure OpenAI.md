@@ -11,6 +11,7 @@ A database scoped credential is a record in the database that contains authentic
 
 Open the database that you created in the first module. Click New SQL Query - Copy/Paste the below code and run the query.
 > [!TIP]
+>
 > **Note: Below code is used to create a database scoped credential with Azure OpenAI endpoint.**
 
 ```SQL-notype
@@ -166,6 +167,7 @@ Click the run button on the query sheet to create the procedure in the database.
 > You can see that the chunk column is the combination of multiple data points about a product and the embeddings column contains the vector arrays.
 
 ```SQL-notype
+
 SELECT TOP 10 chunk, embeddings FROM SalesLT.Product
 ```
 
