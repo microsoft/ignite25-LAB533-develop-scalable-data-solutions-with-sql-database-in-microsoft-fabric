@@ -114,20 +114,20 @@ In this next section, you will be focused on using the Web Editor for SQL databa
 4. Now, click the **New Query** button on the tool bar
 !["A picture of clicking the New Query button on the tool bar"](ExploreNewQuery.png)
 
-this will open a new query editor window that we will use to work directly with the database. 
+this will open a new query window that we will use to work directly with the database. 
 
 
-5. Copy and paste the following code into the query editor:
+5. Copy and paste the following code into the query window:
 
     ```
     SELECT * FROM [SalesLT].[Product]
     ```
 
-6. Once the code is in the query editor, **click the Run button** (or you can use `CTRL + Enter` as a shortcut).
+6. Once the code is in the query window, **click the Run button** (or you can use `CTRL + Enter` as a shortcut).
 
 !["A picture of clicking the run button in the query editor"](ExploreQueryEditorRun.png)
 
-You will see the **results** of the query on the **bottom of the query editor**.
+You will see the **results** of the query on the **bottom of the query window**.
 !["A picture of the results of the query on the bottom of the query editor"](ExploreQueryEditorResults.png)
 
 
@@ -141,7 +141,7 @@ With the data from your SQL database automatically mirrored in OneLake, you can 
 !["A picture of drop-down list of SQL database and SQL analytics endpoint available in the top right corner of the Database explorer in the Fabric portal"](MirroringSQLAnalyticsSwitching.png)
 
 
-2. In SQL analytics endpoint select a **New SQL query**. Copy and paste the following code into the query editor:
+2. In SQL analytics endpoint select a **New SQL query**. Copy and paste the following code into the query window:
 
     ```
     SELECT * FROM [SalesLT].[Product]

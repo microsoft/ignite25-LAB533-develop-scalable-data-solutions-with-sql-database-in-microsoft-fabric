@@ -19,7 +19,7 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
 --Create a query to get the product that is selling the most
 ```
 
-3. Watch for the loading spinner at the bottom of the editor to track progress, and observe how code suggestion appear in the query editor.
+3. Watch for the loading spinner at the bottom of the editor to track progress, and observe how code suggestion appear in the query window.
  
    > **Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
 
@@ -38,9 +38,9 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
 
 5. Select the query and click on the **Run** icon (or use keyboard shortcut `Ctrl + Enter` or `Shift + Enter`)
 
-### Task 1.2: Copilot Quick Actions within the Query Editor
+### Task 1.2: Copilot Quick Actions within the Query Window
 
-1. Open a new query and paste the following query with a syntax error and click on the **Run** icon.
+1. Open a new query window and paste the following T-SQL with a syntax error and click on the **Run** icon.
 
    ```
    SELECT c.CustomerID, c.FirstName,c.LastName,
@@ -54,23 +54,23 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
 
    ```
 
-2. Observe the query errors (issue) and then select **Fix query errors**.
+2. Observe the T-SQL errors (issue) and then select **Fix query errors**.
 
    !["A picture of a demonstrating an issue and finding the Fix Query Errors button in the quick actions next to the Run button in the Query Editor.."](FixQueryErrors.png)
 
-3. Observe the updated query along with the comment that clearly states where the issue was in the query. Now click on **Run** to see the results.
+3. Observe the updated T-SQL along with the comment that clearly states where the issue was in the T-SQL. Now click on **Run** to see the results.
    !["A picture of a demonstrating added comment at the bottom about what was fixed and query results returned successfully."](../../img/graphics/Copilot/AutoFixComment.png)
 
   >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
 
-4. Aside from fixing the query errors, Copilot can also explain a query to you. Select **Explain query** and Copilot will add comments to your query explaining parts of the query.
+4. Aside from fixing the T-SQL errors, Copilot can also explain a T-SQL to you. Select **Explain query** and Copilot will add comments to your T-SQL explaining the T-SQL.
    !["A picture of a demonstrating steps to select Explain query and then showing the inline comments in the query editor."](../../img/graphics/Copilot/ExplainQuery.png)
 
 ## Section 2: Using Copilot Chat Pane
 
 ### Task 2.1: Chat Pane - Natural Language to SQL
 
-1. First open the new query or clear the previous one to have a blank query editor. Next, select the **Copilot** option.
+1. Open the new query window and select the **Copilot** option.
 
    ![](../../img/graphics/database9.png)
 
@@ -85,19 +85,19 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
    ```
    !["A picture of Copilot chat pane opened with written query above."](../../img/graphics/Copilot/ChatPaneQuery.png)
 
-4. Read the answer now and select the **Insert** button to input code into the Query Editor.
+4. Read the answer now and select the **Insert** button to input code into the query window.
 
    >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
    ![](../../img/graphics/Copilot/InsertQuery.png)
 
-5. Select the query that was inserted by **Copilot**, click on the **Run** icon and check the **Results**. 
+5. Click on the **Run** icon and check the **Results**. 
    >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
 
    ![](../../img/graphics/Copilot3a.png)
 
 ### Task 2.2: Chat Pane: Get results from Copilot
 
-1. Another way to use Copilot is to ask it to get results for you. Open the new query or clear the previous one to have a blank query editor. Paste the following question in the Copilot chat box and click on **Send** button
+1. Another way to use Copilot is to ask it to get results for you. Open the new query window. Paste the following question in the Copilot chat box and click on **Send** button
    ```
    What is the most sold product?
    ```

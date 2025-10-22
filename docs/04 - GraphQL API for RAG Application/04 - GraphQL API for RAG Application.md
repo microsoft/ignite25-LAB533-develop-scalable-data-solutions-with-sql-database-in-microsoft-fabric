@@ -314,8 +314,9 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
     ```SQL-notype
     exec find_products_chat_api 'I am looking for a red bike'
     ```
-
-    with the answer being similar to (your answer will be different): **"It sounds like the Road-650 Red, 62 Red Road Bikes Road-650 would be an excellent choice for you. This value-priced bike comes in red and features a light, stiff frame that is known for its quick acceleration. It also incorporates many features from top-of-the-line models. Would you like more details about this bike or help with anything else?"**
+> [!TIP]
+>
+> Above execution will result in this answer: **"It sounds like the Road-650 Red, 62 Red Road Bikes Road-650 would be an excellent choice for you. This value-priced bike comes in red and features a light, stiff frame that is known for its quick acceleration. It also incorporates many features from top-of-the-line models. Would you like more details about this bike or help with anything else?"** . Note: Your answer could be different.
     !["A picture of running the find_products_chat_api stored procedure"](../../img/graphics/2025-01-17_6.15.05_AM.png)
   
 
@@ -385,4 +386,4 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
         }
     }
     ```
-In this module, you would have learned how to build a RAG application using SQL database in fabric, and Azure OpenAI. You explored generating vector embeddings for relational data, performing semantic similarity searches with SQL, and integrating natural language responses via GPT-4.1.
+Congratulations!! In this module, you  learned how to build a RAG application using SQL database in fabric, and Azure OpenAI. You explored generating vector embeddings for relational data, performing semantic similarity searches with SQL, and integrating natural language responses via GPT-4.1.
