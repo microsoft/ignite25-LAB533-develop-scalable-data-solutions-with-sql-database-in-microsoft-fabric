@@ -50,10 +50,11 @@ This next section of the module will have you alter the  product table to add a 
 >[!TIP]
 > **This code adds a vector datatype column to the Product table. It also adds a column named chunk where we will store the text we send over to the embeddings REST endpoint.**
 
-    ```SQL-notype
+```SQL-notype
+
     alter table [SalesLT].[Product]
     add  embeddings VECTOR(1536), chunk nvarchar(2000);
-    ```
+```
 
 1. Then click the run button on the query sheet
     !["A picture of clicking the run button on the query sheet for adding 2 columns to the product table"](../../img/graphics/2025-01-10_1.30.19_PM.png)
@@ -118,12 +119,12 @@ Click the run button on the query sheet to create the procedure in the database.
 > **Looking at the SQL, the text we are embedding contains the product name, product color (if available), the category name the product belongs to, the model name of the product, and the description of the product.**
 
 
-    > [!IMPORTANT]
-    >
-    > **This code will take 30 to 60 seconds to run** 
+> [!IMPORTANT]
+>
+> **This code will take 30 to 60 seconds to run** 
 
-    ```SQL-notype
-    SET NOCOUNT ON
+```SQL-notype
+SET NOCOUNT ON
     DROP TABLE IF EXISTS #MYTEMP 
     DECLARE @ProductID int
     DECLARE @text nvarchar(max);
@@ -150,7 +151,8 @@ Click the run button on the query sheet to create the procedure in the database.
         DELETE FROM #MYTEMP WHERE ProductID = @ProductID
         SELECT TOP(1) @ProductID = ProductID FROM #MYTEMP
     END
-    ```
+```
+
 
 1. To ensure all the embeddings were created, run the following code in a blank query editor in Microsoft Fabric: 
 
