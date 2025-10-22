@@ -18,7 +18,7 @@ Open the database that you created in the first module. Click New SQL Query - Co
 
 if not exists(select * from sys.symmetric_keys where [name] = '##MS_DatabaseMasterKey##')
 begin
-    create master key encryption by password = N'V3RYStr0NGP@ssw0rd!';
+    CREATE master key encryption by password = N'V3RYStr0NGP@ssw0rd!';
 end
 go
 if exists(select * from sys.[database_scoped_credentials] where name = 
@@ -26,7 +26,7 @@ if exists(select * from sys.[database_scoped_credentials] where name =
 begin
 	drop database scoped credential [@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]];
 end
-create database scoped credential [@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]]
+CREATE database scoped credential [@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]]
 with identity = 'HTTPEndpointHeaders', secret = '{"api-key": "@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIPrimaryKey]"}';
 go
 
@@ -64,7 +64,7 @@ Copy and paste the following code into a blank query sheet
  
  ```SQL-notype
 
-    create or alter procedure dbo.create_embeddings
+    CREATE or ALTER PROCEDURE SALESLT.create_embeddings
     (
         @input_text nvarchar(max),
         @embedding vector(1536) output
@@ -77,15 +77,15 @@ Copy and paste the following code into a blank query sheet
     DECLARE @retval int;
 
     -- Call to Azure OpenAI to get the embedding of the search text
-    begin try
-        exec @retval = sp_invoke_external_rest_endpoint
+    BEGIN try
+        EXEC @retval = sp_invoke_external_rest_endpoint
             @url = @url,
             @method = 'POST',
             @credential = [@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]],
             @payload = @payload,
             @response = @response output;
-    end try
-    begin catch
+    END try
+    BEGIN catch
         select 
             'SQL' as error_source, 
             error_number() as error_code,
