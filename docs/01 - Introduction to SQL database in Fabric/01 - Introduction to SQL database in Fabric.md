@@ -77,6 +77,11 @@ Allow this process to run (about 45-90 seconds) until you see a notification ind
 !["A picture of a notification indicating that the data was successfully loaded into the database"](LoadSampleSuccessful.png)
 
 While we're waiting for the data to be loaded, let's explore SQL database editor experience.
+>[!TIP]
+>
+>Based on the screen resolution you screen would look like one of the screens below. 
+
+!["A picture of a top left toolbar buttons to refresh database explorer, open settings and provide feedback"](Toolbar-2.png)
 
 !["A picture of a top left toolbar buttons to refresh database explorer, open settings and provide feedback"](Toolbar-1.png)
 
@@ -130,8 +135,12 @@ this will open a new query window that we will use to work directly with the dat
 You will see the **results** of the query on the **bottom of the query window**.
 !["A picture of the results of the query on the bottom of the query editor"](ExploreQueryEditorResults.png)
 
+## Section 3: Exploring SQL analytics endpoint
+>[!TIP]
+>
+>Creating a SQL database in Fabric automatically creates a SQL analytics endpoint, which points to the read-only replicated SQL database in Fabric OneLake storage.
 
-With the data from your SQL database automatically mirrored in OneLake, you can write cross-database queries, joining data from other SQL databases, mirrored databases, warehouses, and lakehouses. All this is currently possible with using T-SQL queries on the SQL analytics endpoint - a SQL-based experience to analyze OneLake data. Creating a SQL database in Fabric automatically creates a SQL analytics endpoint, which points to the read-only replicated SQL database in Fabric OneLake storage.
+With the data from your SQL database automatically mirrored in OneLake, you can write cross-database queries, joining data from other SQL databases, mirrored databases, warehouses, and lakehouses. All this is currently possible with using T-SQL queries on the SQL analytics endpoint - a SQL-based experience to analyze OneLake data. 
 
 > [!IMPORTANT]
 > Note: Please refresh the **browser** with ctrl + F5 before you move to next step. 
@@ -160,7 +169,7 @@ Click **Run** button to see the results.
  
 With this, we're wrapping up the hands-on part for this module. 
 
-## What's next
-Congratulations! You have learnt the basics of SQL database in Microsoft Fabric. You are now ready to move on to the next exercise:
-Use Copilot with SQL database in Fabric
+Congratulations! You have learnt the basics of SQL database in Microsoft Fabric. 
+
+You are now ready to move on to the next module: Copilot capabilities for SQL database in Microsoft Fabric.
 
