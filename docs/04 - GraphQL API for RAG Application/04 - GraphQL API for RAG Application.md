@@ -296,10 +296,10 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
 
     ```SQL-notype
-    create or alter procedure [find_products_chat_api]
+    CREATE or ALTER Procedure SalesLT.[find_products_chat_api]
         @text nvarchar(max)
         as 
-        exec find_products_chat @text
+        exec SalesLT.find_products_chat @text
         with RESULT SETS
         (    
             (    
@@ -312,7 +312,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 1. You can test this new  procedure to see how Azure OpenAI will answer a question with product data by running the following SQL in a blank query editor in Microsoft Fabric:
 
     ```SQL-notype
-    exec find_products_chat_api 'I am looking for a red bike'
+    exec SalesLT.find_products_chat_api 'I am looking for a red bike'
     ```
 > [!TIP]
 >
@@ -361,7 +361,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
     ```graphql-notype
     query {
-        execute[SalesLT].find_products_chat_api(text: "I am looking for padded seats that are good on trails") {
+        executeSalesLT.find_products_chat_api(text: "I am looking for padded seats that are good on trails") {
                 answer
         }
     }
@@ -381,7 +381,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
     ```graphql-notype
     query {
-        execute[SalesLT].find_products_chat_api(text: "Do you have any racing shorts?") {
+        executeSalesLT.find_products_chat_api(text: "Do you have any racing shorts?") {
                 answer
         }
     }
