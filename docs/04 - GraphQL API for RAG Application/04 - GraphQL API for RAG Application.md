@@ -279,13 +279,13 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
                                     product_description, ' ',
                                     list_price, ' ',
                                     product_weight )), CHAR(13)))
-    from vector_results
-    where (1-distance) > @min_similarity
-    group by distance
-    order by    
+    FROM vector_results
+    WHERE (1-distance) > @min_similarity
+    GROUP BY  distance
+    ORDER BY    
         distance asc;
 
-    set @products_json = (select REPLACE(REPLACE(@products_json, CHAR(13), ' , '), CHAR(10), ' , '));
+    SET @products_json = (select REPLACE(REPLACE(@products_json, CHAR(13), ' , '), CHAR(10), ' , '));
 
     exec [SalesLT].[prompt_answer] @text, @products_json, @answer output;
 
@@ -298,7 +298,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
     ```SQL-notype
     CREATE or ALTER Procedure SalesLT.[find_products_chat_api]
         @text nvarchar(max)
-        as 
+        AS 
         exec SalesLT.find_products_chat @text
         with RESULT SETS
         (    
