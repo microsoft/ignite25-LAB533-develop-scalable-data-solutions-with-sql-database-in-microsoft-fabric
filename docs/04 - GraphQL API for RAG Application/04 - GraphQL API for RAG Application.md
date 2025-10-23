@@ -55,7 +55,7 @@ In this section, we will create a stored procedure that will be used by the Grap
     CREATE or ALTER PROCEDURE SalesLT.[find_products_api]
         @text nvarchar(max)
         as 
-        exec find_products @text
+        exec [SalesLT].find_products @text
         with RESULT SETS
         (    
             (    
@@ -124,7 +124,7 @@ In this section, we will create a stored procedure that will be used by the Grap
 
     ```graphql-notype
     query {
-        executefind_products_api(text: "I am looking for a red bike") {
+        execute[SalesLT].find_products_api(text: "I am looking for a red bike") {
                 product_name
                 product_color
                 category_name
