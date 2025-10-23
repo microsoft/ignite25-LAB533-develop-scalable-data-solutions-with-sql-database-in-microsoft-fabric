@@ -183,7 +183,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
     AS
 
-    DECLARE @url nvarchar(4000) = '@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]openai/deployments/gpt-4.1/chat/completions?api-version=2024-06-01';
+    DECLARE @url nvarchar(4000) = '@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]openai/deployments/gpt-4/chat/completions?api-version=2024-06-01';
     DECLARE @payload nvarchar(max) = N'{
         "messages": [
             {
