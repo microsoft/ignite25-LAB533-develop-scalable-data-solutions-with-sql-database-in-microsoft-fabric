@@ -234,7 +234,7 @@ DECLARE @search_text nvarchar(max) = 'I am looking for a safe helmet that does n
 
   With the results returning lightweight helmets. There is one result that is not a helmet but a vest but as you can see, the distance score is higher for this result than the 3 helmet scores.
 
-**Results**
+    **Search results**
 
     | Name | chunk | distance |
     |:---------|:---------|:---------|
@@ -263,7 +263,7 @@ Run the below SQL in a new query window.
 
     These results are very interesting for it found products based on word meanings such as absorb shocks and bumps and foam-padded. It was able to make connections to riding conditions on trails and find products that would fit that need.
 
-    **Results**
+    **Search Results**
 
     | Name | chunk | distance |
     |:---------|:---------|:---------|

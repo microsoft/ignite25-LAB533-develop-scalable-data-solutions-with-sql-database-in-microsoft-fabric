@@ -108,23 +108,21 @@ In this section, we will create a stored procedure that will be used by the Grap
 
 1. Choose the **find_products_api** stored procedure in the results. You can ensure it is the find_products_api stored procedure by hovering over it with your mouse/pointer. It will also indicate the selected database item in the preview section. It should state **"Preview data: SalesLT.find_products_api"**.
 
-    !["A picture of choosing the find_products_api stored procedure in the results"](../../img/graphics/2025-01-17_6.28.44_AM_copy.png)
+    !["A picture of choosing the find_products_api stored procedure in the results"](SearchStoredProcedureNLoad.png)
    
 
-1. Once you have selected the **find_products_api** stored procedure, click the **green Load button** on the bottom right of the modal dialog box.
-
-    !["A picture of clicking the green Load button on the bottom right of the modal dialog box"](../../img/graphics/2025-01-17_6.30.18_AM.png)
-    
+1. Once you have selected the **find_products_api** stored procedure, click the **green Load button** on the bottom right of the modal dialog box.    
 
 1. You will now be on the **GraphQL Query editor page**. Here, we can run GraphQL queries similar to how we can run T-SQL queries on the query editor.
-    !["A picture of the GraphQL Query editor page"](../../img/graphics/2025-01-15_7.11.21_AM.png)
+    
+!["A picture of the GraphQL Query editor page"](GraphQLEditor.png)
     
 
 1. Replace the sample code on the left side of the GraphQL query editor with the following query:
 
     ```graphql-notype
     query {
-        execute[SalesLT].find_products_api(text: "I am looking for a red bike") {
+        executefind_products_api(text: "I am looking for a red bike") {
                 product_name
                 product_color
                 category_name
