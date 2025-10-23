@@ -361,7 +361,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
     ```graphql-notype
     query {
-        executefind_products_chat_api(text: "I am looking for padded seats that are good on trails") {
+        execute[SalesLT].find_products_chat_api(text: "I am looking for padded seats that are good on trails") {
                 answer
         }
     }
@@ -381,7 +381,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
     ```graphql-notype
     query {
-        executefind_products_chat_api(text: "Do you have any racing shorts?") {
+        execute[SalesLT].find_products_chat_api(text: "Do you have any racing shorts?") {
                 answer
         }
     }
