@@ -207,7 +207,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
         @url = @url,
         @method = 'POST', 
         @payload = @payload,
-        @credential = [`@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]`],    
+        @credential = [@lab.CloudResourceTemplate(Lab533Resources).Outputs[openAIEndpoint]],    
         @timeout = 230,
         @response = @response output;
 
