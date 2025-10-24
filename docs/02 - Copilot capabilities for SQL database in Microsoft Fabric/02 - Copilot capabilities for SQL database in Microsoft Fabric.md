@@ -64,7 +64,7 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
   >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
 
 4. Aside from fixing the T-SQL errors, Copilot can also explain a T-SQL to you. Select **Explain query** and Copilot will add comments to your T-SQL explaining the T-SQL.
-   !["A picture of a demonstrating steps to select Explain query and then showing the inline comments in the query editor."](../../img/graphics/Copilot/ExplainQuery.png)
+   !["A picture of a demonstrating steps to select Explain query and then showing the inline comments in the query editor."](ExplainQuery.png)
 
 ## Section 2: Using Copilot Chat Pane
 
