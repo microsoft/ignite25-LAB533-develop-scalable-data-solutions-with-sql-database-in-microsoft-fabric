@@ -163,8 +163,8 @@ The API you just created could now be handed off to an application developer to 
 
 Let's alter the stored procedure to create a new flow that not only uses vector similarity search to get products based on a question asked by a user, but to take the results, pass them to Azure OpenAI Chat Completion, and craft an answer they would typically see with an AI chat application.
 
-1. Before we can start creating new stored procedures, we need to go back to the SQL Database in fabric in fabric home page. Do this by using the navigator on the left side of the page and clicking on the SQL Database icon.
-    !["A picture of using the navigator on the left side of the page and clicking on the SQL Database in fabric icon"](../../img/graphics/selectdb.png)
+1. Before we can start creating new stored procedures, we need to go back to the SQL Database that we created in the first module.
+ !["A picture of SQL database"](OpenSQLdatabaseEditor.png)   
    
 
 1. The first step in augmenting our RAG application API is to create a stored procedure that takes the retrieved products and passes them in a prompt to an Azure OpenAI Chat Completion REST endpoint. The prompt consists of telling the endpoint who they are, what products they have to work with, and the exact question that was asked by the user. 
@@ -323,10 +323,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
    
 
 1. In the **New API for GraphQL** dialog box, use the **Name Field** and name the API **find_products_chat_api**.
-    !["A picture of using the Name Field and naming the API find_products_chat_api in the New API for GraphQL dialog box"](../../img/graphics/2025-01-17_7.34.39_AM.png)
-   
-
-1. After naming the API, click the **green Create button**.
+After naming the API, click the **green Create button**.
     !["A picture of clicking the green Create button in the New API for GraphQL dialog box"](../../img/graphics/2025-01-17_7.34.47_AM.png)
   
 
@@ -343,7 +340,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
    
 
 1. Choose the stored procedure in the results. You can ensure it is the **find_products_chat_api stored procedure** by hovering over it with your mouse/pointer. It will also indicate the selected database item in the preview section. It should state **"Preview data: SalesLT.find_products_chat_api"**.
-    !["A picture of choosing the find_products_chat_api stored procedure in the results"](../../img/graphics/2025-01-17_6.34.33_AM.png)
+    !["A picture of choosing the find_products_chat_api stored procedure in the results"](SearchStoredProcedureNLoad_cht_api.png)
     
 
 1. Once you have selected the **find_products_chat_api stored procedure**, click the **green Load button** on the bottom right of the modal dialog box.
@@ -384,4 +381,4 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
         }
     }
     ```
-Congratulations!! In this module, you  learned how to build a RAG application using SQL database in fabric, and Azure OpenAI. You explored generating vector embeddings for relational data, performing semantic similarity searches with SQL, and integrating natural language responses via GPT-4.1.
+Congratulations!! In this module, you  learned how to build a RAG application using SQL database in fabric, and Azure OpenAI. You explored generating vector embeddings for relational data, performing semantic similarity searches with SQL, and integrating natural language responses via GPT-4.0.
