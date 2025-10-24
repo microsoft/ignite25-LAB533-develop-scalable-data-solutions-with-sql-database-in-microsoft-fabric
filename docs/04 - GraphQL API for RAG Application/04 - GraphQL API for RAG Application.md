@@ -260,7 +260,7 @@ Once you have selected the **find_products_chat_api stored procedure**, click th
     !["A picture of the GraphQL Query editor page"](../../img/graphics/2025-01-15_7.11.21_AM.png)
    
 
-1. Replace the sample code on the left side of the GraphQL query editor with the following query:
+1. Copy/Paste the below code in the GraphQL query editor.
 
     ```graphql-notype
     query {
@@ -280,7 +280,7 @@ Once you have selected the **find_products_chat_api stored procedure**, click th
     !["A picture of reviewing the response in the Results section of the editor"](../../img/graphics/2025-01-17_6.41.24_AM.png)
     
 
-1. Try it again with the following code and see what answer the chat completion endpoint provides!
+1. Copy the following code in the the GraphQL editor and see what answer the chat completion endpoint provides!
 
     ```graphql-notype
     query {
@@ -292,5 +292,8 @@ Once you have selected the **find_products_chat_api stored procedure**, click th
 
 
 The API you just created could now be handed off to an application developer to be included in a RAG application that uses vector similarity search and data from the database.
+
+Here is a fully functioning Chat application for you to try
+[Chat App](https://fabcon-euro.azurewebsites.net/)
 
 Congratulations!! In this module, you  learned how to build a RAG application using SQL database in fabric, and Azure OpenAI. You explored generating vector embeddings for relational data, performing semantic similarity searches with SQL, and integrating natural language responses via GPT-4.0.
