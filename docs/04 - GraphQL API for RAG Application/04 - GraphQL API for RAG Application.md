@@ -259,9 +259,8 @@ After naming the API, click the **green Create button**.
     !["A picture of choosing the find_products_chat_api stored procedure in the results"](SearchStoredProcedureNLoad_cht_api.png)
     
 
-1. Once you have selected the **find_products_chat_api stored procedure**, click the **green Load button** on the bottom right of the modal dialog box.
+Once you have selected the **find_products_chat_api stored procedure**, click the **green Load button** on the bottom right of the modal dialog box.
 
-    !["A picture of clicking the green Load button on the bottom right of the modal dialog box"](../../img/graphics/2025-01-17_6.32.43_AM.png)
    
 
 1. You will now be back on the **GraphQL Query editor page**.
