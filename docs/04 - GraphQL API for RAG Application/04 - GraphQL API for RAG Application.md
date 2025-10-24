@@ -79,7 +79,6 @@ In this section, we will create a stored procedure that will be used by the Grap
     ```
     !["A picture of running the find_products_api stored procedure"](../../img/graphics/2025-01-14_6.57.09_AM.png)
 
-## Create GraphQL API
 
 ## Adding chat completion to the GraphQL API
 
@@ -235,6 +234,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 > Above execution will result in this answer: **"It sounds like the Road-650 Red, 62 Red Road Bikes Road-650 would be an excellent choice for you. This value-priced bike comes in red and features a light, stiff frame that is known for its quick acceleration. It also incorporates many features from top-of-the-line models. Would you like more details about this bike or help with anything else?"** . Note: Your answer could be different.
     !["A picture of running the find_products_chat_api stored procedure"](../../img/graphics/2025-01-17_6.15.05_AM.png)
   
+## Create GraphQL API
 
 1. To create the GraphQL API, click on the **New API for GraphQL** button on the toolbar just as you did previously.
     !["A picture of clicking on the New API for GraphQL button on the toolbar"](../../img/graphics/2025-01-15_6.52.37_AM.png)
