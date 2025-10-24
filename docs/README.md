@@ -1,27 +1,151 @@
-# Welcome
+# LAB533: Develop Scalable Data Solutions with SQL Database in Microsoft Fabric
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus sit amet elit ut dignissim. Cras quis sollicitudin urna, vel elementum lorem. Quisque volutpat mauris orci, eu imperdiet tortor sagittis in. Nunc ac augue non ipsum placerat luctus vel vel metus. Praesent ut mauris mauris. Proin vehicula mauris et lectus gravida, sit amet rhoncus leo tincidunt. Aliquam ac lectus eleifend lorem gravida porttitor eget vitae magna. Aenean elementum turpis sit amet massa luctus, sit amet aliquam libero congue.
+Welcome to the comprehensive hands-on lab for Microsoft Ignite 2025! This lab will guide you through building end-to-end AI-ready applications using SQL database in Microsoft Fabric as the core data backbone.
 
-## Introduction
+## Lab Overview
 
-Donec id augue a est auctor sodales. In molestie volutpat ante, et scelerisque erat aliquam eleifend. Aliquam erat volutpat. Etiam turpis ex, accumsan nec nibh non, suscipit laoreet dui. Fusce finibus pulvinar erat ut vehicula. Donec a tincidunt ante, quis ultricies massa. Phasellus consectetur nunc vel elit lacinia auctor. 
+In this lab, you'll get hands-on experience with SQL database in Microsoft Fabric, exploring how to design, build, and operationalize scalable data solutions. You'll learn to leverage Copilot-assisted querying, implement Retrieval-Augmented Generation (RAG) applications with Azure OpenAI, build GraphQL APIs, and create Power BI reports - all integrated within the Microsoft Fabric ecosystem.
+
+## What You'll Learn
+
+By completing this lab, you will:
+
+- **Create and configure** SQL databases in Microsoft Fabric.
+- **Leverage Copilot capabilities** for enhanced T-SQL development and natural language querying.
+- **Implement RAG applications** using vector embeddings and semantic similarity search.
+- **Build GraphQL APIs** for modern application integration with AI-powered responses.
+- **Create Power BI reports** using semantic models from SQL analytics endpoints.
+- **Understand end-to-end architecture** for AI-ready data solutions in Microsoft Fabric.
+
+## Lab Modules
+
+This lab is organized into five progressive modules:
+
+### 🚀 [Module 1: Introduction to SQL Database in Fabric](./01%20-%20Introduction%20to%20SQL%20database%20in%20Fabric/)
+- Set up Microsoft Fabric workspace and SQL database
+- Load sample data and explore the database editor experience
+- Understand SQL analytics endpoints and automatic OneLake mirroring
+- Learn about database replication monitoring
+
+### 🤖 [Module 2: Copilot Capabilities for SQL Database](./02%20-%20Copilot%20capabilities%20for%20SQL%20database%20in%20Microsoft%20Fabric/)
+- Use AI-powered query assistance and auto-suggestions
+- Implement natural language to SQL (NL2SQL) conversion
+- Leverage error fixing and query explanation features
+- Explore different Copilot interaction modes
+
+### 🔍 [Module 3: RAG Implementation with Azure OpenAI](./03%20-%20RAG%20Implementation%20with%20Azure%20OpenAI/)
+- Create vector embeddings for relational data using Azure OpenAI
+- Implement semantic similarity search with `VECTOR_DISTANCE` function
+- Build stored procedures for intelligent product recommendations
+- Set up database scoped credentials for secure Azure OpenAI access
+
+### 🌐 [Module 4: GraphQL API for RAG Applications](./04%20-%20GraphQL%20API%20for%20RAG%20Application/)
+- Design GraphQL APIs that utilize vector similarity search
+- Create stored procedures optimized for API consumption
+- Implement chat completion integration for natural language responses
+- Generate client code for application integration
+
+### 📊 [Module 5: Power BI Reports Using Semantic Models](./05%20-%20PowerBI%20report%20using%20semantic%20model/)
+- Create semantic models from SQL analytics endpoints
+- Build interactive reports using Power BI with Copilot assistance
+- Implement geographic sales distribution and analytical insights
+- Explore automated report generation capabilities
+
+## Prerequisites
+
+Before starting this lab, ensure you have:
+
+- Access to Microsoft Fabric workspace
+- Azure OpenAI Service deployment (provided in lab environment)
+- Basic understanding of SQL and T-SQL syntax
+- Familiarity with Microsoft Power BI (helpful but not required)
+
+## Lab Environment
+
+The lab uses a pre-configured environment with:
+- **Microsoft Fabric workspace** with SQL database capabilities
+- **Azure OpenAI Service** with GPT-4 and text-embedding-ada-002 deployments
+- **Sample AdventureWorks data** for realistic scenarios
+- **Pre-built templates and scripts** for quick setup 
+
+## Key Technologies Explored
+
+This lab demonstrates several cutting-edge technologies and capabilities:
+
+### 🏗️ **Microsoft Fabric**
+- Unified analytics platform with integrated SQL database
+- Automatic OneLake integration for seamless data sharing
+- Cross-workload integration (Data Engineering, Data Science, Power BI)
+
+### 🤖 **AI and Machine Learning**
+- **Azure OpenAI Service** for embeddings and chat completions
+- **Vector similarity search** using `VECTOR_DISTANCE` function
+- **Copilot integration** for natural language query assistance
+
+### 🔧 **Modern Development Patterns**
+- **GraphQL APIs** for flexible data access
+- **RAG (Retrieval-Augmented Generation)** architecture
+- **Semantic search** with vector embeddings
+
+### 📈 **Analytics and Reporting**
+- **Power BI semantic models** from SQL analytics endpoints
+- **Copilot-assisted report creation**
+- **Real-time data visualization** and insights
+
+## Getting Started
+
+To begin the lab:
+
+1. **Start with Module 1** to set up your environment and create your first SQL database
+2. **Follow each module sequentially** as they build upon previous concepts
+3. **Complete all hands-on exercises** for the full learning experience
+4. **Refer to screenshots and code samples** provided in each module
+
+## Estimated Time
+
+- **Total Lab Duration**: 3-4 hours
+- **Module 1**: 45 minutes (Setup and Introduction)
+- **Module 2**: 30 minutes (Copilot Features)  
+- **Module 3**: 60 minutes (RAG Implementation)
+- **Module 4**: 45 minutes (GraphQL APIs)
+- **Module 5**: 30 minutes (Power BI Reports)
+
+## Lab Support
+
+If you encounter issues during the lab:
+
+1. Check the **troubleshooting tips** within each module
+2. Review **prerequisite requirements** and environment setup
+3. Refer to the **Microsoft Learn documentation** links provided
+4. Use the **Microsoft Fabric community** resources for additional support
 
 ## View these docs in your browser
 
-This repo is configured to let you optionally browse the [documentation](./docs/) served locally with [MkDocs](https://www.mkdocs.org/).  
+This repository is configured to serve documentation through [MkDocs](https://www.mkdocs.org/) for an enhanced reading experience with navigation and search.
 
-Please follow these steps to view the docs with MkDocs.
+### Local MkDocs Setup
 
-1. Install the `mkdocs-material` package
+1. Install the `mkdocs-material` package:
     ```bash
     pip install mkdocs-material
     ```
 
-2. Run the `mkdocs serve` command from the root folder
+2. Run the MkDocs server from the repository root:
     ```bash
     mkdocs serve
     ```
-If you're running this repo in a GitHub Codespace, then you should be able to skip step 1.
+
+3. Open your browser to `http://127.0.0.1:8000` to view the formatted documentation
+
+> **Note**: If you're running this repo in a GitHub Codespace, MkDocs Material may already be installed.
+
+### Navigation Features
+
+The MkDocs setup includes:
+- **Interactive navigation** between modules
+- **Search functionality** across all documentation
+- **Syntax highlighting** for code samples
+- **Responsive design** for mobile and desktop viewing
 
 
 
