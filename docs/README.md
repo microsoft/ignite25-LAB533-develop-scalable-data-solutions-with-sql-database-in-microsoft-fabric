@@ -103,50 +103,12 @@ To begin the lab:
 
 ## Estimated Time
 
-- **Total Lab Duration**: 3-4 hours
-- **Module 1**: 45 minutes (Setup and Introduction)
-- **Module 2**: 30 minutes (Copilot Features)  
-- **Module 3**: 60 minutes (RAG Implementation)
-- **Module 4**: 45 minutes (GraphQL APIs)
-- **Module 5**: 30 minutes (Power BI Reports)
-
-## Lab Support
-
-If you encounter issues during the lab:
-
-1. Check the **troubleshooting tips** within each module
-2. Review **prerequisite requirements** and environment setup
-3. Refer to the **Microsoft Learn documentation** links provided
-4. Use the **Microsoft Fabric community** resources for additional support
-
-## View these docs in your browser
-
-This repository is configured to serve documentation through [MkDocs](https://www.mkdocs.org/) for an enhanced reading experience with navigation and search.
-
-### Local MkDocs Setup
-
-1. Install the `mkdocs-material` package:
-    ```bash
-    pip install mkdocs-material
-    ```
-
-2. Run the MkDocs server from the repository root:
-    ```bash
-    mkdocs serve
-    ```
-
-3. Open your browser to `http://127.0.0.1:8000` to view the formatted documentation
-
-> **Note**: If you're running this repo in a GitHub Codespace, MkDocs Material may already be installed.
-
-### Navigation Features
-
-The MkDocs setup includes:
-- **Interactive navigation** between modules
-- **Search functionality** across all documentation
-- **Syntax highlighting** for code samples
-- **Responsive design** for mobile and desktop viewing
-
+- **Total Lab Duration**: 90 minute
+- **Module 1**: 15 minutes (Setup and Introduction)
+- **Module 2**: 15 minutes (Copilot Features)  
+- **Module 3**: 30 minutes (RAG Implementation)
+- **Module 4**: 20 minutes (GraphQL APIs)
+- **Module 5**: 10 minutes (Power BI Reports)
 
 
 
