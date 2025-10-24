@@ -81,91 +81,9 @@ In this section, we will create a stored procedure that will be used by the Grap
 
 ## Create GraphQL API
 
-1. To create the GraphQL API, click on the **New API for GraphQL** button on the toolbar.
-
-    !["A picture of clicking on the New API for GraphQL button on the toolbar"](../../img/graphics/2025-01-15_6.52.37_AM.png)
-
-1. In the **New API for GraphQL** dialog box, use the name **find_products_api** and hit green create button.
-
-   
-    !["A picture of clicking the green Create button in the New API for GraphQL dialog box" ](../../img/graphics/2025-01-17_7.35.09_AM.png)
-    
-
-1.  The next dialog box presented is the **Choose data** dialog box where you will pick a table or stored procedure for the GraphQL API, 
-
-    !["A picture of the next dialog box being presented, the Choose data dialog box"](../../img/graphics/2025-01-15_7.00.42_AM.png)
-   
-
-    use the **Search box** in the **Explorer section** on the left 
-    
-    !["A picture of using the Search box in the Explorer section on the left of the Choose data dialog box"](../../img/graphics/2025-01-15_7.01.39_AM.png)
-   
-
-    and enter **find_products_api**.
-
-    !["A picture of enter in find_products_api in the search box"](../../img/graphics/2025-01-17_6.26.15_AM.png)
-   
-
-1. Choose the **find_products_api** stored procedure in the results. You can ensure it is the find_products_api stored procedure by hovering over it with your mouse/pointer. It will also indicate the selected database item in the preview section. It should state **"Preview data: SalesLT.find_products_api"**.
-
-    !["A picture of choosing the find_products_api stored procedure in the results"](SearchStoredProcedureNLoad.png)
-   
-
-1. Once you have selected the **find_products_api** stored procedure, click the **green Load button** on the bottom right of the modal dialog box.    
-
-1. You will now be on the **GraphQL Query editor page**. Here, we can run GraphQL queries similar to how we can run T-SQL queries on the query editor.
-    
-!["A picture of the GraphQL Query editor page"](GraphQLEditor.png)
-    
-
-1. Replace the sample code on the left side of the GraphQL query editor with the following query:
-
-    ```graphql-notype
-    query {
-        executefind_products_api(text: "I am looking for a red bike") {
-                product_name
-                product_color
-                category_name
-                model_name
-                product_description
-                list_price
-                product_weight
-                distance 
-        }
-    }
-    ```
-    !["A picture of replacing the example code with the query code provided"](../../img/graphics/2025-01-15_7.16.57_AM.png)
-    
-
-1. Now, click the **Run button** in the upper left of the GraphQL query editor. 
-
-    !["A picture of clicking the Run button in the upper left of the GraphQL query editor"](../../img/graphics/2025-01-15_7.19.13_AM.png)
-   
-
-    and you can scroll through the results from the GraphQL query in the lower section of the editor.
-    !["A picture of scrolling through the results from the GraphQL query in the lower section of the editor"](../../img/graphics/2025-01-15_7.21.01_AM.png)
-    
-1. Back on the toolbar, find and click the **Generate code button**.
-    !["A picture of clicking the Generate code button"](../../img/graphics/2025-01-15_8.38.00_AM.png)
-    
-
-1. This feature will generate the code for calling this API via python or node.js to help give you a jumpstart in the application creation process.
-    !["A picture of the generated code the editor provides"](../../img/graphics/2025-01-15_8.40.12_AM.png)
-   
-
-1. When done looking at the python and node.js code, click the **X** in the upper right corner to close the Generate code dialog box.
-    !["A picture of clicking the X in the upper right corner to close the Generate code dialog box"](../../img/graphics/2025-01-15_8.40.12_AM2.png)
-   
-
 ## Adding chat completion to the GraphQL API
 
-The API you just created could now be handed off to an application developer to be included in a RAG application that uses vector similarity search and data from the database. The application may also at some point hand the results off to a LLM to craft a more human response. 
-
 Let's alter the stored procedure to create a new flow that not only uses vector similarity search to get products based on a question asked by a user, but to take the results, pass them to Azure OpenAI Chat Completion, and craft an answer they would typically see with an AI chat application.
-
-1. Before we can start creating new stored procedures, we need to go back to the SQL Database that we created in the first module.
- !["A picture of SQL database"](OpenSQLdatabaseEditor.png)   
-   
 
 1. The first step in augmenting our RAG application API is to create a stored procedure that takes the retrieved products and passes them in a prompt to an Azure OpenAI Chat Completion REST endpoint. The prompt consists of telling the endpoint who they are, what products they have to work with, and the exact question that was asked by the user. 
 
@@ -290,7 +208,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
     GO
     ```
 
-1. The last step before we can create a new GraphQL endpoint is to wrap the new find products stored procedure. Copy and run the following SQL in a blank query editor in Microsoft Fabric:
+1. The last step before we can create a GraphQL endpoint is to wrap the new find products stored procedure. Copy and run the following SQL in a blank query editor in Microsoft Fabric:
 
 
     ```SQL-notype
@@ -381,4 +299,8 @@ After naming the API, click the **green Create button**.
         }
     }
     ```
+
+
+The API you just created could now be handed off to an application developer to be included in a RAG application that uses vector similarity search and data from the database.
+
 Congratulations!! In this module, you  learned how to build a RAG application using SQL database in fabric, and Azure OpenAI. You explored generating vector embeddings for relational data, performing semantic similarity searches with SQL, and integrating natural language responses via GPT-4.0.
