@@ -59,7 +59,7 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
    !["A picture of a demonstrating an issue and finding the Fix Query Errors button in the quick actions next to the Run button in the Query Editor.."](FixQueryErrors.png)
 
 3. Observe the updated T-SQL along with the comment that clearly states where the issue was in the T-SQL. Now click on **Run** to see the results.
-   !["A picture of a demonstrating added comment at the bottom about what was fixed and query results returned successfully."](../../img/graphics/Copilot/AutoFixComment.png)
+   !["A picture of a demonstrating added comment at the bottom about what was fixed and query results returned successfully."](AutoFixComment.png)
 
   >**Note:** Copilot responses may not match what is shown in the screenshot but will provide similar results.
 
