@@ -36,7 +36,7 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
 
 4. Press the **Tab** key on your keyboard to accept the suggestion or continue typing to ignore it.
 
-5. Select the query and click on the **Run** icon (or use keyboard shortcut `Ctrl + Enter` or `Shift + Enter`)
+5. Select the query and click on the **Run** icon (or use keyboard shortcut **Ctrl + Enter** or **Shift + Enter**)
 
 ### Task 1.2: Copilot Quick Actions within the Query Window
 

@@ -128,7 +128,7 @@ this will open a new query window that we will use to work directly with the dat
     SELECT * FROM [SalesLT].[Product]
     ```
 
-6. Once the code is in the query window, **click the Run button** (or you can use `CTRL + Enter` as a shortcut).
+6. Once the code is in the query window, **click the Run button** (or you can use **CTRL + Enter** as a shortcut).
 
 !["A picture of clicking the run button in the query editor"](ExploreQueryEditorRun.png)
 
