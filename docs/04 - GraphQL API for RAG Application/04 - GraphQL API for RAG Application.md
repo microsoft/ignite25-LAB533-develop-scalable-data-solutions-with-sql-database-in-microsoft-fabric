@@ -72,14 +72,14 @@ In this section, we will create a stored procedure that will be used by the Grap
     GO
     ```
 
-1. You can test this newly created procedure to see how it will interact with the GraphQL API by running the following SQL in a new query window:
+1. Let us test this newly created procedure to see the results by running the following SQL in a new query window:
 
     ```SQL-notype
     exec SalesLT.find_products_api 'I am looking for a red bike'
     ```
     !["A picture of running the find_products_api stored procedure"](../../img/graphics/2025-01-14_6.57.09_AM.png)
 
-
+## Chat completion 
 Let's alter the stored procedure to create a new flow that not only uses vector similarity search to get products based on a question asked by a user, but to take the results, pass them to Azure OpenAI Chat Completion, and craft an answer they would typically see with an AI chat application.
 
 1. The first step in augmenting our RAG application API is to create a stored procedure that takes the retrieved products and passes them in a prompt to an Azure OpenAI Chat Completion REST endpoint. The prompt consists of telling the endpoint who they are, what products they have to work with, and the exact question that was asked by the user. 
