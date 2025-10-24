@@ -130,7 +130,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
 ```
 
-1. Now that you have created the chat completion stored procedure, we need to create a new find_products stored procedure that adds a call to this chat completion endpoint. This new stored procedure contains 2 additional steps that were not found in the original: 
+2. Now that you have created the chat completion stored procedure, we need to create a new find_products stored procedure that adds a call to this chat completion endpoint. This new stored procedure contains 2 additional steps that were not found in the original: 
     
     a) A section to help package up the results into something we can use in a prompt.
     
@@ -149,7 +149,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
     exec [SalesLT].[prompt_answer] @text, @products_json, @answer output;
     ```
 
-1. Copy and run the following SQL in a new query window:
+3. Copy and run the following SQL in a new query window:
 
 
     ```SQL-notype
@@ -205,7 +205,9 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
     GO
     ```
 
-1. The last step before we can create a GraphQL endpoint is to wrap the new find products stored procedure. Copy and run the following SQL in a blank query editor in Microsoft Fabric:
+4. The last step before we can create a **GraphQL** endpoint is to wrap the new find products stored procedure.
+
+Copy and run the following SQL in a new query window.
 
 
     ```SQL-notype
@@ -222,7 +224,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
     GO
     ```
 
-1. You can test this new  procedure to see how Azure OpenAI will answer a question with product data by running the following SQL in a blank query editor in Microsoft Fabric:
+5. You can test this new  procedure to see how Azure OpenAI will answer a question with product data by running the following SQL in a blank query editor in Microsoft Fabric:
 
     ```SQL-notype
     exec SalesLT.find_products_chat_api 'I am looking for a red bike'
@@ -243,27 +245,18 @@ After naming the API, click the **green Create button**.
     !["A picture of clicking the green Create button in the New API for GraphQL dialog box"](../../img/graphics/2025-01-17_7.34.47_AM.png)
   
 
-1.  The next dialog box presented is again the **Choose data** dialog box where you will pick a table or stored procedure for the GraphQL API, 
-    !["A picture of the next dialog box being presented, the Choose data dialog box"](../../img/graphics/2025-01-15_7.00.42_AM.png)
-   
-
-    use the **Search box** in the **Explorer section** on the left 
-    !["A picture of using the Search box in the Explorer section on the left of the Choose data dialog box"](../../img/graphics/2025-01-15_7.01.39_AM.png)
-   
-
-    and **enter in find_products_chat_api**.
+1.  In the next dialog box use the **Search box** in the **Explorer section** on the left and enter in **find_products_chat_api**.
     !["A picture of enter in find_products_chat_api in the search box"](../../img/graphics/2025-01-17_6.24.33_AM.png)
    
 
-1. Choose the stored procedure in the results. You can ensure it is the **find_products_chat_api stored procedure** by hovering over it with your mouse/pointer. It will also indicate the selected database item in the preview section. It should state **"Preview data: SalesLT.find_products_chat_api"**.
+1. Choose the stored procedure in the results. You can ensure it is the **find_products_chat_api** stored procedure by hovering over it with your mouse/pointer. It will also indicate the selected database item in the preview section. It should state **"Preview data: SalesLT.find_products_chat_api"**.
     !["A picture of choosing the find_products_chat_api stored procedure in the results"](SearchStoredProcedureNLoad_cht_api.png)
     
 
 Once you have selected the **find_products_chat_api stored procedure**, click the **green Load button** on the bottom right of the modal dialog box.
-
    
 
-1. You will now be back on the **GraphQL Query editor page**.
+1. You will now be on the **GraphQL Query editor page**.
     !["A picture of the GraphQL Query editor page"](../../img/graphics/2025-01-15_7.11.21_AM.png)
    
 
