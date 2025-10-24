@@ -132,7 +132,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
 1. Now that you have created the chat completion stored procedure, we need to create a new find_products stored procedure that adds a call to this chat completion endpoint. This new stored procedure contains 2 additional steps that were not found in the original: 
     
-    1) A section to help package up the results into something we can use in a prompt.
+    a) A section to help package up the results into something we can use in a prompt.
     
     ```SQL-nocopy
     STRING_AGG (CONVERT(NVARCHAR(max),CONCAT( 
@@ -143,13 +143,13 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
                                     product_description )), CHAR(13)))   
     ```
 
-    2) A section that calls the new chat completion stored procedure and provides it with the products retrieved from the database to help ground the answer.
+    b) A section that calls the new chat completion stored procedure and provides it with the products retrieved from the database to help ground the answer.
 
     ```SQL-nocopy
     exec [SalesLT].[prompt_answer] @text, @products_json, @answer output;
     ```
 
-1. Copy and run the following SQL in a blank query editor in Microsoft Fabric:
+1. Copy and run the following SQL in a new query window:
 
 
     ```SQL-notype
@@ -157,7 +157,7 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
     @text nvarchar(max),
     @top int = 3,
     @min_similarity decimal(19,16) = 0.70
-    as
+    AS
     if (@text is null) return;
     DECLARE @retval int, @qv vector(1536), @products_json nvarchar(max), @answer nvarchar(max);
     exec @retval = SalesLT.create_embeddings @text, @qv output;
@@ -177,11 +177,11 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
         [SalesLT].[ProductCategory] c,
         [SalesLT].[ProductModel] m,
         [SalesLT].[vProductAndDescription] d
-    where p.ProductID = d.ProductID
-    and p.ProductCategoryID = c.ProductCategoryID
-    and p.ProductModelID = m.ProductModelID
-    and p.ProductID = d.ProductID
-    and d.Culture = 'en')
+    WHERE p.ProductID = d.ProductID
+    AND p.ProductCategoryID = c.ProductCategoryID
+    AND p.ProductModelID = m.ProductModelID
+    AND p.ProductID = d.ProductID
+    AND d.Culture = 'en')
     select
     top(@top)
     @products_json = (STRING_AGG (CONVERT(NVARCHAR(max),CONCAT( 
