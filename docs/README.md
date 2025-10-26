@@ -1,4 +1,10 @@
-# LAB533: Develop Scalable Data Solutions with SQL Database in Microsoft Fabric
+<p align="center">
+<img src="img/Banner-ignite-25.png" alt="decorative banner" width="1200"/>
+</p>
+
+# [Microsoft Ignite 2025](https://ignite.microsoft.com)
+
+## 🔥LAB533: Develop Scalable Data Solutions with SQL Database in Microsoft Fabric
 
 Welcome to the comprehensive hands-on lab for Microsoft Ignite 2025! This lab will guide you through building end-to-end AI-ready applications using SQL database in Microsoft Fabric as the core data backbone.
 
@@ -6,7 +12,7 @@ Welcome to the comprehensive hands-on lab for Microsoft Ignite 2025! This lab wi
 
 In this lab, you'll get hands-on experience with SQL database in Microsoft Fabric, exploring how to design, build, and operationalize scalable data solutions. You'll learn to leverage Copilot-assisted querying, implement Retrieval-Augmented Generation (RAG) applications with Azure OpenAI, build GraphQL APIs, and create Power BI reports - all integrated within the Microsoft Fabric ecosystem.
 
-## What You'll Learn
+### 🧠 Learning Outcomes
 
 By completing this lab, you will:
 
@@ -120,6 +126,24 @@ To begin the lab:
 | Learn at Ignite | [https://aka.ms/LearnAtIgnite](https://aka.ms/LearnAtIgnite?ocid=ignite25_nextsteps_github_cnl) | Continue learning on Microsoft Learn |
 | Reddit | [https://reddit.com/r/MicrosoftFabric](https://reddit.com/r/MicrosoftFabric)| Microsoft Fabric Reddit Community |
 
+## Content Owners
+<table>
+<tr>
+    <td align="center"><a href="http://github.com/idris">
+        <img src="https://github.com/idris.png" width="100px;" alt="INSERT NAME HERE"
+"/><br />
+        <sub><b> Sukhwant Kaur
+</b></sub></a><br />
+            <a href="https://github.com/sukkaur" title="talk">📢</a> 
+    </td>
+    <td align="center"><a href="https://github.com/sukkaur">
+        <img src="https://github.com/sukkaur.png" width="100px;" alt="INSERT NAME HERE
+"/><br />
+        <sub><b>Idris Motiwala
+</b></sub></a><br />
+            <a href="https://github.com/imotiwala" title="talk">📢</a> 
+    </td>
+</tr></table>
 
 ## Contributing
 
