@@ -209,9 +209,8 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 
 Copy and run the following SQL in a new query window.
 
-
-    ```SQL-notype
-    CREATE or ALTER Procedure SalesLT.[find_products_chat_api]
+```SQL
+ CREATE or ALTER Procedure SalesLT.[find_products_chat_api]
         @text nvarchar(max)
         AS 
         exec SalesLT.find_products_chat @text
@@ -222,7 +221,7 @@ Copy and run the following SQL in a new query window.
             )
         )
     GO
-    ```
+```
 
 5. You can test this new  procedure to see how Azure OpenAI will answer a question with product data by running the following SQL in a blank query editor in Microsoft Fabric:
 
