@@ -1,141 +1,149 @@
-# Welcome Ignite 2025 Creators!
-
-Thanks for creating content for Ignite!  Please follow this guidance so all ignite repos have the same look and feel.
-
-## How to contact Skillable?
-
-If you have issues with the Skillable environment, please follow these steps:
-
-1. Open an issue in the [Issues](../../issues) tab using the `New issue` button.
-1. Describe the problem, be descriptive, use screenshots if possible etc.
-1. Tag the following Skillable employees:
-   - @kylerosenthal
-   - @TubaMikeBob
-   - @Naimjones16
-   - @jmbauf
-1. Have all the discussions related to the issue in the issue itself.
-1. Once the issue is resolved, please mark it as Closed.
-
-## Put your docs in the docs folder
-
-This repo is configured for a user to view the docs through mkdocs.
-
-1. update the `mkdocs.yml` file to reference your session. Look particularly for the `site_name`, `site_author`, and `repo_name` tags.
-1. Subfolders in the docs folder will show up as tabs in the navigation bar.
-
-## Guidance
-
-1. Do not turn on github pages for this repo, traffic to github pages isn't captured in our metrics.
-1. Do not store slides or recordings in this repo
-
-## Update the badges!
-
-1. if the foundry discord and github links aren't appropriate for your session you can remove or change them.
-2. See shields.io for how to build your own dynamic or static badge for your community destinations, or other sample repos for how they've done
-3. Please limit your repo to one row of badges under the session title.
-
-## MCP Server
-1. This repo has an mcp.json file and is configured to let agents connect to the Learn MCP Server.
-
-> **Important** Make sure to avoid hardcoding sensitive information like API keys and other credentials by using input variables or environment files.
-
-
-## Update this readme below
-
-1. Fill out the content in this file, below the banner graphic, including the session code.
-2. Please embed links to Learn with your campaign codes!
-3. Add resources for your session to the Resources and Next Steps table
-4. Change the Content Owner section to your info
-5. Change the placeholder session code BRKXXX to your session code.
-
-## Improve SEO
-
-1. Update the Repo Info for this repo 
-    1. Click the gear icon⚙️ in the upper right.
-    1. Set a good description of this repo.
-    1. Add the technologies that you're using in this session.
-
-## Questions?
-
-Send them to [Mike Kinsman](mailto:mikki@microsoft.com) and [Laurent Bugnion](lbugnion@microsoft.com), or surface your question through your content leads.  We are also monitoring issues logged in the repos.
-
-## Finished?
-
-- Remove the folders that you don't need or didn't use, *please don't leave them empty with placeholder readmes*
-- Delete this line and everything above it!
-
 <p align="center">
 <img src="img/Banner-ignite-25.png" alt="decorative banner" width="1200"/>
 </p>
 
 # [Microsoft Ignite 2025](https://ignite.microsoft.com)
 
-## 🔥BRKXXX: Develop Scalable Data Solutions with SQL Database in Microsoft Fabric
+## 🔥LAB533: Develop Scalable Data Solutions with SQL Database in Microsoft Fabric
 
-[![Microsoft Azure AI Foundry Discord](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://discord.com/invite/ByRwuEEgH4)
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=adff2f&logoColor=fff)](https://aka.ms/foundry/forum)
+Welcome to the comprehensive hands-on lab for Microsoft Ignite 2025! This lab will guide you through building end-to-end AI-ready applications using SQL database in Microsoft Fabric as the core data backbone.
 
-### Session Description
+## Lab Overview
 
-*Add Session Description*
+In this lab, you'll get hands-on experience with SQL database in Microsoft Fabric, exploring how to design, build, and operationalize scalable data solutions. You'll learn to leverage Copilot-assisted querying, implement Retrieval-Augmented Generation (RAG) applications with Azure OpenAI, build GraphQL APIs, and create Power BI reports - all integrated within the Microsoft Fabric ecosystem.
 
 ### 🧠 Learning Outcomes
 
-By the end of this session, learners will be able to:
+By completing this lab, you will:
 
--  
--
--
+- **Create and configure** SQL databases in Microsoft Fabric.
+- **Leverage Copilot capabilities** for enhanced T-SQL development and natural language querying.
+- **Implement RAG applications** using vector embeddings and semantic similarity search.
+- **Build GraphQL APIs** for modern application integration with AI-powered responses.
+- **Create Power BI reports** using semantic models from SQL analytics endpoints.
+- **Understand end-to-end architecture** for AI-ready data solutions in Microsoft Fabric.
 
-### 💻 Technologies Used
+## Lab Modules
 
-1.
-1.
-1.
+This lab is organized into five progressive modules:
 
-### 🌟 Microsoft Learn MCP Server
+### 🚀 [Module 1: Introduction to SQL Database in Fabric](./01%20-%20Introduction%20to%20SQL%20database%20in%20Fabric/)
+- Set up Microsoft Fabric workspace and SQL database
+- Load sample data and explore the database editor experience
+- Understand SQL analytics endpoints and automatic OneLake mirroring
+- Learn about database replication monitoring
 
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Microsoft_Docs_MCP-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=microsoft.docs.mcp&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Flearn.microsoft.com%2Fapi%2Fmcp%22%7D)
+### 🤖 [Module 2: Copilot Capabilities for SQL Database](./02%20-%20Copilot%20capabilities%20for%20SQL%20database%20in%20Microsoft%20Fabric/)
+- Use AI-powered query assistance and auto-suggestions
+- Implement natural language to SQL (NL2SQL) conversion
+- Leverage error fixing and query explanation features
+- Explore different Copilot interaction modes
 
-The Microsoft Learn MCP Server is a remote MCP Server that enables clients like GitHub Copilot and other AI agents to bring trusted and up-to-date information directly from Microsoft's official documentation. Get started by using the one-click button above for VSCode or access the [mcp.json](.vscode/mcp.json) file included in this repo.
+### 🔍 [Module 3: RAG Implementation with Azure OpenAI](./03%20-%20RAG%20Implementation%20with%20Azure%20OpenAI/)
+- Create vector embeddings for relational data using Azure OpenAI
+- Implement semantic similarity search with `VECTOR_DISTANCE` function
+- Build stored procedures for intelligent product recommendations
+- Set up database scoped credentials for secure Azure OpenAI access
 
-For more information, setup instructions for other dev clients, and to post comments and questions, visit our Learn MCP Server GitHub repo at [https://github.com/MicrosoftDocs/MCP](https://github.com/MicrosoftDocs/MCP). Find other MCP Servers to connect your agent to at [https://mcp.azure.com](https://mcp.azure.com).
+### 🌐 [Module 4: GraphQL API for RAG Applications](./04%20-%20GraphQL%20API%20for%20RAG%20Application/)
+- Design GraphQL APIs that utilize vector similarity search
+- Create stored procedures optimized for API consumption
+- Implement chat completion integration for natural language responses
+- Generate client code for application integration
 
-*Note: When you use the Learn MCP Server, you agree with [Microsoft Learn](https://learn.microsoft.com/en-us/legal/termsofuse) and [Microsoft API Terms](https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use) of Use.*
+### 📊 [Module 5: Power BI Reports Using Semantic Models](./05%20-%20PowerBI%20report%20using%20semantic%20model/)
+- Create semantic models from SQL analytics endpoints
+- Build interactive reports using Power BI with Copilot assistance
+- Implement geographic sales distribution and analytical insights
+- Explore automated report generation capabilities
+
+## Prerequisites
+
+Before starting this lab, ensure you have:
+
+- Access to Microsoft Fabric workspace
+- Azure OpenAI Service deployment (provided in lab environment)
+- Basic understanding of SQL and T-SQL syntax
+- Familiarity with Microsoft Power BI (helpful but not required)
+
+## Lab Environment
+
+The lab uses a pre-configured environment with:
+- **Microsoft Fabric workspace** with SQL database capabilities
+- **Azure OpenAI Service** with GPT-4 and text-embedding-ada-002 deployments
+- **Sample AdventureWorks data** for realistic scenarios
+- **Pre-built templates and scripts** for quick setup 
+
+## Key Technologies Explored
+
+This lab demonstrates several cutting-edge technologies and capabilities:
+
+### 🏗️ **Microsoft Fabric**
+- Unified analytics platform with integrated SQL database
+- Automatic OneLake integration for seamless data sharing
+- Cross-workload integration (Data Engineering, Data Science, Power BI)
+
+### 🤖 **AI and Machine Learning**
+- **Azure OpenAI Service** for embeddings and chat completions
+- **Vector similarity search** using `VECTOR_DISTANCE` function
+- **Copilot integration** for natural language query assistance
+
+### 🔧 **Modern Development Patterns**
+- **GraphQL APIs** for flexible data access
+- **RAG (Retrieval-Augmented Generation)** architecture
+- **Semantic search** with vector embeddings
+
+### 📈 **Analytics and Reporting**
+- **Power BI semantic models** from SQL analytics endpoints
+- **Copilot-assisted report creation**
+- **Real-time data visualization** and insights
+
+## Getting Started
+
+To begin the lab:
+
+1. **Start with Module 1** to set up your environment and create your first SQL database
+2. **Follow each module sequentially** as they build upon previous concepts
+3. **Complete all hands-on exercises** for the full learning experience
+4. **Refer to screenshots and code samples** provided in each module
+
+## Estimated Time
+
+- **Total Lab Duration**: 90 minute
+- **Module 1**: 15 minutes (Setup and Introduction)
+- **Module 2**: 15 minutes (Copilot Features)  
+- **Module 3**: 30 minutes (RAG Implementation)
+- **Module 4**: 20 minutes (GraphQL APIs)
+- **Module 5**: 10 minutes (Power BI Reports)
+
 
 ### 📚 Resources and Next Steps
 
 | Resources          | Links                             | Description        |
 |:-------------------|:----------------------------------|:-------------------|
-| Ignite 2025 Next Steps | [https://aka.ms/Ignite25-Next-Steps](https://aka.ms/Ignite25-Next-Steps?ocid=ignite25_nextsteps_cnl) | Links to all repos for AI Tour 26 Sessions |
-| Azure AI Foundry Community Discord | [![Microsoft Azure AI Foundry Discord](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://discord.com/invite/ByRwuEEgH4)| Connect with the Azure AI Foundry Community! |
+| What is Microsoft Fabric? | [https://aka.ms/WhatIsMicrosoftFabric](https://aka.ms/WhatIsMicrosoftFabric) | Overview of Microsoft Fabric |
+| Get started with Microsoft Fabric | [https://aka.ms/MicrosoftFabric](https://aka.ms/MicrosoftFabric)| Microsoft Fabric Learning Path |
 | Learn at Ignite | [https://aka.ms/LearnAtIgnite](https://aka.ms/LearnAtIgnite?ocid=ignite25_nextsteps_github_cnl) | Continue learning on Microsoft Learn |
+| Reddit | [https://reddit.com/r/MicrosoftFabric](https://reddit.com/r/MicrosoftFabric)| Microsoft Fabric Reddit Community |
 
 ## Content Owners
-
-<!-- TODO: Add yourself as a content owner
-1. Change the src in the image tag to {your github url}.png
-2. Change INSERT NAME HERE to your name
-3. Change the github url in the final href to your url. -->
-
 <table>
 <tr>
-    <td align="center"><a href="http://github.com/mikekinsman">
-        <img src="https://github.com/mikekinsman.png" width="100px;" alt="INSERT NAME HERE"
+    <td align="center"><a href="http://github.com/idris">
+        <img src="https://github.com/idris.png" width="100px;" alt="INSERT NAME HERE"
 "/><br />
-        <sub><b> INSERT NAME HERE
+        <sub><b> Sukhwant Kaur
 </b></sub></a><br />
-            <a href="https://github.com/mikekinsman" title="talk">📢</a> 
+            <a href="https://github.com/sukkaur" title="talk">📢</a> 
     </td>
-    <td align="center"><a href="http://github.com/mikekinsman">
-        <img src="https://github.com/mikekinsman.png" width="100px;" alt="INSERT NAME HERE
+    <td align="center"><a href="https://github.com/sukkaur">
+        <img src="https://github.com/sukkaur.png" width="100px;" alt="INSERT NAME HERE
 "/><br />
-        <sub><b>INSERT NAME HERE
+        <sub><b>Idris Motiwala
 </b></sub></a><br />
-            <a href="https://github.com/mikekinsman" title="talk">📢</a> 
+            <a href="https://github.com/imotiwala" title="talk">📢</a> 
     </td>
 </tr></table>
-
 
 ## Contributing
 

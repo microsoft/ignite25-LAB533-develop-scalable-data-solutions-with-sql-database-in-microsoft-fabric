@@ -1,5 +1,5 @@
 <p align="center">
-<img src="img/Banner-ignite-25.png" alt="decorative banner" width="1200"/>
+<img src="../img/Banner-ignite-25.png" alt="decorative banner" width="1200"/>
 </p>
 
 # [Microsoft Ignite 2025](https://ignite.microsoft.com)
