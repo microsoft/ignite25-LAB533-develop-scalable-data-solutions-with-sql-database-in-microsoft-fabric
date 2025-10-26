@@ -132,16 +132,16 @@ To begin the lab:
     <td align="center"><a href="http://github.com/idris">
         <img src="https://github.com/idris.png" width="100px;" alt="INSERT NAME HERE"
 "/><br />
-        <sub><b> Sukhwant Kaur
+        <sub><b> Idris Motiwala
 </b></sub></a><br />
-            <a href="https://github.com/sukkaur" title="talk">📢</a> 
+            <a href="https://github.com/imotiwala" title="talk">📢</a> 
     </td>
     <td align="center"><a href="https://github.com/sukkaur">
         <img src="https://github.com/sukkaur.png" width="100px;" alt="INSERT NAME HERE
 "/><br />
-        <sub><b>Idris Motiwala
+        <sub><b>Sukhwant Kaur
 </b></sub></a><br />
-            <a href="https://github.com/imotiwala" title="talk">📢</a> 
+            <a href="https://github.com/sukkaur" title="talk">📢</a> 
     </td>
 </tr></table>
 
