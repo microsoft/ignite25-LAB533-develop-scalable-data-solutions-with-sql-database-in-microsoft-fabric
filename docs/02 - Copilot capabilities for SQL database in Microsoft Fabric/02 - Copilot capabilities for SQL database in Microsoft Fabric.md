@@ -80,6 +80,9 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
 
 3. Paste the following prompt in the **Copilot** chat box and click on **Send** button.
 
+>[!IMPORTANT]
+Copilot might not show the right results the first time. Please ask the same question again.
+
    ```
    Write me a query that will return the most sold product.
    ```
@@ -98,6 +101,10 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
 ### Task 2.2: Chat Pane: Get results from Copilot
 
 1. Another way to use Copilot is to ask it to get results for you. Open the new query window. Paste the following question in the Copilot chat box and click on **Send** button
+
+>[!IMPORTANT]
+Copilot might not show the right results the first time. Please ask the same question again.
+
    ```
    What is the most sold product?
    ```
@@ -114,6 +121,9 @@ In the **Query Editor** you can use T-SQL comments as a way to write Copilot pro
    !["A picture of a choosing modes in Copilot."](../../img/graphics/Copilot/WriteWithApproval.png)
    
 2. Paste the following question in the **Copilot** chat box and click on **Send** button.
+>[!IMPORTANT]
+Copilot might not show the right results the first time. Please ask the same question again.
+
    ```
    Create a view in the SalesLT schema using this query and execute it.
    ```

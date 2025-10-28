@@ -122,7 +122,7 @@ Click the run button to create the stored procedure in the database.
 
 > [!IMPORTANT]
 >
-> **This code will take 30 to 60 seconds to run** 
+> **This code will take 40 to 90 seconds to run** 
 
 ```SQL-notype
 SET NOCOUNT ON
