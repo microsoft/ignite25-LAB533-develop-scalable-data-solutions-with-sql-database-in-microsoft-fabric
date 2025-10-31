@@ -131,7 +131,8 @@ Let's alter the stored procedure to create a new flow that not only uses vector 
 ```
 
 2. Now that you have created the chat completion stored procedure, we need to create a new find_products stored procedure that adds a call to this chat completion endpoint. This new stored procedure contains 2 additional steps that were not found in the original: 
-    
+ [IMPORTANT]
+ Below code is just for reference only.   
     a) A section to help package up the results into something we can use in a prompt.
     
     ```SQL-nocopy
